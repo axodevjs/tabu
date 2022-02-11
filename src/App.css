@@ -1,0 +1,13 @@
+/* Import fonts */
+@import url("assets/fonts/Mont/stylesheet.css");
+@import url("assets/fonts/Gilroy/stylesheet.css");
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+}
