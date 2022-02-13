@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Grid from "../Grid";
 import Text from "../Text";
 import RightImg from "assets/img/start.png";

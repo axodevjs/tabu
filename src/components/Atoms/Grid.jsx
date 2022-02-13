@@ -7,11 +7,14 @@ const StyledGrid = styled.div`
   grid-gap: ${({ gap }) => gap || "0"};
   align-content: ${({ alignContent }) => alignContent || "auto"};
   justify-items: ${({ justifyItems }) => justifyItems || "auto"};
+  justify-content: ${({ justifyContent }) => justifyContent || "auto"};
   align-self: ${({ alignSelf }) => alignSelf || "auto"};
   justify-self: ${({ justifySelf }) => justifySelf || "auto"};
   margin: ${({ margin }) => margin || "0"};
   padding: ${({ padding }) => padding || "0"};
   cursor: ${({ cursor }) => cursor || "auto"};
+  height: ${({ height }) => height || ""};
+  width: ${({ width }) => width || ""};
 `;
 
 const Grid = (props) => {
