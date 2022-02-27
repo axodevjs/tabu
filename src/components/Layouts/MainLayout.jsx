@@ -1,4 +1,5 @@
-import Header from "components/Atoms/Header/Header";
+import Footer from "components/Molecules/Footer/Footer";
+import Header from "components/Molecules/Header/Header";
 import React from "react";
 
 const MainLayout = ({ children }) => {
@@ -6,6 +7,7 @@ const MainLayout = ({ children }) => {
     <div>
       <Header />
       {children}
+      <Footer />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 const StyledText = styled.div`
   margin: ${({ margin }) => margin || "0"};
   padding: ${({ padding }) => padding || "0"};
+  width: ${({ width }) => width || ""};
   background: ${({ background }) => background || "none"};
   font-weight: ${({ fontWeight }) => fontWeight || "400"};
   color: ${({ color }) => color || "#ffffff"};
@@ -19,6 +20,17 @@ const StyledText = styled.div`
     props.inlineGrid &&
     css`
       display: inline-grid;
+    `}
+  ${(props) =>
+    props.uppercase &&
+    css`
+      text-transform: uppercase;
+    `}
+
+    ${(props) =>
+    props.flex &&
+    css`
+      display: flex;
     `}
 `;
 

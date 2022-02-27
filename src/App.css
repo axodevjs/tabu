@@ -12,3 +12,73 @@
 body {
   background-color: #ffffff;
 }
+
+/* Рисуем внешний круг радиокнопки*/
+.custom-radio-btn {
+  cursor: pointer;
+  position: relative; /* Родительский элемент*/
+  display: inline-block; /* Для применения рамок, размеров*/
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 1px solid #191919; /* Толщина, стиль, цвет рамки*/
+  border-radius: 50%; /* Получение круга*/
+  vertical-align: text-top; /* Выравнивание кнопки по центру*/
+  margin-right: 8px; /* Отступ между кнопкой и меткой*/
+}
+
+/* Рисуем внутренний круг */
+.custom-radio-btn::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #191919;
+  border-radius: 50%;
+
+  /* Выравниваем по центру относительно внешнего круга */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+
+  /* Плавный переход трансформации масштабирования */
+  /* transition: 0.2s ease-in; */
+}
+.real-radio-btn:checked + .custom-radio-btn::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+.real-radio-btn {
+  /* Скрываем реальную радио кнопку*/
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.check_box {
+  display: none;
+}
+
+.check_box + .check-label {
+  background-color: none;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  padding: 0 0 0 0px;
+}
+
+.check_box:checked + .check-label {
+  background: url("assets/svg/checked.svg") no-repeat;
+  background-position: center center;
+  background-color: #191919;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #191919;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 0 0 0 0px;
+}

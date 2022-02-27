@@ -5,6 +5,7 @@ const StyledButton = styled.button`
   outline: none;
   cursor: pointer;
 
+  width: ${({ width }) => width || ""};
   font-family: ${({ fontFamily }) => fontFamily || "Mont"};
   font-size: ${({ fontSize }) => fontSize || "13px"};
   font-weight: ${({ fontWeight }) => fontWeight || "600"};
@@ -24,6 +25,14 @@ const StyledButton = styled.button`
       background-color: #ffffff;
       border: 0;
       color: #000;
+    `}
+
+    ${(props) =>
+    props.dark_filled &&
+    css`
+      background-color: #191919;
+      border: 0;
+      color: #fff;
     `}
 `;
 

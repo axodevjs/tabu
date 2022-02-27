@@ -1,8 +1,9 @@
-import HomePage from "../pages/HomePage/HomePage";
+import NewProducts from "pages/NewProducts/NewProducts";
+import HomePage from "../pages/HomePage";
 
 const routes = () => [
   { path: "/", element: <HomePage /> },
-  { path: "/cart", element: <h1>cart</h1> },
+  { path: "/new-products", element: <NewProducts /> },
 ];
 
 export default routes;
