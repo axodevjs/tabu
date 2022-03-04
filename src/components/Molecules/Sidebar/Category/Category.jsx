@@ -29,6 +29,21 @@ const Checks = styled.div`
   max-height: ${({ maxHeight }) => maxHeight || "164px"};
   overflow: auto;
   margin-top: 20px;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 56px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #e5e5e5;
+    border-radius: 16px;
+  }
 `;
 
 const Category = (props) => {

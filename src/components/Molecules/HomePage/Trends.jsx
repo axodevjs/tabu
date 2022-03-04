@@ -1,5 +1,5 @@
 import Grid from "../../Atoms/Grid";
-import Card from "../../Atoms/Card";
+import Card from "../Card/Card";
 import Text from "../../Atoms/Text";
 import trend1 from "assets/img/trends/1.png";
 import trend2 from "assets/img/trends/2.png";

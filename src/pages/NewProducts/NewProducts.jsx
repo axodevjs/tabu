@@ -5,11 +5,12 @@ import Grid from "components/Atoms/Grid";
 import Hr from "components/Atoms/Hr";
 import Text from "components/Atoms/Text";
 import Sidebar from "components/Molecules/Sidebar/Sidebar";
-import Card from "components/Atoms/Card";
+import Card from "components/Molecules/Card/Card";
 import product1 from "assets/img/products/1.png";
 import product2 from "assets/img/products/2.png";
 import product3 from "assets/img/products/3.png";
 import * as S from "./Styled";
+import Tags from "components/Molecules/Tags/Tags";
 
 const NewProducts = () => {
   return (
@@ -33,20 +34,22 @@ const NewProducts = () => {
       <Hr margin="15px 0 0 0" color="#E5E5E5" />
       <Grid columns="270px 1fr" gap="0 32px" margin="34px 0 0 0">
         <Sidebar />
-        <Grid
-          padding="24px 0"
-          alignSelf="start"
-          columns="1fr 1fr 1fr"
-          gap="48px 32px"
-          justifyContent="center"
-        >
-          <Card img={product1} />
-          <Card img={product2} />
-          <Card img={product3} />
-          <Card img={product1} />
-          <Card img={product2} />
-          <Card img={product3} />
-        </Grid>
+        <Flex direction="column">
+          <Tags />
+          <Grid
+            alignSelf="start"
+            columns="1fr 1fr 1fr"
+            gap="48px 32px"
+            justifyContent="start"
+          >
+            <Card img={product1} />
+            <Card img={product2} />
+            <Card img={product3} />
+            <Card img={product1} />
+            <Card img={product2} />
+            <Card img={product3} />
+          </Grid>
+        </Flex>
       </Grid>
     </S.NewProducts>
   );

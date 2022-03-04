@@ -1,5 +1,5 @@
 import Grid from "../../Atoms/Grid";
-import Card from "../../Atoms/Card";
+import Card from "../Card/Card";
 import product1 from "assets/img/products/1.png";
 import product2 from "assets/img/products/2.png";
 import product3 from "assets/img/products/3.png";
