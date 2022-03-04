@@ -4,6 +4,8 @@ import * as S from "./Styled";
 import styled from "styled-components";
 import Grid from "components/Atoms/Grid";
 import Button from "components/Atoms/Button";
+import { useDispatch } from "react-redux";
+import { showModal } from "redux/reducers/productReducer";
 
 export const HoverWrapper = styled.div`
   position: relative;
@@ -23,6 +25,7 @@ export const HoverCard = styled.div`
 `;
 
 const Card = (props) => {
+  const dispatch = useDispatch();
   const [hover, setHover] = useState(false);
   const [widthHoverBlock, setWidthHoverBlock] = useState();
 
@@ -102,6 +105,7 @@ const Card = (props) => {
               fontWeight="600"
               fontSize="12px"
               margin="8px 0 0 0"
+              onClick={() => dispatch(showModal())}
             >
               ПРОСМОТР
             </Button>

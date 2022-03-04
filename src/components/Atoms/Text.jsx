@@ -13,6 +13,7 @@ const StyledText = styled.div`
   text-transform: ${({ textTransform }) => textTransform || ""};
   cursor: ${({ cursor }) => cursor || "auto"};
   border-bottom: ${({ decLine }) => decLine || ""};
+  text-decoration: ${({ decoration }) => decoration || ""};
   align-self: ${({ alignSelf }) => alignSelf || "auto"};
   justify-self: ${({ justifySelf }) => justifySelf || "auto"};
 

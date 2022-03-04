@@ -1,11 +1,11 @@
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import appReducer from "./AppReducer";
+import productReducer from "./productReducer";
 
 const { combineReducers, applyMiddleware, createStore } = require("redux");
 
 const rootReducer = combineReducers({
-  app: appReducer,
+  product: productReducer,
 });
 
 export const store = createStore(
