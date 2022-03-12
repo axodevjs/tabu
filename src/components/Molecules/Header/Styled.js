@@ -1,18 +1,5 @@
 import styled from "styled-components";
 
-export const TopHeader = styled.div`
-  display: grid;
-  align-content: center;
-  justify-items: center;
-  height: 42px;
-  padding: 0 0;
-  background-color: #191919;
-  font-family: Manrope;
-  font-weight: 400;
-  font-size: 13px;
-  color: #ffffff;
-`;
-
 export const StyledHeader = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -74,39 +61,26 @@ export const Favorite = styled.div`
 `;
 
 export const Profile = styled.div`
+  display: flex;
+  align-items: center;
   margin-left: 34.31px;
   font-family: "Mont";
   font-weight: 600;
-  fint-size: 13px;
+  font-size: 13px;
   cursor: pointer;
 `;
 
-export const BottomHeader = styled.div`
-  display: grid;
-  height: 49px;
-  padding: 0 56px;
-  background: #191919;
+export const OpenedProfileWrapper = styled.div`
+  position: relative;
+  width: 254px;
+  margin-left: 16px;
 `;
 
-export const BottomCategories = styled.div`
+export const OpenedProfile = styled.div`
+  position: absolute;
+  top: -28px;
+  width: 254px;
+  background: #ffffff;
   display: flex;
-  flex-direction: row;
-`;
-
-export const BottomCategory = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 32px;
-
-  font-family: Mont;
-  font-weight: 600;
-  font-size: 12px;
-  text-transform: uppercase;
-
-  cursor: pointer;
-  color: #ffffff;
-
-  &:nth-child(1) {
-    margin-left: 0;
-  }
+  flex-direction: column;
 `;

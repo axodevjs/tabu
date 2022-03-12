@@ -6,6 +6,9 @@ const StyledButton = styled.button`
   cursor: pointer;
 
   width: ${({ width }) => width || ""};
+  background: ${({ background }) => background || ""};
+  border: ${({ border }) => border || ""};
+  color: ${({ color }) => color || ""};
   font-family: ${({ fontFamily }) => fontFamily || "Mont"};
   font-size: ${({ fontSize }) => fontSize || "13px"};
   font-weight: ${({ fontWeight }) => fontWeight || "600"};
@@ -33,6 +36,26 @@ const StyledButton = styled.button`
       background-color: #191919;
       border: 0;
       color: #fff;
+    `}
+
+    ${(props) =>
+    props.w100 &&
+    css`
+      width: 100%;
+    `}
+
+    ${(props) =>
+    props.grid &&
+    css`
+      display: grid;
+    `}
+
+    ${(props) =>
+    props.alignCenter &&
+    css`
+      display: flex;
+      align-items: center;
+      justify-content: center;
     `}
 `;
 

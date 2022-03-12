@@ -9,6 +9,7 @@ const StyledFlex = styled.div`
   justify-content: ${(props) => props.justify || "stretch"};
   margin: ${({ margin }) => margin || "0"};
   padding: ${({ padding }) => padding || "0"};
+  cursor: ${({ cursor }) => cursor || ""};
   width: ${({ width }) => width || ""};
   height: ${({ height }) => height || ""};
 

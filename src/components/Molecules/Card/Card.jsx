@@ -4,15 +4,15 @@ import * as S from "./Styled";
 import styled from "styled-components";
 import Grid from "components/Atoms/Grid";
 import Button from "components/Atoms/Button";
-import { useDispatch } from "react-redux";
-import { showModal } from "redux/reducers/productReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { setOpenedProduct, showModal } from "redux/reducers/productReducer";
 
 export const HoverWrapper = styled.div`
   position: relative;
 `;
 export const HoverCard = styled.div`
   position: absolute;
-  left: -8%;
+  left: -7%;
   z-index: 3;
   width: ${({ width }) => width || ""};
   height: auto;
@@ -26,13 +26,20 @@ export const HoverCard = styled.div`
 
 const Card = (props) => {
   const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.products);
   const [hover, setHover] = useState(false);
   const [widthHoverBlock, setWidthHoverBlock] = useState();
 
   const onHover = () => {
     const cardWidth = document.getElementsByClassName("card")[0].offsetWidth;
-    setWidthHoverBlock(cardWidth * 1.08);
+    setWidthHoverBlock(cardWidth * 1.14);
     setHover(true);
+  };
+
+  const onClickView = () => {
+    const targetProduct = products.find((x) => x.id === props.product_id);
+    dispatch(setOpenedProduct(targetProduct));
+    dispatch(showModal());
   };
 
   return (
@@ -72,21 +79,23 @@ const Card = (props) => {
             <S.Details>
               <div>
                 <Text
+                  name="name"
                   color="#191919"
                   fontFamily="Mont"
                   fontWeight="700"
                   fontSize="16px"
                 >
-                  Balenciaga
+                  {props.title ? props.title : ""}
                 </Text>
                 <Text
+                  name="desc"
                   color="#717171"
                   margin="6px 0 0 0"
                   fontFamily="Mont"
                   fontWeight="600"
                   fontSize="16px"
                 >
-                  Balenciaga
+                  {props.description ? props.description : ""}
                 </Text>
               </div>
               <Text
@@ -95,7 +104,7 @@ const Card = (props) => {
                 fontWeight="700"
                 fontSize="16px"
               >
-                $1 720
+                {props.price ? "$ " + props.price : ""}
               </Text>
             </S.Details>
             <Button
@@ -105,7 +114,7 @@ const Card = (props) => {
               fontWeight="600"
               fontSize="12px"
               margin="8px 0 0 0"
-              onClick={() => dispatch(showModal())}
+              onClick={onClickView}
             >
               ПРОСМОТР
             </Button>
@@ -143,7 +152,7 @@ const Card = (props) => {
             fontWeight="700"
             fontSize="16px"
           >
-            Balenciaga
+            {props.title ? props.title : ""}
           </Text>
           <Text
             color="#717171"
@@ -152,7 +161,7 @@ const Card = (props) => {
             fontWeight="600"
             fontSize="16px"
           >
-            Balenciaga
+            {props.description ? props.description : ""}
           </Text>
         </div>
         <Text
@@ -161,7 +170,7 @@ const Card = (props) => {
           fontWeight="700"
           fontSize="16px"
         >
-          $1 720
+          {props.price ? "$ " + props.price : ""}
         </Text>
       </S.Details>
     </S.StyledCard>

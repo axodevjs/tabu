@@ -1,0 +1,4 @@
+export const SHOW_HOVER_MENU = "SHOW_HOVER_MENU";
+export const HIDE_HOVER_MENU = "HIDE_HOVER_MENU";
+export const SHOW_PROFILE = "SHOW_PROFILE";
+export const HIDE_PROFILE = "HIDE_PROFILE";

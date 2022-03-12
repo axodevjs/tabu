@@ -79,12 +79,14 @@ const Category = (props) => {
         <Checks>
           {/* Если тип категории default, выводятся обычные чекбоксы */}
           {props.type === "default" &&
-            props.options.map((option) => <CheckBox name={option.name} />)}
+            props.options.map((option, i) => (
+              <CheckBox key={i} name={option.name} />
+            ))}
 
           {/* Если тип категории colored, выводятся цветные чекбоксы */}
           {props.type === "colored" &&
-            props.options.map((option) => (
-              <CheckBox color={option.color} name={option.name} />
+            props.options.map((option, i) => (
+              <CheckBox key={i} color={option.color} name={option.name} />
             ))}
         </Checks>
       </Options>

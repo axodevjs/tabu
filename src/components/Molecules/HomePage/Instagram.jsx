@@ -31,18 +31,22 @@ const Instagram = () => {
         height="612px !important"
       >
         <Grid name="Left" columns="2fr 1fr" gap="2px">
-          <DivImage src={InstImage1}>
+          <DivImage backgroundSize="cover" src={InstImage1}>
             <div style={{ margin: "33.33px 0 0 33.33px" }}>
               <FavoriteIcon></FavoriteIcon>
             </div>
           </DivImage>
           <Grid gap="2px">
-            <DivImage backgroundSize="129%" src={InstImage2}>
+            <DivImage backgroundSize="cover" src={InstImage2}>
               <div style={{ margin: "33.33px 0 0 33.33px" }}>
                 <FavoriteIcon></FavoriteIcon>
               </div>
             </DivImage>
-            <DivImage backgroundPosition="center 0%" src={InstImage3}>
+            <DivImage
+              backgroundSize="cover"
+              backgroundPosition="center 0%"
+              src={InstImage3}
+            >
               <div style={{ margin: "33.33px 0 0 33.33px" }}>
                 <FavoriteIcon></FavoriteIcon>
               </div>
@@ -50,18 +54,18 @@ const Instagram = () => {
           </Grid>
         </Grid>
         <Grid name="Right" columns="2fr 1fr" gap="2px">
-          <DivImage src={InstImage4}>
+          <DivImage backgroundSize="cover" src={InstImage4}>
             <div style={{ margin: "33.33px 0 0 33.33px" }}>
               <FavoriteIcon></FavoriteIcon>
             </div>
           </DivImage>
           <Grid gap="2px">
-            <DivImage src={InstImage5}>
+            <DivImage backgroundSize="cover" src={InstImage5}>
               <div style={{ margin: "33.33px 0 0 33.33px" }}>
                 <FavoriteIcon></FavoriteIcon>
               </div>
             </DivImage>
-            <DivImage src={InstImage6}>
+            <DivImage backgroundSize="cover" src={InstImage6}>
               <div style={{ margin: "33.33px 0 0 33.33px" }}>
                 <FavoriteIcon></FavoriteIcon>
               </div>

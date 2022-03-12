@@ -1,23 +1,39 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import * as S from "./Styled";
 import Button from "../../Atoms/Button";
+import TopHeader from "./TopHeader/TopHeader";
+import BottomHeader from "./BottomHeader/BottomHeader";
+import HoverMenu from "./HoverMenu/HoverMenu";
+import OpenedProfile from "./OpenedProfile";
+import Expand from "assets/svg/expand_profile.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { hideProfile, showProfile } from "redux/reducers/appReducer";
+import Logo from "assets/img/logo.png";
+import { Link } from "react-router-dom";
+import ImageBlock from "components/Atoms/ImageBlock";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const profileShow = useSelector((state) => state.app.showProfile);
+
   return (
     <>
-      <S.TopHeader>
-        Hовая и почти новая одежда &nbsp; | &nbsp; Гарантия подлинности &nbsp; |
-        &nbsp; Безопасная сделка &nbsp; | &nbsp; Доставка от двери до двери
-      </S.TopHeader>
+      <TopHeader />
       <S.StyledHeader>
         <S.Categories>
           <S.Category>ДЛЯ НЕЕ</S.Category>
           <S.Category>ДЛЯ НЕГО</S.Category>
           <S.Category>ДЕТЯМ</S.Category>
         </S.Categories>
-        <S.Logo>TABU</S.Logo>
+        <S.Logo>
+          <Link to="/">
+            <ImageBlock src={Logo} />
+          </Link>
+        </S.Logo>
         <S.UserBlock>
-          <Button outlined={true}>Продать товар</Button>
+          <Button outlined={true} width="137px">
+            Продать товар
+          </Button>
           <S.Cart>
             <svg
               width={17}
@@ -54,22 +70,21 @@ const Header = () => {
               />
             </svg>
           </S.Favorite>
-          <S.Profile>Мой Профиль</S.Profile>
+          {!profileShow ? (
+            <S.Profile onClick={() => dispatch(showProfile())}>
+              Мой Профиль
+              <img src={Expand} />
+            </S.Profile>
+          ) : (
+            <OpenedProfile
+              id="profile_menu"
+              onClick={() => dispatch(hideProfile())}
+            />
+          )}
         </S.UserBlock>
       </S.StyledHeader>
-      <S.BottomHeader>
-        <S.BottomCategories>
-          <S.BottomCategory>Наша подборка</S.BottomCategory>
-          <S.BottomCategory>Новинки</S.BottomCategory>
-          <S.BottomCategory>Женская</S.BottomCategory>
-          <S.BottomCategory>Мужская</S.BottomCategory>
-          <S.BottomCategory>Бренды</S.BottomCategory>
-          <S.BottomCategory>Аксессуары</S.BottomCategory>
-          <S.BottomCategory>Бьюти</S.BottomCategory>
-          <S.BottomCategory>Обувь</S.BottomCategory>
-          <S.BottomCategory>Сумки</S.BottomCategory>
-        </S.BottomCategories>
-      </S.BottomHeader>
+      <BottomHeader />
+      <HoverMenu />
     </>
   );
 };
