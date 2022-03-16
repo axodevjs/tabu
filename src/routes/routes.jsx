@@ -1,4 +1,4 @@
-import CategoryPage from "pages/CategoryPage";
+import CategoryPage from "pages/CategoryPage/CategoryPage";
 import NewProducts from "pages/NewProducts/NewProducts";
 import HomePage from "../pages/HomePage";
 

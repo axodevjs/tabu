@@ -6,6 +6,8 @@ import {hideModal} from "redux/reducers/productReducer";
 import {useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import MobileFooter from "../Molecules/Footer/Mobile/MobileFooter";
+import MobileHeader from "../Molecules/Header/Mobile/MobileHeader";
+import {sizes} from "../../sizes";
 
 const MainLayout = ({children}) => {
     const dispatch = useDispatch();
@@ -13,7 +15,7 @@ const MainLayout = ({children}) => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        if (window.innerWidth < 1110) {
+        if (window.innerWidth < sizes.mobile) {
             setIsMobile(true)
         }
     }, [])
@@ -24,7 +26,13 @@ const MainLayout = ({children}) => {
                 showModal={showModal}
                 handleClose={() => dispatch(hideModal())}
             ></ProductModal>
-            <Header/>
+            {
+                isMobile ? (
+                    <MobileHeader/>
+                ) : (
+                    <Header/>
+                )
+            }
             {children}
             {
                 isMobile ? (
