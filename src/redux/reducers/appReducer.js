@@ -2,12 +2,13 @@ import {
   SHOW_HOVER_MENU,
   HIDE_HOVER_MENU,
   SHOW_PROFILE,
-  HIDE_PROFILE,
+  HIDE_PROFILE
 } from "../types/appTypes";
 
 const defaultState = {
   showHoverMenu: false,
   showProfile: false,
+  isMobile: false,
 };
 
 export default function productReducer(state = defaultState, action) {
@@ -21,12 +22,15 @@ export default function productReducer(state = defaultState, action) {
       return { ...state, showProfile: true };
     case HIDE_PROFILE:
       return { ...state, showProfile: false };
+
     default:
       return state;
   }
 }
 
-export const showHoverMenu = () => ({ type: SHOW_HOVER_MENU });
+export const showHoverMenu = () => ({
+  type: SHOW_HOVER_MENU,
+});
 export const hideHoverMenu = () => ({ type: HIDE_HOVER_MENU });
 
 export const showProfile = () => ({ type: SHOW_PROFILE });

@@ -14,7 +14,7 @@ const StyledGrid = styled.div`
   padding: ${({ padding }) => padding || "0"};
   cursor: ${({ cursor }) => cursor || "auto"};
   height: ${({ height }) => height || ""};
-  width: ${({ width }) => width || ""};
+  width: ${(props) => props.width || ""};
 `;
 
 const Grid = (props) => {

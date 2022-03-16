@@ -11,6 +11,7 @@ import DivImage from "components/Atoms/DivImage";
 import AddFavoriteBtn from "../AddFavoriteBtn";
 import closeModal from "assets/svg/closeModal.svg";
 import { useSelector } from "react-redux";
+import { URL } from "config";
 
 export const StyledWrapper = styled.div`
   position: fixed;
@@ -66,7 +67,15 @@ const ProductModal = (props) => {
       <WrapperModal>
         <StyledModal>
           <GridModal>
-            <DivImage backgroundSize={"cover"} src={product4} />
+            {opened_product.images ? (
+              <DivImage
+                backgroundSize={"cover"}
+                src={URL + opened_product.images[0].image}
+              />
+            ) : (
+              ""
+            )}
+
             <Flex direction="column" padding="20px">
               <Text
                 fontFamily="Gilroy"

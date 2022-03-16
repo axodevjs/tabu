@@ -43,3 +43,13 @@ export const Wrapper = styled.div`
   width: 100%;
   z-index: 10;
 `;
+
+export const OpenAll = styled.div`
+  font-family: Mont;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #191919;
+  cursor: pointer;
+  margin: 40px 0 0 0;
+`;

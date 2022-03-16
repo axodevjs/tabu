@@ -42,6 +42,7 @@ export const Logo = styled.div`
 
 export const UserBlock = styled.div`
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: end;
 `;
@@ -84,3 +85,8 @@ export const OpenedProfile = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const ProfileBlock = styled.div`
+  position: relative;
+  display: flex;
+`

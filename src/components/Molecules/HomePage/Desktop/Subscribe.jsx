@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Button from "../../Atoms/Button";
-import Flex from "../../Atoms/Flex";
-import Input from "../../Atoms/Form/Input";
-import Radio from "../../Atoms/Form/Radio";
-import Text from "../../Atoms/Text";
+import Button from "../../../Atoms/Button";
+import Flex from "../../../Atoms/Flex";
+import Input from "../../../Atoms/Form/Input";
+import Radio from "../../../Atoms/Form/Radio";
+import Text from "../../../Atoms/Text";
 
 const Subscribe = () => {
   const [favorite, setFavorite] = useState("woman");

@@ -1,10 +1,14 @@
 import { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "redux/reducers/productReducer";
 
 const SelectText = (props) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("");
   const [prev, setPrev] = useState("");
+  const products = useSelector((state) => state.product.products);
+  const dispatch = useDispatch();
 
   const selectHandler = (e) => {
     if (prev !== "") {
@@ -15,6 +19,18 @@ const SelectText = (props) => {
     setPrev(e.target.id);
     e.target.classList.toggle("active_item");
     setOpen(false);
+
+    // sort
+    const newProducts = [...products];
+
+    if (e.target.firstChild.nodeValue === "По возрастанию цены") {
+      newProducts.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+    }
+    if (e.target.firstChild.nodeValue === "По убыванию цены") {
+      newProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+    }
+
+    dispatch(setProducts(newProducts));
   };
 
   return (

@@ -1,9 +1,9 @@
-import Grid from "../../Atoms/Grid";
-import Text from "../../Atoms/Text";
+import Grid from "../../../Atoms/Grid";
+import Text from "../../../Atoms/Text";
 import RightImg from "assets/img/start.png";
 import startProduct from "assets/img/startProduct.png";
-import Hr from "../../Atoms/Hr";
-import MoreButton from "../../Atoms/MoreButton";
+import Hr from "../../../Atoms/Hr";
+import MoreButton from "../../../Atoms/MoreButton";
 
 const Start = () => {
   return (

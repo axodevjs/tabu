@@ -1,59 +1,59 @@
 export const optionsCategory = [
   {
-    name: "Сумки",
+    title: "Сумки",
   },
   {
-    name: "Одежда",
+    title: "Одежда",
   },
   {
-    name: "Украшения",
+    title: "Украшения",
   },
   {
-    name: "Акссесуары",
+    title: "Акссесуары",
   },
   {
-    name: "Обувь",
+    title: "Обувь",
   },
 ];
 
 export const optionsColored = [
   {
     color: "#000",
-    name: "Черный",
+    title: "Черный",
   },
   {
     color: "#efddc6",
-    name: "Нейтральный",
+    title: "Нейтральный",
   },
   {
     color: "#07a3ef",
-    name: "Cиний",
+    title: "Cиний",
   },
   {
     color: "#b59681",
-    name: "Коричневый",
+    title: "Коричневый",
   },
   {
     color: "#893552",
-    name: "Бордовый",
+    title: "Бордовый",
   },
 ];
 
 export const optionsSize = [
   {
-    name: "XXS",
+    title: "XXS",
   },
   {
-    name: "XS",
+    title: "XS",
   },
   {
-    name: "XS/S",
+    title: "XS/S",
   },
   {
-    name: "S",
+    title: "S",
   },
   {
-    name: "M",
+    title: "M",
   },
 ];
-export const optionsSizeSelect = ["SML", "XSS", "XS", "XS/S", "S", "M"];
+export const optionsSizeSelect = ["SML"];

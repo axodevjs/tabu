@@ -5,6 +5,11 @@ import SearchInput from "components/Atoms/Form/SearchInput";
 import Hr from "components/Atoms/Hr";
 import ExpandIcon from "components/Atoms/Icons/ExpandIcon";
 import Text from "components/Atoms/Text";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getProductsByCategory } from "redux/actions/product";
+import { setBrandOptions } from "redux/reducers/filterOptionsReducer";
 import styled from "styled-components";
 
 const StyledCategory = styled.div`
@@ -47,6 +52,63 @@ const Checks = styled.div`
 `;
 
 const Category = (props) => {
+  let query = "";
+  const dispatch = useDispatch();
+  const params = useParams();
+  const brandOptions = useSelector((state) => state.filterOptions.brandOptions);
+  const sizeOptions = useSelector((state) => state.filterOptions.sizeOptions);
+  const colorOptions = useSelector((state) => state.filterOptions.colorOptions);
+
+  const toggleCheckbox = (type, title) => {
+    if (type === "brand") {
+      let brandOption = brandOptions.find((x) => x.title === title);
+      let brandOptionsCopy = brandOptions;
+      let foundBrandIndex = brandOptions.findIndex((x) => x.title === title);
+
+      if (brandOption) {
+        brandOption.selected = !brandOption.selected;
+        brandOptionsCopy[foundBrandIndex] = brandOption;
+
+        dispatch(setBrandOptions(brandOptionsCopy));
+        dispatch(
+          getProductsByCategory(params.category_name, brandOptions, type)
+        );
+      }
+    }
+
+    if (type === "size") {
+      let sizeOption = sizeOptions.find((x) => x.title === title);
+      let sizeOptionsCopy = sizeOptions;
+      let foundSizeIndex = brandOptions.findIndex((x) => x.title === title);
+
+      if (sizeOption) {
+        sizeOption.selected = !sizeOption.selected;
+        sizeOptionsCopy[foundSizeIndex] = sizeOption;
+
+        dispatch(setBrandOptions(sizeOptionsCopy));
+        dispatch(
+          getProductsByCategory(params.category_name, sizeOptions, type)
+        );
+      }
+    }
+
+    if (type === "color") {
+      let colorOption = colorOptions.find((x) => x.title === title);
+      let colorOptionsCopy = colorOptions;
+      let foundColorIndex = colorOptions.findIndex((x) => x.title === title);
+
+      if (colorOption) {
+        colorOption.selected = !colorOption.selected;
+        colorOptionsCopy[foundColorIndex] = colorOption;
+
+        dispatch(setBrandOptions(colorOptionsCopy));
+        dispatch(
+          getProductsByCategory(params.category_name, colorOptions, type)
+        );
+      }
+    }
+  };
+
   return (
     <StyledCategory>
       <Flex justify="space-between" align="center" width="100%">
@@ -59,7 +121,6 @@ const Category = (props) => {
 
         {/* Если указан select, добавляется select */}
         {props.select && <DefaultSelect optionsSelect={props.optionsSelect} />}
-
         {/* Кнопка выбрать всё */}
         <div>
           <Text
@@ -78,15 +139,33 @@ const Category = (props) => {
 
         <Checks>
           {/* Если тип категории default, выводятся обычные чекбоксы */}
-          {props.type === "default" &&
+          {props.type === "brand" &&
             props.options.map((option, i) => (
-              <CheckBox key={i} name={option.name} />
+              <CheckBox
+                onClick={(e) => toggleCheckbox("brand", option.title)}
+                key={i}
+                name={option.title}
+              />
+            ))}
+
+          {props.type === "size" &&
+            props.options.map((option, i) => (
+              <CheckBox
+                onClick={() => toggleCheckbox("size", option.title)}
+                key={i}
+                name={option.title}
+              />
             ))}
 
           {/* Если тип категории colored, выводятся цветные чекбоксы */}
           {props.type === "colored" &&
             props.options.map((option, i) => (
-              <CheckBox key={i} color={option.color} name={option.name} />
+              <CheckBox
+                key={i}
+                onClick={() => toggleCheckbox("color", option.title)}
+                color={option.color_code}
+                name={option.title}
+              />
             ))}
         </Checks>
       </Options>

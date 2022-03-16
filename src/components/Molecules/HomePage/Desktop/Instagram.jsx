@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import Grid from "../../Atoms/Grid";
-import DivImage from "../../Atoms/DivImage";
-import Text from "../../Atoms/Text";
+import Grid from "../../../Atoms/Grid";
+import DivImage from "../../../Atoms/DivImage";
+import Text from "../../../Atoms/Text";
 import InstImage1 from "assets/img/instagram/1.png";
 import InstImage2 from "assets/img/instagram/2.png";
 import InstImage3 from "assets/img/instagram/3.png";
 import InstImage4 from "assets/img/instagram/4.png";
 import InstImage5 from "assets/img/instagram/5.png";
 import InstImage6 from "assets/img/instagram/6.png";
-import FavoriteIcon from "../../Atoms/Icons/FavoriteIcon";
+import FavoriteIcon from "../../../Atoms/Icons/FavoriteIcon";
 
 const Instagram = () => {
   return (

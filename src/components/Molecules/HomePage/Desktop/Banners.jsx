@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Grid from "../../Atoms/Grid";
+import Grid from "../../../Atoms/Grid";
 import Men from "assets/img/banners/1.png";
 import Ring from "assets/img/banners/2.png";
-import Text from "../../Atoms/Text";
+import Text from "../../../Atoms/Text";
 
 const StyledBanners = styled.div`
   padding: 64px 56px;

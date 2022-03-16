@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Grid from "../../Atoms/Grid";
-import Steps from "../../Atoms/Steps";
-import Tab from "../../Atoms/Tab";
-import Text from "../../Atoms/Text";
+import Grid from "../../../Atoms/Grid";
+import Steps from "../../../Atoms/Steps";
+import Tab from "../../../Atoms/Tab";
+import Text from "../../../Atoms/Text";
 
 const Tabs = styled.div`
   display: flex;

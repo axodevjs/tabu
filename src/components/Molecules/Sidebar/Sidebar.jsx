@@ -1,25 +1,38 @@
 import Flex from "components/Atoms/Flex";
 import Hr from "components/Atoms/Hr";
+import { optionsColored, optionsSize, optionsSizeSelect } from "data";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  optionsCategory,
-  optionsColored,
-  optionsSize,
-  optionsSizeSelect,
-} from "data";
+  getBrandsOptions,
+  getColorOptions,
+  getSizeOptions,
+} from "redux/actions/filterOptions";
 import Category from "./Category/Category";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+  const brandOptions = useSelector((state) => state.filterOptions.brandOptions);
+  const colorOptions = useSelector((state) => state.filterOptions.colorOptions);
+  const sizeOptions = useSelector((state) => state.filterOptions.sizeOptions);
+
+  useEffect(() => {
+    // get options for filter
+    dispatch(getBrandsOptions());
+    dispatch(getColorOptions());
+    dispatch(getSizeOptions());
+  }, []);
+
   return (
     <Flex direction="column">
       <Hr color="#EEEEEE" />
-      <Category name="КАТЕГОРИЯ" type="default" options={optionsCategory} />
-      <Category name="БРЕНД" type="default" search options={optionsCategory} />
-      <Category name="ЦВЕТ" type="colored" options={optionsColored} />
+      <Category name="БРЕНД" type="brand" search options={brandOptions} />
+      <Category name="ЦВЕТ" type="colored" options={colorOptions} />
       <Category
         name="РАЗМЕР"
-        type="default"
+        type="size"
         select
-        options={optionsSize}
+        options={sizeOptions}
         optionsSelect={optionsSizeSelect}
       />
     </Flex>

@@ -163,3 +163,7 @@ a {
 .active_item {
   background-color: #f9f9f9;
 }
+
+.w100 {
+  width: 100%;
+}

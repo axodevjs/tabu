@@ -1,9 +1,9 @@
-import AboutCard from "../../Atoms/AboutCard";
-import Grid from "../../Atoms/Grid";
-import CartIcon from "../../Atoms/Icons/CartIcon";
-import DocumentIcon from "../../Atoms/Icons/DocumentIcon";
-import LockIcon from "../../Atoms/Icons/LockIcon";
-import DeliveryIcon from "../../Atoms/Icons/DeliveryIcon";
+import AboutCard from "../../../Atoms/AboutCard";
+import Grid from "../../../Atoms/Grid";
+import CartIcon from "../../../Atoms/Icons/CartIcon";
+import DocumentIcon from "../../../Atoms/Icons/DocumentIcon";
+import LockIcon from "../../../Atoms/Icons/LockIcon";
+import DeliveryIcon from "../../../Atoms/Icons/DeliveryIcon";
 
 const Advantages = () => {
   return (

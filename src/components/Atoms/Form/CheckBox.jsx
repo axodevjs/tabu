@@ -18,7 +18,11 @@ const CheckBox = (props) => {
   return (
     <CheckWrapper>
       <input type="checkbox" className="check_box" id={props.name} />
-      <label className="check-label" htmlFor={props.name}></label>
+      <label
+        onClick={props.onClick}
+        className="check-label"
+        htmlFor={props.name}
+      ></label>
       {props.color && (
         <>
           <Flex

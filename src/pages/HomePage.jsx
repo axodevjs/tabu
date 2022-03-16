@@ -1,16 +1,16 @@
-import Sales from "components/Molecules/HomePage/Sales";
-import Start from "components/Molecules/HomePage/Start";
-import HowWorks from "components/Molecules/HomePage/HowWorks";
-import NewProducts from "components/Molecules/HomePage/NewProducts";
-import Instagram from "components/Molecules/HomePage/Instagram";
-import Banners from "components/Molecules/HomePage/Banners";
-import Trends from "components/Molecules/HomePage/Trends";
-import TwoSections from "components/Molecules/HomePage/TwoSections";
-import StartSell from "components/Molecules/HomePage/StartSell";
-import Media from "components/Molecules/HomePage/Media";
-import Advantages from "components/Molecules/HomePage/Advantages";
-import Answers from "components/Molecules/HomePage/Answers";
-import Subscribe from "components/Molecules/HomePage/Subscribe";
+import Sales from "components/Molecules/HomePage/Desktop/Sales";
+import Start from "components/Molecules/HomePage/Desktop/Start";
+import HowWorks from "components/Molecules/HomePage/Desktop/HowWorks";
+import NewProducts from "components/Molecules/HomePage/Desktop/NewProducts";
+import Instagram from "components/Molecules/HomePage/Desktop/Instagram";
+import Banners from "components/Molecules/HomePage/Desktop/Banners";
+import Trends from "components/Molecules/HomePage/Desktop/Trends";
+import TwoSections from "components/Molecules/HomePage/Desktop/TwoSections";
+import StartSell from "components/Molecules/HomePage/Desktop/StartSell";
+import Media from "components/Molecules/HomePage/Desktop/Media";
+import Advantages from "components/Molecules/HomePage/Desktop/Advantages";
+import Answers from "components/Molecules/HomePage/Desktop/Answers";
+import Subscribe from "components/Molecules/HomePage/Desktop/Subscribe";
 
 const HomePage = () => {
   return (

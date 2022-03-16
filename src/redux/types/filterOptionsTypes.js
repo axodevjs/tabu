@@ -1,0 +1,4 @@
+export const SET_BRAND_OPTIONS = "SET_BRAND_OPTIONS";
+export const SET_COLOR_OPTIONS = "SET_COLOR_OPTIONS";
+export const SET_SIZE_OPTIONS = "SET_SIZE_OPTIONS";
+export const SET_QUERY = "SET_QUERY";

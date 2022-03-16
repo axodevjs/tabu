@@ -1,8 +1,8 @@
 import React from "react";
-import Grid from "../../Atoms/Grid";
+import Grid from "../../../Atoms/Grid";
 import First from "assets/img/twoSections/1.png";
 import Second from "assets/img/twoSections/2.png";
-import Text from "../../Atoms/Text";
+import Text from "../../../Atoms/Text";
 
 const TwoSections = () => {
   return (

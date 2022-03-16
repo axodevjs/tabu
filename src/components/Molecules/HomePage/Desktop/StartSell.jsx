@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Background from "assets/img/startSell.png";
-import Text from "../../Atoms/Text";
-import Button from "../../Atoms/Button";
+import Text from "../../../Atoms/Text";
+import Button from "../../../Atoms/Button";
 
 const StyledStartSell = styled.div`
   display: flex;
