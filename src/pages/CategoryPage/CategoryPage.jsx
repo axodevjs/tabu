@@ -16,6 +16,7 @@ import SelectText from "components/Atoms/Form/SelectText";
 import {URL} from "config";
 import {sizes} from "../../sizes";
 import SortButtons from "../../components/Molecules/CategoryPage/SortButtons/SortButtons";
+import MobileFilter from "../../components/Molecules/MobileFilter/MobileFilter";
 
 const CategoryPage = () => {
     const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const CategoryPage = () => {
         name: "По возрастанию цены"
     }, {id: 3, name: "По величине скидки"},];
     const [isMobile, setIsMobile] = useState(false);
+    const [activeFilter, setActiveFilter] = useState(false);
 
     useEffect(() => {
         if (params.category_name === undefined) {
@@ -42,6 +44,7 @@ const CategoryPage = () => {
 
     return (
         <S.Wrapper>
+            <MobileFilter active={activeFilter} setActive={setActiveFilter}/>
             <BreadCrumbs/>
             <S.TitlePage>
                 {params.category_name}
@@ -54,7 +57,7 @@ const CategoryPage = () => {
                   <Hr margin="15px 0 0 0" color="#E5E5E5"/>
                 </>
               ) : (
-                  <SortButtons/>
+                  <SortButtons setActiveFilter={setActiveFilter}/>
               )}
 
             {!isMobile ? (

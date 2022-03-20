@@ -167,3 +167,7 @@ a {
 .w100 {
   width: 100%;
 }
+
+.show_mobile_filter {
+  display: flex !important;
+}
