@@ -1,11 +1,10 @@
 import * as S from "./Styled";
 import { useDispatch, useSelector } from "react-redux";
-import { showHoverMenu, hideHoverMenu } from "redux/reducers/appReducer";
+import { showHoverMenu } from "redux/reducers/appReducer";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { getCategories } from "redux/actions/categories";
 import { setCategory } from "redux/reducers/categoriesReducer";
-import * as $ from "jquery";
 import { getProductsByCategory } from "redux/actions/product";
 
 const BottomHeader = () => {
