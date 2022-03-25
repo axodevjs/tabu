@@ -18,6 +18,7 @@ export const Categories = styled.div`
 export const Category = styled.div`
   font-family: "Mont";
   font-size: 16px;
+  text-transform: uppercase;
   font-weight: 700;
   margin-left: 24px;
   cursor: pointer;
@@ -89,4 +90,4 @@ export const OpenedProfile = styled.div`
 export const ProfileBlock = styled.div`
   position: relative;
   display: flex;
-`
+`;

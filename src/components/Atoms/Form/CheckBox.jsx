@@ -1,6 +1,7 @@
 import Flex from "../Flex";
 import Text from "../Text";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 const CheckWrapper = styled.div`
   display: flex;
@@ -15,14 +16,19 @@ const CheckWrapper = styled.div`
 `;
 
 const CheckBox = (props) => {
+  const [value, setValue] = useState(false);
+
+  const toggleActive = () => {
+    setValue(!value);
+    props.onClick();
+  };
+
   return (
     <CheckWrapper>
-      <input type="checkbox" className="check_box" id={props.name} />
-      <label
-        onClick={props.onClick}
-        className="check-label"
-        htmlFor={props.name}
-      ></label>
+      <div
+        onClick={toggleActive}
+        className={`checkbox ${value ? "checkbox-active" : ""}`}
+      ></div>
       {props.color && (
         <>
           <Flex

@@ -9,7 +9,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProductsByCategory } from "redux/actions/product";
-import { setBrandOptions } from "redux/reducers/filterOptionsReducer";
+import {
+  setBrandOptions,
+  setColorOptions,
+  setSizeOptions,
+} from "redux/reducers/filterOptionsReducer";
 import styled from "styled-components";
 
 const StyledCategory = styled.div`
@@ -60,6 +64,7 @@ const Category = (props) => {
   const colorOptions = useSelector((state) => state.filterOptions.colorOptions);
 
   const toggleCheckbox = (type, title) => {
+    // Изменения в редуксе
     if (type === "brand") {
       let brandOption = brandOptions.find((x) => x.title === title);
       let brandOptionsCopy = brandOptions;
@@ -71,23 +76,12 @@ const Category = (props) => {
 
         dispatch(setBrandOptions(brandOptionsCopy));
         dispatch(
-          getProductsByCategory(params.category_name, brandOptions, type)
-        );
-      }
-    }
-
-    if (type === "size") {
-      let sizeOption = sizeOptions.find((x) => x.title === title);
-      let sizeOptionsCopy = sizeOptions;
-      let foundSizeIndex = brandOptions.findIndex((x) => x.title === title);
-
-      if (sizeOption) {
-        sizeOption.selected = !sizeOption.selected;
-        sizeOptionsCopy[foundSizeIndex] = sizeOption;
-
-        dispatch(setBrandOptions(sizeOptionsCopy));
-        dispatch(
-          getProductsByCategory(params.category_name, sizeOptions, type)
+          getProductsByCategory(
+            params.category_name,
+            brandOptions.filter((x) => x.selected === true),
+            colorOptions.filter((x) => x.selected === true),
+            sizeOptions.filter((x) => x.selected === true)
+          )
         );
       }
     }
@@ -101,9 +95,35 @@ const Category = (props) => {
         colorOption.selected = !colorOption.selected;
         colorOptionsCopy[foundColorIndex] = colorOption;
 
-        dispatch(setBrandOptions(colorOptionsCopy));
+        dispatch(setColorOptions(colorOptionsCopy));
         dispatch(
-          getProductsByCategory(params.category_name, colorOptions, type)
+          getProductsByCategory(
+            params.category_name,
+            brandOptions.filter((x) => x.selected === true),
+            colorOptions.filter((x) => x.selected === true),
+            sizeOptions.filter((x) => x.selected === true)
+          )
+        );
+      }
+    }
+
+    if (type === "size") {
+      let sizeOption = sizeOptions.find((x) => x.title === title);
+      let sizeOptionsCopy = sizeOptions;
+      let foundSizeIndex = sizeOptions.findIndex((x) => x.title === title);
+
+      if (sizeOption) {
+        sizeOption.selected = !sizeOption.selected;
+        sizeOptionsCopy[foundSizeIndex] = sizeOption;
+
+        dispatch(setSizeOptions(sizeOptionsCopy));
+        dispatch(
+          getProductsByCategory(
+            params.category_name,
+            brandOptions.filter((x) => x.selected === true),
+            colorOptions.filter((x) => x.selected === true),
+            sizeOptions.filter((x) => x.selected === true)
+          )
         );
       }
     }

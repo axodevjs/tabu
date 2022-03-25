@@ -16,39 +16,55 @@ export const getProducts = () => {
   };
 };
 
-export const getProductsByCategory = (category, options, type) => {
+export const getProductsByCategory = (
+  category,
+  brandOptions,
+  colorOptions,
+  sizeOptions
+) => {
   return async (dispatch) => {
     try {
-      const state = store.getState();
-      let newQuery = "";
-
-      if (state.filterOptions.query.includes("?category__title")) {
-        newQuery = state.filterOptions.query;
-      }
-      if (!state.filterOptions.query.includes("?category__title")) {
-        newQuery = `${state.filterOptions.query}?category__title=${category}`;
-        dispatch(setQuery(newQuery));
-      }
-
-      if (options) {
-        const selected = options.filter((x) => x.selected === true);
-
-        for (let i = 0; i < selected.length; i++) {
-          if (newQuery.includes(selected[i].title)) {
-            newQuery = newQuery.replace(selected[i].title, "");
-            console.log("already");
+      if (brandOptions) {
+        let brands = "";
+        let colors = "";
+        let sizes = "";
+        for (let i = 0; i < brandOptions.length; i++) {
+          if (i === 0) {
+            brands += brandOptions[i].title;
           } else {
-            newQuery += `&${type}__title=${selected[i].title}`;
+            brands += "," + brandOptions[i].title;
           }
         }
-        dispatch(setQuery(newQuery));
-        console.log(newQuery);
+
+        for (let i = 0; i < colorOptions.length; i++) {
+          if (i === 0) {
+            colors += colorOptions[i].title;
+          } else {
+            colors += "," + colorOptions[i].title;
+          }
+        }
+
+        for (let i = 0; i < sizeOptions.length; i++) {
+          if (i === 0) {
+            sizes += sizeOptions[i].title;
+          } else {
+            sizes += "," + sizeOptions[i].title;
+          }
+        }
+
+        const response = await axios.get(
+          API_URL +
+            `/products?category__title__in=${category}&brand__title__in=${brands}&color__title__in=${colors}&size__title__in=${sizes}`
+        );
+        dispatch(setProducts(response.data));
+      } else {
+        const response = await axios.get(
+          API_URL + `/products?category__title__in=${category}`
+        );
+        console.log(response);
+        console.log(API_URL + `/products/?category__title__in=${category}`);
+        dispatch(setProducts(response.data));
       }
-
-      const response = await axios.get(newQuery);
-
-      dispatch(setProducts(response.data));
-      console.log(newQuery);
     } catch (e) {
       console.log(e);
     }
