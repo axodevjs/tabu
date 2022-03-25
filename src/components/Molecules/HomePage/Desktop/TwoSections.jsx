@@ -3,12 +3,13 @@ import Grid from "../../../Atoms/Grid";
 import First from "assets/img/twoSections/1.png";
 import Second from "assets/img/twoSections/2.png";
 import Text from "../../../Atoms/Text";
+import ImageBlock from "../../../Atoms/ImageBlock";
 
 const TwoSections = () => {
   return (
     <Grid columns="1fr 1fr" gap="0 32px" padding="64px 56px">
       <div style={{ display: "grid", justifyItems: "center" }}>
-        <img src={First} />
+        <ImageBlock src={First} />
         <Text
           color="#191919"
           fontFamily="Mont"
@@ -38,7 +39,7 @@ const TwoSections = () => {
         </Text>
       </div>
       <div style={{ display: "grid", justifyItems: "center" }}>
-        <img src={Second} />
+        <ImageBlock src={Second} />
         <Text
           color="#191919"
           fontFamily="Mont"

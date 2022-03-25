@@ -4,6 +4,7 @@ import RightImg from "assets/img/start.png";
 import startProduct from "assets/img/startProduct.png";
 import Hr from "../../../Atoms/Hr";
 import MoreButton from "../../../Atoms/MoreButton";
+import ImageBlock from "../../../Atoms/ImageBlock";
 
 const Start = () => {
     return (
@@ -29,7 +30,7 @@ const Start = () => {
                 </Text>
                 <Hr margin="25px 0 0 0"/>
                 <Grid columns="1fr 1fr" gap="0 52px" margin="48px 0 0 0">
-                    <img src={startProduct} alt=""/>
+                    <ImageBlock src={startProduct} alt=""/>
                     <Grid alignContent="center">
                         <div>
                             <Text
@@ -48,7 +49,7 @@ const Start = () => {
                 </Grid>
             </div>
             <Grid justifyItems="end">
-                <img src={RightImg} alt=""/>
+                <ImageBlock src={RightImg} alt=""/>
             </Grid>
         </Grid>
     );

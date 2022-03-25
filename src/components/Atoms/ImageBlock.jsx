@@ -3,6 +3,7 @@ import styled from "styled-components";
 const StyledImageBlock = styled.div`
   width: 100%;
   height: auto;
+  margin: ${({ margin }) => margin || ""};
 `;
 
 const ImageRef = styled.img`
@@ -12,7 +13,7 @@ const ImageRef = styled.img`
 
 const ImageBlock = (props) => {
   return (
-    <StyledImageBlock>
+    <StyledImageBlock {...props}>
       <ImageRef src={props.src} />
     </StyledImageBlock>
   );

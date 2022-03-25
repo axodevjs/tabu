@@ -3,6 +3,8 @@ import Grid from "../../../Atoms/Grid";
 import Men from "assets/img/banners/1.png";
 import Ring from "assets/img/banners/2.png";
 import Text from "../../../Atoms/Text";
+import ImageBlock from "../../../Atoms/ImageBlock";
+import DivImage from "../../../Atoms/DivImage";
 
 const StyledBanners = styled.div`
   padding: 64px 56px;
@@ -14,13 +16,14 @@ const Right = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #f9f9f9;
+  padding: 30px 57px 80px 57px;
 `;
 
 const Banners = () => {
   return (
     <StyledBanners>
       <Grid columns="2fr 1fr" gap="0 31px">
-        <img src={Men} alt="" />
+        <DivImage backgroundSize={"cover"} src={Men} alt="" />
         <Right>
           <Text
             color="#191919"
@@ -39,10 +42,10 @@ const Banners = () => {
             fontSize="16px"
             textAlign="center"
           >
-            Прикосновение роскоши и романтики для вашего Валентина.{" "}
+            Прикосновение роскоши и романтики для вашего Валентина.
           </Text>
           <Grid margin="97px 0 0 0">
-            <img src={Ring} alt="" />
+            <ImageBlock src={Ring} alt="" />
           </Grid>
           <Text
             margin="90px 0 0 0"
