@@ -61,8 +61,6 @@ export const getProductsByCategory = (
         const response = await axios.get(
           API_URL + `/products?category__title__in=${category}`
         );
-        console.log(response);
-        console.log(API_URL + `/products/?category__title__in=${category}`);
         dispatch(setProducts(response.data));
       }
     } catch (e) {

@@ -14,12 +14,10 @@ const BottomHeader = () => {
 
   useEffect(() => {
     dispatch(getCategories());
-    console.log(categories);
   }, []);
 
   const onHover = (category) => {
-    dispatch(setCategory(category.children));
-    console.log(category);
+    dispatch(setCategory(category));
     dispatch(showHoverMenu());
   };
 
@@ -28,8 +26,12 @@ const BottomHeader = () => {
       <S.BottomCategories>
         {!main_category.children
           ? ""
-          : main_category.children.map((category) => (
-              <S.BottomCategory onMouseEnter={() => onHover(category)}>
+          : main_category.children.map((category, i) => (
+              <S.BottomCategory
+                onMouseEnter={() => {
+                  onHover(main_category.children[i]);
+                }}
+              >
                 <Link
                   onClick={() =>
                     dispatch(getProductsByCategory(category.title))

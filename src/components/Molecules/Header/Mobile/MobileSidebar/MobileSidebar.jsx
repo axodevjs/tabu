@@ -1,36 +1,50 @@
-import * as S from './Styled'
-import {useDispatch, useSelector} from "react-redux";
-import {hideMobileSidebar} from "../../../../../redux/reducers/appReducer";
+import * as S from "./Styled";
+import { useDispatch, useSelector } from "react-redux";
+import { hideMobileSidebar } from "../../../../../redux/reducers/appReducer";
 import MobileCategory from "./MobileCategory/MobileCategory";
 import MobileCategories from "./MobileCategories/MobileCategories";
+import { setMainCategory } from "redux/reducers/categoriesReducer";
 
 const MobileSidebar = (props) => {
-    const dispatch = useDispatch();
-    const menuCategory = useSelector(state => state.app.menuCategory)
+  const dispatch = useDispatch();
+  const menuCategory = useSelector((state) => state.app.menuCategory);
+  const categories = useSelector((state) => state.categories.categories);
+  const main_category = useSelector((state) => state.categories.main_category);
 
-    return (
-        <S.Wrapper {...props}>
-            <S.Background onClick={() => dispatch(hideMobileSidebar())}/>
-            <S.AbsoluteSidebar>
-                <S.MobileSidebar>
-                    <S.Login>Регистрация / Войти</S.Login>
-                    <S.Tabs>
-                        <S.Tab active>Для нее</S.Tab>
-                        <S.Tab>Для него</S.Tab>
-                        <S.Tab>Детям</S.Tab>
-                    </S.Tabs>
-                    {
-                        (menuCategory.active === false) ? (<MobileCategories/>) : (<MobileCategory/>)
-                    }
-                    <S.Space/>
-                    <div>
-                        <S.Favorite>Избранные</S.Favorite>
-                    </div>
+  const onTabClick = (category) => {
+    dispatch(setMainCategory(category));
+  };
 
-                </S.MobileSidebar>
-            </S.AbsoluteSidebar>
-        </S.Wrapper>
-    );
+  return (
+    <S.Wrapper {...props}>
+      <S.Background onClick={() => dispatch(hideMobileSidebar())} />
+      <S.AbsoluteSidebar>
+        <S.MobileSidebar>
+          <S.Login>Регистрация / Войти</S.Login>
+          <S.Tabs>
+            {categories.map((category, i) => (
+              <S.Tab
+                key={i}
+                onClick={() => onTabClick(category)}
+                active={main_category.title === category.title ? true : false}
+              >
+                {category.title}
+              </S.Tab>
+            ))}
+          </S.Tabs>
+          {menuCategory.active === false ? (
+            <MobileCategories />
+          ) : (
+            <MobileCategory />
+          )}
+          <S.Space />
+          <div>
+            <S.Favorite>Избранные</S.Favorite>
+          </div>
+        </S.MobileSidebar>
+      </S.AbsoluteSidebar>
+    </S.Wrapper>
+  );
 };
 
 export default MobileSidebar;
