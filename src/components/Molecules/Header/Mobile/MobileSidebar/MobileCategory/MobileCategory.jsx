@@ -27,8 +27,8 @@ const MobileCategory = () => {
           <path
             d="M14 16L10 12L14 8"
             stroke="#191919"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
         <S.BackText>Назад</S.BackText>
