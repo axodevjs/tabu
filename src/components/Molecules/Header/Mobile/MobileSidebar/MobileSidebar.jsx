@@ -32,11 +32,10 @@ const MobileSidebar = (props) => {
               </S.Tab>
             ))}
           </S.Tabs>
-          {menuCategory.active === false ? (
-            <MobileCategories />
-          ) : (
-            <MobileCategory />
-          )}
+
+          {menuCategory.active ? "" : <MobileCategories />}
+          <MobileCategory active={menuCategory.active ? true : false} />
+
           <S.Space />
           <div>
             <S.Favorite>Избранные</S.Favorite>

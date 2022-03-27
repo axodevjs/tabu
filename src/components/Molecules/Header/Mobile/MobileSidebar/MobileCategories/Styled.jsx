@@ -4,7 +4,7 @@ export const Categories = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-`
+`;
 export const Category = styled.div`
   display: flex;
   width: calc(100% - 54px);
@@ -16,8 +16,8 @@ export const Category = styled.div`
   color: #191919;
   text-transform: uppercase;
   cursor: pointer;
-  
+
   &:nth-child(1) {
     margin-top: 12px;
   }
-`
+`;

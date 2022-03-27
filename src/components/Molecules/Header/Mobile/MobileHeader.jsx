@@ -19,7 +19,7 @@ const MobileHeader = () => {
   return (
     <>
       <MobileTopHeader />
-      {showMobSidebar && <MobileSidebar />}
+      <MobileSidebar active={showMobSidebar ? true : false} />
       <S.StyledMobileHeader>
         <S.LeftBox>
           <S.Burger onClick={() => dispatch(showMobileSidebar())}>

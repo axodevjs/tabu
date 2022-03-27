@@ -4,7 +4,7 @@ import { setMenuCategory } from "redux/reducers/appReducer";
 import { useNavigate } from "react-router-dom";
 import { getProductsByCategory } from "../../../../../../redux/actions/product";
 
-const MobileCategory = () => {
+const MobileCategory = (props) => {
   const dispatch = useDispatch();
   const menuCategory = useSelector((state) => state.app.menuCategory);
   let navigate = useNavigate();
@@ -14,9 +14,13 @@ const MobileCategory = () => {
     dispatch(getProductsByCategory(category));
   };
 
+  const onClickBack = () => {
+    dispatch(setMenuCategory({ ...menuCategory, active: false }));
+  };
+
   return (
-    <S.Wrapper>
-      <S.Back onClick={() => dispatch(setMenuCategory({ active: false }))}>
+    <S.Wrapper {...props}>
+      <S.Back onClick={() => onClickBack()}>
         <svg
           width="24"
           height="24"

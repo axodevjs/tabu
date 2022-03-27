@@ -75,7 +75,26 @@ const CategoryPage = () => {
           <Flex direction="column">
             <Tags />
             <S.StyledProducts className="w100">
-              {products.map((product) => (
+              {!products.results
+                ? ""
+                : products.results.map((product) => (
+                    <Card
+                      key={product.id}
+                      product_id={product.id}
+                      title={product.title}
+                      description={product.description}
+                      price={product.price}
+                      img={URL + product.images[0].image}
+                    />
+                  ))}
+            </S.StyledProducts>
+          </Flex>
+        </Grid>
+      ) : (
+        <S.StyledProducts>
+          {!products.results
+            ? ""
+            : products.results.map((product) => (
                 <Card
                   key={product.id}
                   product_id={product.id}
@@ -85,21 +104,6 @@ const CategoryPage = () => {
                   img={URL + product.images[0].image}
                 />
               ))}
-            </S.StyledProducts>
-          </Flex>
-        </Grid>
-      ) : (
-        <S.StyledProducts>
-          {products.map((product) => (
-            <Card
-              key={product.id}
-              product_id={product.id}
-              title={product.title}
-              description={product.description}
-              price={product.price}
-              img={URL + product.images[0].image}
-            />
-          ))}
         </S.StyledProducts>
       )}
     </S.Wrapper>

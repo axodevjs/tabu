@@ -1,3 +1,4 @@
+import { sizes } from "sizes";
 import styled from "styled-components";
 
 export const StyledCard = styled.div`
@@ -12,18 +13,28 @@ export const Details = styled.div`
 
 export const ImageBlock = styled.div`
   display: grid;
-  height: auto;
+  height: 300px;
+  justify-items: center;
   padding-top: 25px;
+
+  @media (max-width: ${sizes.mobile}px) {
+    height: 150px;
+  }
 `;
 
 export const HoverImageBlock = styled.div`
   display: grid;
-  height: auto;
+  height: 300px;
+  justify-items: center;
+
+  @media (max-width: ${sizes.mobile}px) {
+    height: 150px;
+  }
 `;
 
 export const Image = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
 `;
 
 export const FavoriteIcon = styled.div`

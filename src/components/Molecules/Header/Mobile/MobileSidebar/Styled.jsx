@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -6,7 +6,15 @@ export const Wrapper = styled.div`
   z-index: 35;
   width: 100%;
   height: 100%;
-`
+  transition: 0.3s;
+  transform: translateX(-100%);
+
+  ${(props) =>
+    props.active &&
+    css`
+      transform: translateX(0%);
+    `}
+`;
 
 export const Background = styled.div`
   background: rgba(0, 0, 0, 0.32);
@@ -16,19 +24,19 @@ export const Background = styled.div`
   top: 0;
   left: 0;
   z-index: 34;
-`
+`;
 
 export const AbsoluteSidebar = styled.div`
   position: fixed;
   width: 80%;
   height: 100%;
   z-index: 36;
-`
+`;
 
 export const MobileSidebar = styled.div`
   background-color: #fff;
   height: 100%;
-`
+`;
 
 export const Login = styled.div`
   padding: 64px 25px 40px 25px;
@@ -37,11 +45,11 @@ export const Login = styled.div`
   font-weight: 600;
   color: #717171;
   cursor: pointer;
-`
+`;
 export const Tabs = styled.div`
   display: flex;
   flex-direction: row;
-`
+`;
 
 export const Tab = styled.div`
   width: 100%;
@@ -56,15 +64,16 @@ export const Tab = styled.div`
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  transition: 0.3s;
 
   ${(props) =>
-          props.active &&
-          css`
-            color: #191919;
-            border-bottom: 2px solid #191919;
-            font-weight: 700;
-          `}
-`
+    props.active &&
+    css`
+      color: #191919;
+      border-bottom: 2px solid #191919;
+      font-weight: 700;
+    `}
+`;
 
 export const Space = styled.div`
   margin-top: 37px;
@@ -72,7 +81,7 @@ export const Space = styled.div`
   height: 1px;
   background-color: #ababab;
   margin-left: 25px;
-`
+`;
 export const Favorite = styled.div`
   display: inline-block;
   font-family: Mont;
@@ -83,4 +92,4 @@ export const Favorite = styled.div`
   border-bottom: 1px solid #000;
   margin-top: 32px;
   cursor: pointer;
-`
+`;
