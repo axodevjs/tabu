@@ -19,11 +19,14 @@ import SortButtons from "../../components/Molecules/CategoryPage/SortButtons/Sor
 import MobileFilter from "../../components/Molecules/MobileFilter/MobileFilter";
 import MobileSort from "components/Molecules/MobileSort/MobileSort";
 import ShareProduct from "components/Molecules/CategoryPage/ShareProduct/ShareProduct";
+import ProductModal from "components/Molecules/Modals/ProductModal";
+import { hideModal } from "redux/reducers/productReducer";
 
 const CategoryPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const products = useSelector((state) => state.product.products);
+  const showModal = useSelector((state) => state.product.showModal);
   const showShare = useSelector(
     (state) => state.product.shareProduct.showShare
   );
@@ -55,6 +58,10 @@ const CategoryPage = () => {
 
   return (
     <S.Wrapper>
+      <ProductModal
+        showModal={showModal}
+        handleClose={() => dispatch(hideModal())}
+      />
       <ShareProduct active={showShare} />
       <MobileFilter active={activeFilter} setActive={setActiveFilter} />
       <MobileSort active={activeSort} setActive={setActiveSort} />

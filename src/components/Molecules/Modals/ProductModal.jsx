@@ -22,12 +22,18 @@ export const StyledWrapper = styled.div`
   height: 100vh;
   background: rgba(0, 0, 0, 0.32);
   z-index: 10;
+  top: 0;
+  left: 0;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
 
   ${(props) =>
-    props.showModal === false &&
+    props.showModal &&
     css`
-      visibility: hidden;
-      opacity: 0;
+      visibility: inherit;
+      opacity: 1;
     `}
 `;
 
@@ -90,7 +96,11 @@ const ProductModal = (props) => {
                 fontSize="12px"
                 color="#717171"
               >
-                Новинки
+                {!opened_product
+                  ? ""
+                  : opened_product.category
+                  ? opened_product.category.title
+                  : ""}
               </Text>
 
               <Text
