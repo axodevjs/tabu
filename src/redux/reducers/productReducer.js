@@ -3,12 +3,17 @@ import {
   HIDE_MODAL,
   SET_PRODUCTS,
   SET_OPENED_PRODUCT,
+  SET_SHARE_PRODUCT,
 } from "redux/types/productTypes";
 
 const defaultState = {
   showModal: false,
   openedProduct: {},
   products: [],
+  shareProduct: {
+    link: "",
+    showShare: false,
+  },
 };
 
 export default function productReducer(state = defaultState, action) {
@@ -25,6 +30,9 @@ export default function productReducer(state = defaultState, action) {
     case SET_OPENED_PRODUCT:
       return { ...state, openedProduct: action.payload };
 
+    case SET_SHARE_PRODUCT:
+      return { ...state, shareProduct: action.payload };
+
     default:
       return state;
   }
@@ -40,5 +48,10 @@ export const setProducts = (products) => ({
 
 export const setOpenedProduct = (product) => ({
   type: SET_OPENED_PRODUCT,
+  payload: product,
+});
+
+export const setShareProduct = (product) => ({
+  type: SET_SHARE_PRODUCT,
   payload: product,
 });

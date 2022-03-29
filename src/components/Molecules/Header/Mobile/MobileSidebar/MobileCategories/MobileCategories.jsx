@@ -1,7 +1,5 @@
 import * as S from "./Styled";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getCategories } from "redux/actions/categories";
 import { setMenuCategory } from "redux/reducers/appReducer";
 
 const MobileCategories = (props) => {

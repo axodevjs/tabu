@@ -18,11 +18,15 @@ import { sizes } from "../../sizes";
 import SortButtons from "../../components/Molecules/CategoryPage/SortButtons/SortButtons";
 import MobileFilter from "../../components/Molecules/MobileFilter/MobileFilter";
 import MobileSort from "components/Molecules/MobileSort/MobileSort";
+import ShareProduct from "components/Molecules/CategoryPage/ShareProduct/ShareProduct";
 
 const CategoryPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const products = useSelector((state) => state.product.products);
+  const showShare = useSelector(
+    (state) => state.product.shareProduct.showShare
+  );
   const optionsSort = [
     { id: 0, name: "Сначала новые" },
     { id: 1, name: "По убыванию цены" },
@@ -51,8 +55,10 @@ const CategoryPage = () => {
 
   return (
     <S.Wrapper>
+      <ShareProduct active={showShare} />
       <MobileFilter active={activeFilter} setActive={setActiveFilter} />
       <MobileSort active={activeSort} setActive={setActiveSort} />
+
       <BreadCrumbs />
       <S.TitlePage>{params.category_name}</S.TitlePage>
       {!isMobile ? (

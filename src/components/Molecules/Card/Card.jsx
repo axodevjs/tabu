@@ -46,7 +46,9 @@ const Card = (props) => {
   };
 
   const onClickView = () => {
-    const targetProduct = products.find((x) => x.id === props.product_id);
+    const targetProduct = products.results.find(
+      (x) => x.id === props.product_id
+    );
     dispatch(setOpenedProduct(targetProduct));
     dispatch(showModal());
   };

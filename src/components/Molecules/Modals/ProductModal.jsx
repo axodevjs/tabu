@@ -10,8 +10,9 @@ import Message from "assets/svg/message.svg";
 import DivImage from "components/Atoms/DivImage";
 import AddFavoriteBtn from "../AddFavoriteBtn";
 import closeModal from "assets/svg/closeModal.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { URL } from "config";
+import { setShareProduct } from "redux/reducers/productReducer";
 
 export const StyledWrapper = styled.div`
   position: fixed;
@@ -58,9 +59,15 @@ export const CloseImg = styled.img`
 
 const ProductModal = (props) => {
   const opened_product = useSelector((state) => state.product.openedProduct);
+  const dispatch = useDispatch();
 
   const showModal = props.showModal;
   const handleClose = props.handleClose;
+
+  const onClickShare = () => {
+    dispatch(setShareProduct({ link: "", showShare: true }));
+    handleClose();
+  };
 
   return (
     <StyledWrapper showModal={showModal}>
@@ -176,6 +183,7 @@ const ProductModal = (props) => {
                   Купить сейчас
                 </Button>
                 <Button
+                  onClick={onClickShare}
                   alignCenter
                   background="#ffffff"
                   fontFamily="Mont"
