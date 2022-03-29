@@ -32,7 +32,7 @@ const SelectSize = (props) => {
   }, []);
 
   return (
-    <Flex>
+    <Flex margin="16px 0 0 0">
       {sizes &&
         props.sizes.map((size, i) => (
           <StyledSize

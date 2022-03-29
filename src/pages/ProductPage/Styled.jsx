@@ -17,7 +17,6 @@ export const TwoBlocks = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 0 59px;
   margin-top: 24px;
-  height: 2000px;
 `;
 
 export const ImagesBlock = styled.div`
@@ -59,4 +58,6 @@ export const MainImages = styled.div`
   flex-direction: column;
 `;
 
-export const ActionBlock = styled.div``;
+export const SubscribeBlock = styled.div`
+  margin-top: 140px;
+`;

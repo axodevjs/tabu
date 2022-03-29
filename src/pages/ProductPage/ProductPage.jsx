@@ -6,6 +6,11 @@ import { getProductById } from "redux/actions/product";
 import * as S from "./Styled";
 import { URL } from "config";
 import * as $ from "jquery";
+import ActionBlock from "./ActionBlock";
+import ShareProduct from "components/Molecules/CategoryPage/ShareProduct/ShareProduct";
+import RightBlock from "./RightBlock/RightBlock";
+import Subscribe from "components/Molecules/HomePage/Desktop/Subscribe";
+import TableSizes from "components/Molecules/TableSizes/TableSizes";
 
 const ProductPage = (props) => {
   const [selectedImage, setSelectedImage] = useState([]);
@@ -13,6 +18,10 @@ const ProductPage = (props) => {
   const dispatch = useDispatch();
   const params = useParams();
   const openedProduct = useSelector((state) => state.product.openedProduct);
+  const showSizesModal = useSelector((state) => state.app.showSizesModal);
+  const showShare = useSelector(
+    (state) => state.product.shareProduct.showShare
+  );
 
   useEffect(() => {
     if (params.product_id !== undefined) {
@@ -43,6 +52,8 @@ const ProductPage = (props) => {
 
   return (
     <S.Container {...props}>
+      <TableSizes active={showSizesModal} />
+      <ShareProduct active={showShare} />
       <S.BreadCrumb>Главная / Для нее / Новинки / Толстовка</S.BreadCrumb>
 
       <S.TwoBlocks>
@@ -77,8 +88,11 @@ const ProductPage = (props) => {
               : ""}
           </S.MainImages>
         </S.ImagesBlock>
-        <S.ActionBlock>234</S.ActionBlock>
+        <RightBlock />
       </S.TwoBlocks>
+      <S.SubscribeBlock>
+        <Subscribe />
+      </S.SubscribeBlock>
     </S.Container>
   );
 };
