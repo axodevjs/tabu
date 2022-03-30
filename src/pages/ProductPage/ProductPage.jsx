@@ -36,9 +36,9 @@ const ProductPage = (props) => {
   }, [openedProduct]);
 
   const scrollTo = (id) => {
-    $("html,body").animate(
+    $([document.documentElement, document.body]).animate(
       {
-        scrollTop: $("#" + id).offset().top - $(window).height() / 2,
+        scrollTop: $(`#${id}`).offset().top,
       },
       300
     );

@@ -57,6 +57,17 @@ const StyledButton = styled.button`
       align-items: center;
       justify-content: center;
     `}
+
+    ${(props) =>
+    props.green &&
+    css`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #025b37;
+      color: #fff;
+      border: none;
+    `}
 `;
 
 const Button = (props) => {
