@@ -19,6 +19,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const profileShow = useSelector((state) => state.app.showProfile);
   const categories = useSelector((state) => state.categories.categories);
+  const cartProducts = useSelector((state) => state.cart.cartProducts);
 
   useEffect(() => {
     dispatch(getCategories());
@@ -65,6 +66,7 @@ const Header = () => {
                 strokeLinecap="round"
               />
             </svg>
+            <S.CartNumber>{cartProducts.length}</S.CartNumber>
           </S.Cart>
           <S.Favorite>
             <svg

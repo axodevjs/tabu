@@ -131,6 +131,7 @@ a {
   top: 0;
   right: 0;
   display: none;
+  z-index: 3;
   width: 100%;
   align-items: end;
   flex-direction: column;

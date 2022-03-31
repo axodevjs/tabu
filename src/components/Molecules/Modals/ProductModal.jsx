@@ -13,6 +13,10 @@ import closeModal from "assets/svg/closeModal.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { URL } from "config";
 import { setShareProduct } from "redux/reducers/productReducer";
+import { useEffect, useState } from "react";
+import { getSizes } from "redux/actions/product";
+import { useNavigate } from "react-router-dom";
+import { setCartProducts } from "redux/reducers/cartReducer";
 
 export const StyledWrapper = styled.div`
   position: fixed;
@@ -65,14 +69,54 @@ export const CloseImg = styled.img`
 
 const ProductModal = (props) => {
   const opened_product = useSelector((state) => state.product.openedProduct);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [addedToCart, setAddedToCard] = useState(false);
 
   const showModal = props.showModal;
   const handleClose = props.handleClose;
 
+  useEffect(() => {
+    if (opened_product.id) {
+      let cartProductsArray =
+        JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+      if (cartProductsArray.filter((x) => x.id === opened_product.id).length) {
+        setAddedToCard(true);
+      } else {
+        setAddedToCard(false);
+      }
+    }
+  }, [opened_product]);
+
   const onClickShare = () => {
     dispatch(setShareProduct({ link: "", showShare: true }));
     handleClose();
+  };
+
+  const addToCart = () => {
+    let cartProductsArray =
+      JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    // Если в корзине есть товар удалить его
+    if (cartProductsArray.filter((x) => x.id === opened_product.id).length) {
+      cartProductsArray = cartProductsArray.filter(
+        (x) => x.id !== opened_product.id
+      );
+      localStorage.setItem("cartProducts", JSON.stringify(cartProductsArray));
+
+      dispatch(setCartProducts(cartProductsArray));
+      setAddedToCard(false);
+    }
+
+    // Если в корзине нет товара добавить его
+    else {
+      cartProductsArray.push(opened_product);
+      localStorage.setItem("cartProducts", JSON.stringify(cartProductsArray));
+
+      dispatch(setCartProducts(cartProductsArray));
+      setAddedToCard(true);
+    }
   };
 
   return (
@@ -165,7 +209,7 @@ const ProductModal = (props) => {
                 >
                   Размер:
                 </Text>
-                <SelectSize sizes={default_sizes} />
+                <SelectSize sizes={opened_product ? opened_product.size : ""} />
               </Flex>
               <Flex name="buttons" margin="32px 0 0 0" direction="column">
                 <Button
@@ -177,8 +221,9 @@ const ProductModal = (props) => {
                   padding="16px 0"
                   border="none"
                   w100
+                  onClick={addToCart}
                 >
-                  Добавить в корзину
+                  {addedToCart ? "Добавлено в корзину" : "Добавить в корзину"}
                 </Button>
                 <Button
                   margin="12px 0 0 0"
@@ -235,6 +280,7 @@ const ProductModal = (props) => {
               fontSize="14px"
               decLine="1px solid #191919"
               cursor="pointer"
+              onClick={() => navigate(`/products/${opened_product.id}`)}
             >
               Подробнее
             </Text>

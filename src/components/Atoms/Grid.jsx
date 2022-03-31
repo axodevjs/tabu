@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 const StyledGrid = styled.div`
   display: grid;
@@ -15,6 +16,12 @@ const StyledGrid = styled.div`
   cursor: ${({ cursor }) => cursor || "auto"};
   height: ${({ height }) => height || ""};
   width: ${(props) => props.width || ""};
+
+  ${(props) =>
+    props.w100 &&
+    css`
+      width: 100%;
+    `}
 `;
 
 const Grid = (props) => {

@@ -3,7 +3,11 @@ import { API_URL } from "config.js";
 import { useSelector } from "react-redux";
 import { store } from "redux/reducers";
 import { setQuery } from "redux/reducers/filterOptionsReducer";
-import { setOpenedProduct, setProducts } from "redux/reducers/productReducer";
+import {
+  setOpenedProduct,
+  setProducts,
+  setSizes,
+} from "redux/reducers/productReducer";
 
 export const getProducts = () => {
   return async (dispatch) => {
@@ -74,6 +78,17 @@ export const getProductsByCategory = (
         );
         dispatch(setProducts(response.data));
       }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const getSizes = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`${API_URL}/products/size`);
+      dispatch(setSizes(response.data));
     } catch (e) {
       console.log(e);
     }

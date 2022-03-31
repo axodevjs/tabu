@@ -55,6 +55,7 @@ const Card = (props) => {
 
   return (
     <S.StyledCard
+      {...props}
       className="card"
       onMouseEnter={onHover}
       onMouseLeave={() => setHover(false)}
@@ -83,9 +84,7 @@ const Card = (props) => {
               </S.HoverFavoriteIcon>
             </Grid>
 
-            <S.HoverImageBlock>
-              <S.Image src={props.img} alt="" />
-            </S.HoverImageBlock>
+            <S.ImageBlock src={props.img} />
             <S.Details>
               <div>
                 <Text
@@ -153,9 +152,7 @@ const Card = (props) => {
         </S.FavoriteIcon>
       )}
 
-      <S.ImageBlock>
-        <S.Image src={props.img} alt="" />
-      </S.ImageBlock>
+      <S.ImageBlock src={props.img} />
 
       <S.Details>
         <div>

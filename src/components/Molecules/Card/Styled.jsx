@@ -16,6 +16,9 @@ export const ImageBlock = styled.div`
   height: 300px;
   justify-items: center;
   padding-top: 25px;
+  background-image: url(${({ src }) => src || ""});
+  background-size: cover;
+  background-position: center;
 
   @media (max-width: ${sizes.mobile}px) {
     height: 150px;

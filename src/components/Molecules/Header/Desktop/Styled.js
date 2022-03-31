@@ -53,12 +53,15 @@ export const Cart = styled.div`
   align-items: center;
   margin-left: 37px;
   cursor: pointer;
+  position: relative;
+  height: 40px;
+  width: 40px;
 `;
 
 export const Favorite = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 31px;
+  margin-left: 12px;
   cursor: pointer;
 `;
 
@@ -90,4 +93,25 @@ export const OpenedProfile = styled.div`
 export const ProfileBlock = styled.div`
   position: relative;
   display: flex;
+`;
+
+export const CartNumber = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 14px;
+  height: 14px;
+
+  color: #fff;
+  background: #191919;
+  font-size: 8px;
+  font-weight: 700;
+  font-family: "Mont";
+
+  position: absolute;
+  right: 14px;
+  top: 1px;
+
+  border-radius: 50%;
 `;

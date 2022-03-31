@@ -8,16 +8,19 @@ import { useEffect, useState } from "react";
 import MobileFooter from "../Molecules/Footer/Mobile/MobileFooter";
 import MobileHeader from "../Molecules/Header/Mobile/MobileHeader";
 import { sizes } from "../../sizes";
+import { setCartProducts } from "redux/reducers/cartReducer";
 
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch();
-  const showModal = useSelector((state) => state.product.showModal);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (window.innerWidth < sizes.mobile) {
       setIsMobile(true);
     }
+
+    // set cart products
+    dispatch(setCartProducts(JSON.parse(localStorage.getItem("cartProducts"))));
   }, []);
 
   return (
