@@ -8,6 +8,7 @@ const StyledButton = styled.button`
   width: ${({ width }) => width || ""};
   background: ${({ background }) => background || ""};
   border: ${({ border }) => border || ""};
+  border-radius: ${({ borderRadius }) => borderRadius || ""};
   color: ${({ color }) => color || ""};
   font-family: ${({ fontFamily }) => fontFamily || "Mont"};
   font-size: ${({ fontSize }) => fontSize || "13px"};

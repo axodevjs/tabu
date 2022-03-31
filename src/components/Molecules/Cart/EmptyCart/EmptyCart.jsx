@@ -1,3 +1,4 @@
+import Button from "components/Atoms/Button";
 import * as S from "./Styled";
 
 const EmptyCart = () => {

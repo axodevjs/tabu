@@ -114,3 +114,12 @@ export const PriceCol = styled.div`
   font-size: 12px;
   color: #191919;
 `;
+
+export const CloseBtn = styled.div`
+  position: absolute;
+  top: 24px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+`;

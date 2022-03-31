@@ -9,14 +9,14 @@ import Expand from "assets/svg/expand_profile.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { hideProfile, showProfile } from "redux/reducers/appReducer";
 import Logo from "assets/img/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ImageBlock from "components/Atoms/ImageBlock";
-import { ProfileBlock } from "./Styled";
 import { getCategories } from "redux/actions/categories";
 import { setMainCategory } from "redux/reducers/categoriesReducer";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const profileShow = useSelector((state) => state.app.showProfile);
   const categories = useSelector((state) => state.categories.categories);
   const cartProducts = useSelector((state) => state.cart.cartProducts);
@@ -42,10 +42,10 @@ const Header = () => {
           </Link>
         </S.Logo>
         <S.UserBlock>
-          <Button outlined={true} width="137px">
+          <Button outlined={true} width="149px">
             Продать товар
           </Button>
-          <S.Cart>
+          <S.Cart onClick={() => navigate("/cart")}>
             <svg
               width={17}
               height={18}
@@ -66,7 +66,11 @@ const Header = () => {
                 strokeLinecap="round"
               />
             </svg>
-            <S.CartNumber>{cartProducts.length}</S.CartNumber>
+            {!cartProducts?.length ? (
+              ""
+            ) : (
+              <S.CartNumber>{cartProducts?.length}</S.CartNumber>
+            )}
           </S.Cart>
           <S.Favorite>
             <svg
