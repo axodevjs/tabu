@@ -1,13 +1,16 @@
 import styled from "styled-components";
+import {sizes} from "../../../../../../sizes";
 
 export const Card = styled.div`
   display: grid;
   position: relative;
-  width: 100%;
-  grid-column-gap: 60px;
-  grid-template-columns: 30% 40% 30%;
-  padding: 24px 0;
+  width: calc(100% - 48px);
+  padding: 24px;
   border-bottom: 1px solid #e5e5e5;
+
+  @media (max-width: ${sizes.mobile}px) {
+    width: calc(100% - 48px);
+  }
 `;
 
 export const LeftCol = styled.div`
@@ -17,7 +20,20 @@ export const LeftCol = styled.div`
 
 export const Profile = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ProfileMobile = styled.div`
+  display: flex;
   align-items: start;
+`;
+
+export const MobileProfile = styled.div`
+  display: flex;
+  align-items: start;
+  width: 100%;
+  justify-content: space-between;
 `;
 
 export const ProfileAvatar = styled.div`
@@ -58,17 +74,24 @@ export const ProductImage = styled.div`
   background-image: url(${({ src }) => src || ""});
   background-size: cover;
   background-position: center;
+
+  @media (max-width: ${sizes.mobile}px) {
+    margin-top: 0px;
+  }
 `;
 
 export const DescriptionCol = styled.div`
   display: flex;
-  margin-top: 60px;
+  margin-top: 25px;
 `;
 
 export const DescBlock = styled.div`
   display: flex;
-  width: 70%;
   flex-direction: column;
+
+  @media (max-width: ${sizes.mobile}px) {
+    margin-left: 14px;
+  }
 `;
 
 export const DescriptionTitle = styled.div`
@@ -107,12 +130,27 @@ export const SizeBlock = styled.div`
   color: #717171;
 `;
 
+export const Size = styled.div`
+  margin-top: 12px;
+
+  font-family: Mont;
+  font-weight: 600;
+  font-size: 12px;
+  color: #717171;
+  height: auto;
+  width: auto;
+`
+
 export const PriceCol = styled.div`
   margin-top: 70px;
   font-family: Gilroy;
   font-weight: 600;
   font-size: 12px;
   color: #191919;
+
+  @media (max-width: ${sizes.mobile}px) {
+    margin-top: 12px;
+  } 
 `;
 
 export const CloseBtn = styled.div`

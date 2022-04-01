@@ -1,9 +1,17 @@
 import Button from "components/Atoms/Button";
 import { useSelector } from "react-redux";
 import * as S from "./Styled";
+import {useEffect, useState} from "react";
+import {sizes} from "../../../../../../sizes";
 
 const Order = () => {
   const cartProducts = useSelector((state) => state.cart.cartProducts);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < sizes.mobile) {
+      setIsMobile(true);
+    }
+  }, [])
 
   return (
     <S.Container>
@@ -80,14 +88,16 @@ const Order = () => {
           background="#fff"
           color="#717171"
           padding="14px 40.5px"
+          width={isMobile ? "100%" : "auto"}
         >
           Продолжить покупки
         </Button>
         <Button
-          margin="0 0 0 51px"
+          margin={ isMobile ? "8px 0 0 0" : "0 0 0 51px"}
           green
           borderRadius="2px"
           padding="14px 56.5px"
+          width={isMobile ? "100%" : "auto"}
         >
           Оформить заказ
         </Button>

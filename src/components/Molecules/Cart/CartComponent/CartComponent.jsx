@@ -2,11 +2,23 @@ import Grid from "components/Atoms/Grid";
 import Left from "./Left/Left";
 import Right from "./Right/Right";
 import * as S from "./Styled";
+import {useSelector} from "react-redux";
+import {useEffect, useState} from "react";
+import {sizes} from "../../../../sizes";
 
 const CartComponent = (props) => {
-  return (
+    const cartProducts = useSelector((state) => state.cart.cartProducts);
+
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        if (window.innerWidth < sizes.mobile) {
+            setIsMobile(true);
+        }
+    }, [])
+
+    return (
     <S.Container {...props}>
-      <S.Title>Корзина(2)</S.Title>
+      <S.Title>Корзина({cartProducts?.length})</S.Title>
       <S.Description>Бесплатная доставка и возврат</S.Description>
 
       <Grid
@@ -17,7 +29,9 @@ const CartComponent = (props) => {
         gap="0 96px"
       >
         <Left />
-        <Right />
+          {!isMobile && (
+              <Right/>
+          )}
       </Grid>
     </S.Container>
   );

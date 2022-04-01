@@ -1,10 +1,16 @@
 import styled from "styled-components";
+import {sizes} from "../../../../../../sizes";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 40px;
   width: 65%;
+
+  @media (max-width: ${sizes.mobile}px) {
+   width: calc(100vw - 50px);
+    padding: 0 25px;
+  }
 `;
 
 export const Title = styled.div`
@@ -101,6 +107,10 @@ export const InfoText = styled.div`
 export const Buttons = styled.div`
   display: flex;
   margin-top: 40px;
+
+  @media (max-width: ${sizes.mobile}px) {
+    flex-direction: column;
+  }
 `;
 
 export const Buttons2 = styled.div``;

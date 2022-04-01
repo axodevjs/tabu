@@ -7,7 +7,7 @@ import Button from "components/Atoms/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { setOpenedProduct, showModal } from "redux/reducers/productReducer";
 import { sizes } from "../../../sizes";
-import ImageBlock from "components/Atoms/ImageBlock";
+import {useNavigate} from "react-router-dom";
 
 export const HoverWrapper = styled.div`
   position: relative;
@@ -28,6 +28,7 @@ export const HoverCard = styled.div`
 
 const Card = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const products = useSelector((state) => state.product.products);
   const [hover, setHover] = useState(false);
   const [widthHoverBlock, setWidthHoverBlock] = useState();
@@ -161,6 +162,7 @@ const Card = (props) => {
             fontFamily="Mont"
             fontWeight="700"
             fontSize="16px"
+            onClick={() => navigate(`/products/${props?.product_id}`)}
           >
             {props.title ? props.title : ""}
           </Text>

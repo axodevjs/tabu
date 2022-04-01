@@ -22,8 +22,8 @@ const CartProductCard = (props) => {
 
     return (
         <S.Card>
-            <S.LeftCol>
-                <S.Profile>
+            <S.Profile>
+                <S.ProfileMobile>
                     <S.ProfileAvatar
                         src={
                             "https://s3-alpha-sig.figma.com/img/069d/4993/effb9b18f14255a7118da3477ecc84db?Expires=1649635200&Signature=RTys6vM4E9Xmg7hJjb3xWi24G8ux6STDBTGPxBIbZZ-7gsb8lNW75CuUnu~JGLTvhQ8QJPYcbxqbKxGMJn857jySEbOKhvvTbG6L7yyPfG7OoI3sTGkraJcfphAaLw90DQs~IdMqxAi-F72bLsBCebrIrLGbpOgmrDLHwCEYpYdenIf7vVYnaaSnzGYE8RJXneIzxd-OxMaE4qBWuS9cAiR93ot7l~-jiUw8ompgM9kt38cigyX0zavTwcJfkRVDmAMWNgyd-XlJt0zAMIvuDWGl6jR~QujBDWbLllk9aEaaZQl93hk77R79~WYR2weIgpOGDSEtpJN9QhQIKHjpLQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
@@ -33,26 +33,8 @@ const CartProductCard = (props) => {
                         <S.ProfileName>{props.product?.seller?.first_name}</S.ProfileName>
                         <S.ProfileRole>Частный продавец</S.ProfileRole>
                     </S.ProfileDetails>
-                </S.Profile>
-                <S.ProductImage
-                    src={
-                        URL +
-                        props.product?.images?.find((x) => x.main_image === true)?.image
-                    }
-                />
-            </S.LeftCol>
-            <S.DescriptionCol>
-                <S.DescBlock>
-                    <S.DescriptionTitle>{props.product?.title}</S.DescriptionTitle>
-                    <S.DescriptionText>{props.product?.description}</S.DescriptionText>
-                </S.DescBlock>
-                <S.SizeBlock>
-                    {props.product?.size?.filter((x) => x.selected === true)[0]?.title}
-                </S.SizeBlock>
-            </S.DescriptionCol>
-            <S.PriceCol>${props.product?.price}</S.PriceCol>
-            <S.CloseBtn onClick={() => deleteItem(props.product?.id)}>
-                <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </S.ProfileMobile>
+                <svg onClick={() => deleteItem(props.product?.id)} width="10px" height="10px" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         fillRule="evenodd"
                         clipRule="evenodd"
@@ -60,7 +42,21 @@ const CartProductCard = (props) => {
                         fill="#717171"
                     />
                 </svg>
-            </S.CloseBtn>
+            </S.Profile>
+            <S.DescriptionCol>
+                <S.ProductImage
+                    src={
+                        URL +
+                        props.product?.images?.find((x) => x.main_image === true)?.image
+                    }
+                />
+                <S.DescBlock>
+                    <S.DescriptionTitle>{props.product?.title}</S.DescriptionTitle>
+                    <S.DescriptionText>{props.product?.description}</S.DescriptionText>
+                    <S.PriceCol>${props.product?.price}</S.PriceCol>
+                    <S.Size>Размер: {props.product?.size?.filter((x) => x.selected === true)[0]?.title}</S.Size>
+                </S.DescBlock>
+            </S.DescriptionCol>
         </S.Card>
     );
 };

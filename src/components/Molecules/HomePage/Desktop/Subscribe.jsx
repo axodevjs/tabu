@@ -4,6 +4,8 @@ import Flex from "../../../Atoms/Flex";
 import Input from "../../../Atoms/Form/Input";
 import Radio from "../../../Atoms/Form/Radio";
 import Text from "../../../Atoms/Text";
+import styled from "styled-components";
+import {sizes} from "../../../../sizes";
 
 const Subscribe = () => {
   const [favorite, setFavorite] = useState("woman");
@@ -17,9 +19,30 @@ const Subscribe = () => {
     setFavorite("men");
   };
 
+  const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 80px 0 89px 0;
+
+    @media (max-width: ${sizes.mobile}px) {
+      padding: 0px 0 0 0;
+    }
+  `
+
+  const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+    @media (max-width: ${sizes.mobile}px) {
+      width: 100%;
+      padding: 48px 25px;
+    }
+  `
+
   return (
-    <Flex padding="80px 0 89px 0" justify="center">
-      <Flex name="Wrapper" width="30%" direction="column">
+    <Wrapper>
+      <Container name="Wrapper" width="30%" direction="column">
         <Text
           color="#191919"
           fontFamily="Gilroy"
@@ -84,8 +107,8 @@ const Subscribe = () => {
           Подписываясь на рассылку, вы соглашаетесь с этими документами:
           «Условиями пользования» и «Политикой конфиденциальности».
         </Text>
-      </Flex>
-    </Flex>
+      </Container>
+    </Wrapper>
   );
 };
 

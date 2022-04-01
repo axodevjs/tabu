@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { css } from "styled-components";
+import {sizes} from "../../../../sizes";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -33,15 +34,31 @@ export const Block = styled.div`
   justify-content: center;
   align-items: start;
   width: 740px;
+
+  @media (max-width: ${sizes.mobile}px) {
+    width: 90%;
+  }
 `;
 
 export const Left = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
 
-  padding: 56px 132px 97px 132px;
+  @media (max-width: ${sizes.mobile}px) {
+    width: 90%;
+    padding: 32px 24px 40px 24px;
+    align-items: start;
+  }
+`;
+
+export const CloseMobile = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  cursor: pointer;
 `;
 
 export const Close = styled.div`
@@ -58,6 +75,11 @@ export const Title = styled.div`
   font-family: Gilroy;
   text-align: center;
   text-transform: uppercase;
+
+  @media (max-width: ${sizes.mobile}px) {
+    font-size: 16px;
+    text-align: left;
+  }
 `;
 
 export const Description = styled.div`
@@ -67,6 +89,50 @@ export const Description = styled.div`
   color: #191919;
   font-weight: 400;
   font-family: Gilroy;
+
+  @media (max-width: ${sizes.mobile}px) {
+    font-size: 14px;
+    text-align: left;
+    margin-top: 8px;
+  }
+`;
+
+export const MobileSocials = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+`;
+
+export const MobileSocial = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 24px;
+  
+  &:nth-child(1) {
+    margin-left: 0;
+  }
+`;
+
+export const MobileSocialIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+  background-color: #F9F9F9;
+  border-radius: 50%;
+`;
+
+export const MobileSocialName = styled.div`
+  margin-top: 8px;
+  font-size: 12px;
+  color: #1f1f1f;
+  font-weight: 400;
+  text-align: center;
+  font-family: Inter;
 `;
 
 export const Socials = styled.div`

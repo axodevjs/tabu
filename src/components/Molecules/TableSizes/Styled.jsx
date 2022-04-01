@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { css } from "styled-components";
+import {sizes} from "../../../sizes";
 
 export const Container = styled.div`
   position: fixed;
@@ -33,15 +34,24 @@ export const Block = styled.div`
   justify-content: center;
   align-items: start;
   width: 740px;
+
+  @media (max-width: ${sizes.mobile}px) {
+    width: 90%;
+  }
 `;
 
 export const Left = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
 
   padding: 56px 37px 156px 37px;
+
+  @media (max-width: ${sizes.mobile}px) {
+    padding: 63px 16px 40px 16px;
+  }
 `;
 
 export const Close = styled.div`
@@ -50,6 +60,14 @@ export const Close = styled.div`
   align-items: start;
   cursor: pointer;
 `;
+
+export const CloseMobile = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  cursor: pointer;
+`;
+
 
 export const Title = styled.div`
   font-family: Gilroy;

@@ -1,4 +1,4 @@
-import ActionBlock from "pages/ProductPage/ActionBlock";
+import ActionBlock from "components/Molecules/ProductPage/Desktop/ActionBlock";
 import { useSelector } from "react-redux";
 import * as S from "./Styled";
 
