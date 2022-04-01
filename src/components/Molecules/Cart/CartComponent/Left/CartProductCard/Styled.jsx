@@ -20,8 +20,12 @@ export const LeftCol = styled.div`
 
 export const Profile = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
+
+  @media (max-width: ${sizes.mobile}px) {
+    justify-content: space-between;
+  }
 `;
 
 export const ProfileMobile = styled.div`
