@@ -7,6 +7,27 @@ import Text from "../../../Atoms/Text";
 import styled from "styled-components";
 import {sizes} from "../../../../sizes";
 
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+    @media (max-width: ${sizes.mobile}px) {
+      width: 100%;
+      padding: 48px 25px;
+    }
+  `
+
+const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 80px 0 89px 0;
+
+    @media (max-width: ${sizes.mobile}px) {
+      padding: 0px 0 0 0;
+    }
+  `
+
 const Subscribe = () => {
   const [favorite, setFavorite] = useState("woman");
   const [email, setEmail] = useState("");
@@ -19,26 +40,7 @@ const Subscribe = () => {
     setFavorite("men");
   };
 
-  const Wrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    padding: 80px 0 89px 0;
 
-    @media (max-width: ${sizes.mobile}px) {
-      padding: 0px 0 0 0;
-    }
-  `
-
-  const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-
-    @media (max-width: ${sizes.mobile}px) {
-      width: 100%;
-      padding: 48px 25px;
-    }
-  `
 
   return (
     <Wrapper>

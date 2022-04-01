@@ -10,17 +10,60 @@ import { useDispatch, useSelector } from "react-redux";
 import Share from "assets/svg/share.svg";
 import Message from "assets/svg/message.svg";
 import { setShowSizesModal } from "redux/reducers/appReducer";
+import {useEffect, useState} from "react";
+import {setCartProducts} from "../../../../redux/reducers/cartReducer";
 
 const Container = styled.div`
 `;
 
 const ActionBlock = () => {
   const dispatch = useDispatch();
-  const openedProduct = useSelector((state) => state.product.openedProduct);
+  const opened_product = useSelector((state) => state.product.openedProduct);
+  const [addedToCart, setAddedToCard] = useState(false);
 
   const openTableSizes = () => {
     dispatch(setShowSizesModal(true));
   };
+
+
+
+  const addToCart = () => {
+    let cartProductsArray =
+        JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    // Если в корзине есть товар удалить его
+    if (cartProductsArray.filter((x) => x.id === opened_product.id).length) {
+      cartProductsArray = cartProductsArray.filter(
+          (x) => x.id !== opened_product.id
+      );
+      localStorage.setItem("cartProducts", JSON.stringify(cartProductsArray));
+
+      dispatch(setCartProducts(cartProductsArray));
+      setAddedToCard(false);
+    }
+
+    // Если в корзине нет товара добавить его
+    else {
+      cartProductsArray.push(opened_product);
+      localStorage.setItem("cartProducts", JSON.stringify(cartProductsArray));
+
+      dispatch(setCartProducts(cartProductsArray));
+      setAddedToCard(true);
+    }
+  };
+
+  useEffect(() => {
+    if (opened_product.id) {
+      let cartProductsArray =
+          JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+      if (cartProductsArray.filter((x) => x.id === opened_product.id).length) {
+        setAddedToCard(true);
+      } else {
+        setAddedToCard(false);
+      }
+    }
+  }, [opened_product]);
 
   return (
     <Container>
@@ -31,10 +74,10 @@ const ActionBlock = () => {
           fontSize="12px"
           color="#717171"
         >
-          {!openedProduct
+          {!opened_product
             ? ""
-            : openedProduct.category
-            ? openedProduct.category.title
+            : opened_product.category
+            ? opened_product.category.title
             : ""}
         </Text>
 
@@ -46,7 +89,7 @@ const ActionBlock = () => {
           color="#191919"
           textTransform="uppercase"
         >
-          {openedProduct ? openedProduct.title : ""}
+          {opened_product ? opened_product.title : ""}
         </Text>
         <Text
           margin="19px 0 0 0"
@@ -56,7 +99,7 @@ const ActionBlock = () => {
           color="#191919"
           textTransform="uppercase"
         >
-          {openedProduct ? openedProduct.description : ""}
+          {opened_product ? opened_product.description : ""}
         </Text>
         <Flex direction="row" margin="32px 0 0 0">
           <Text
@@ -65,7 +108,7 @@ const ActionBlock = () => {
             fontSize="14px"
             color="#191919"
           >
-            {openedProduct ? "$ " + openedProduct.price : ""}
+            {opened_product ? "$ " + opened_product.price : ""}
           </Text>
           {/* Скидка */}
           {/* <Text
@@ -125,8 +168,9 @@ const ActionBlock = () => {
             padding="16px 0"
             border="none"
             w100
+            onClick={() => addToCart()}
           >
-            Добавить в корзину
+            {addedToCart ? "Добавлено в корзину" : "Добавить в корзину"}
           </Button>
           <Button
             margin="12px 0 0 0"

@@ -14,7 +14,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { URL } from "config";
 import { setShareProduct } from "redux/reducers/productReducer";
 import { useEffect, useState } from "react";
-import { getSizes } from "redux/actions/product";
 import { useNavigate } from "react-router-dom";
 import { setCartProducts } from "redux/reducers/cartReducer";
 
