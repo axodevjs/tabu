@@ -19,6 +19,7 @@ const Header = () => {
   const navigate = useNavigate();
   const profileShow = useSelector((state) => state.app.showProfile);
   const categories = useSelector((state) => state.categories.categories);
+  const main_category = useSelector((state) => state.categories.main_category);
   const cartProducts = useSelector((state) => state.cart.cartProducts);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const Header = () => {
       <S.StyledHeader>
         <S.Categories>
           {categories.map((category, i) => (
-            <S.Category onClick={() => dispatch(setMainCategory(category))}>
+            <S.Category active={main_category.title === category?.title ? true : false } onClick={() => dispatch(setMainCategory(category))}>
               {category.title}
             </S.Category>
           ))}

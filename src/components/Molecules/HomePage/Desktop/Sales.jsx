@@ -54,6 +54,7 @@ const Sales = () => {
           color="#ffffff"
           margin="32px 0 0 0"
           cursor="pointer"
+          decLine="1px solid #fff"
         >
           КУПИТЬ СЕЙЧАС
         </Text>

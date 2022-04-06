@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Text from "../../../Atoms/Text";
-import Questions from "components/Questions";
+import Questions from "components/Molecules/HomePage/Desktop/Questions/Questions";
 
 const StyledAnswers = styled.div`
   display: flex;

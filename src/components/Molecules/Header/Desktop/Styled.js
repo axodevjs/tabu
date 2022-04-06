@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const StyledHeader = styled.div`
   display: grid;
@@ -19,12 +19,20 @@ export const Category = styled.div`
   font-family: "Mont";
   font-size: 16px;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
   margin-left: 24px;
   cursor: pointer;
+  color: #717171;
 
   &:nth-child(1) {
     margin-left: 0;
+  }
+  
+  ${
+    props => props.active && css`
+      color: #191919;
+      font-weight: 700;
+    `
   }
 `;
 
