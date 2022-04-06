@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 export const StyledCard = styled.div`
   display: grid;
+  position: relative;
+  cursor: pointer;
+  padding: ${({padding}) => padding || ''};
 `;
 
 export const Details = styled.div`

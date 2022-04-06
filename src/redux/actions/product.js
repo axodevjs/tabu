@@ -4,9 +4,10 @@ import { useSelector } from "react-redux";
 import { store } from "redux/reducers";
 import { setQuery } from "redux/reducers/filterOptionsReducer";
 import {
+  setNewProducts,
   setOpenedProduct,
   setProducts,
-  setSizes,
+  setSizes, setTrends,
 } from "redux/reducers/productReducer";
 
 export const getProducts = () => {
@@ -89,6 +90,28 @@ export const getSizes = () => {
     try {
       const response = await axios.get(`${API_URL}/products/size`);
       dispatch(setSizes(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const getNewProducts = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`${API_URL}/products?category__title__in=Новинки`);
+      dispatch(setNewProducts(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const getTrends = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`${API_URL}/products?category__title__in=Сейчас в тренде`);
+      dispatch(setTrends(response.data));
     } catch (e) {
       console.log(e);
     }

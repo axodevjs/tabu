@@ -61,7 +61,7 @@ const Card = (props) => {
       onMouseEnter={onHover}
       onMouseLeave={() => setHover(false)}
     >
-      {hover && !isMobile && (
+      {!props.noHover && hover && !isMobile && (
         <HoverWrapper>
           <HoverCard width={`${widthHoverBlock}px`}>
             <Grid>

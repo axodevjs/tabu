@@ -4,7 +4,7 @@ import {
   SET_PRODUCTS,
   SET_OPENED_PRODUCT,
   SET_SHARE_PRODUCT,
-  SET_SIZES,
+  SET_SIZES, SET_NEW_PRODUCTS, SET_TRENDS,
 } from "redux/types/productTypes";
 
 const defaultState = {
@@ -15,6 +15,8 @@ const defaultState = {
     link: "",
     showShare: false,
   },
+  newProducts: [],
+  trends: [],
   sizes: [],
 };
 
@@ -37,6 +39,12 @@ export default function productReducer(state = defaultState, action) {
 
     case SET_SIZES:
       return { ...state, sizes: action.payload };
+
+    case SET_NEW_PRODUCTS:
+      return { ...state, newProducts: action.payload };
+
+    case SET_TRENDS:
+      return { ...state, trends: action.payload };
 
     default:
       return state;
@@ -64,4 +72,14 @@ export const setShareProduct = (product) => ({
 export const setSizes = (sizes) => ({
   type: SET_SIZES,
   payload: sizes,
+});
+
+export const setNewProducts = (products) => ({
+  type: SET_NEW_PRODUCTS,
+  payload: products,
+});
+
+export const setTrends = (trends) => ({
+  type: SET_TRENDS,
+  payload: trends,
 });
