@@ -41,7 +41,7 @@ const OpenedProfile = () => {
               fontSize="12px"
               color="#191919"
               padding="8px 12px"
-              outlined
+              topGreen
             >
               Регистрация
             </Button>

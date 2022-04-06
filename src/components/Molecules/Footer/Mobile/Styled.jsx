@@ -5,13 +5,13 @@ export const StyledMobileFooter = styled.footer`
   flex-direction: column;
   width: 100%;
   padding: 24px 0 48px 0;
-  background: #191919;
+  background: #00331E;
 `;
 
 export const Category = styled.div`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #474747;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   flex-direction: row;
   padding: 27px 25px;
 `

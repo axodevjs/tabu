@@ -24,6 +24,14 @@ const StyledButton = styled.button`
     `}
 
   ${(props) =>
+      props.topGreen &&
+      css`
+      background-color: #025B37;
+      border: none;
+        color: #fff;
+    `}
+
+  ${(props) =>
     props.filled &&
     css`
       background-color: #ffffff;

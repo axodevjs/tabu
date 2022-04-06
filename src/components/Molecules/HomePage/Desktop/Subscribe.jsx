@@ -94,7 +94,7 @@ const Subscribe = () => {
           fontWeight="400"
           padding="11px 0"
           margin="20px 0 0 0"
-          dark_filled
+          topGreen
         >
           Подписаться
         </Button>

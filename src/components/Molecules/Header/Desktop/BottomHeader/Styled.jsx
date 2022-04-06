@@ -4,7 +4,7 @@ export const BottomHeader = styled.div`
   display: grid;
   height: 49px;
   padding: 0 56px;
-  background: #191919;
+  background: #025B37;
 `;
 
 export const BottomCategories = styled.div`

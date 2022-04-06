@@ -231,7 +231,7 @@ const ProductModal = (props) => {
                   fontSize="14px"
                   padding="16px 0"
                   border="none"
-                  dark_filled
+                  topGreen
                   w100
                 >
                   Купить сейчас

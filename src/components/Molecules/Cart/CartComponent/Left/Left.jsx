@@ -24,9 +24,15 @@ const Left = () => {
                     <S.Head>ЦЕНА</S.Head>
                 </S.Header>
                 <S.Cards>
-                    {isMobile ? cartProducts?.map((product, i) => (
-                        <MobileCartProductCard key={i} product={product}/>)) : cartProducts?.map((product, i) => (
-                        <CartProductCard key={i} product={product}/>))}
+                    {isMobile ?
+                        cartProducts?.map((product, i) => (
+                            <MobileCartProductCard key={i} product={product}/>
+                        ))
+                        :
+                        cartProducts?.map((product, i) => (
+                            <CartProductCard key={i} product={product}/>
+                        ))
+                    }
                 </S.Cards>
             </S.FirstCont>
             <Order/>

@@ -4,12 +4,19 @@ import {sizes} from "../../../../../../sizes";
 export const Card = styled.div`
   display: grid;
   position: relative;
-  width: calc(100% - 48px);
-  padding: 24px;
+  width: 100%;
+  grid-template-columns: 30% 40% 30%;
   border-bottom: 1px solid #e5e5e5;
-
+  padding-bottom: 24px;
+  
   @media (max-width: ${sizes.mobile}px) {
+    display: grid;
+    padding-bottom: 0px;
+    position: relative;
     width: calc(100% - 48px);
+    padding: 24px;
+    width: calc(100% - 48px);
+    grid-template-columns: auto
   }
 `;
 
@@ -86,7 +93,11 @@ export const ProductImage = styled.div`
 
 export const DescriptionCol = styled.div`
   display: flex;
-  margin-top: 25px;
+  margin-top: 60px;
+
+  @media (max-width: ${sizes.mobile}px) {
+    margin-top: 25px
+  }
 `;
 
 export const DescBlock = styled.div`
@@ -159,8 +170,8 @@ export const PriceCol = styled.div`
 
 export const CloseBtn = styled.div`
   position: absolute;
-  top: 24px;
-  right: 10px;
+  top: 10px;
+  right: -5px;
   width: 10px;
   height: 10px;
   cursor: pointer;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Footer = styled.footer`
   padding: 56px 80px 32px 80px;
-  background-color: #191919;
+  background-color: #00331E;
 `;
 
 export const TitleColumn = styled.div`

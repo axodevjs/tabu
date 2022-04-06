@@ -22,7 +22,7 @@ body {
   width: 20px;
   height: 20px;
   background: #fff;
-  border: 1px solid #191919; /* Толщина, стиль, цвет рамки*/
+  border: 1px solid #025B37; /* Толщина, стиль, цвет рамки*/
   border-radius: 50%; /* Получение круга*/
   vertical-align: text-top; /* Выравнивание кнопки по центру*/
   margin-right: 8px; /* Отступ между кнопкой и меткой*/
@@ -34,7 +34,7 @@ body {
   display: inline-block;
   width: 10px;
   height: 10px;
-  background: #191919;
+  background: #025B37;
   border-radius: 50%;
 
   /* Выравниваем по центру относительно внешнего круга */
