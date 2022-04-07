@@ -5,7 +5,7 @@ export const StyledCard = styled.div`
   display: grid;
   position: relative;
   cursor: pointer;
-  padding: ${({padding}) => padding || ''};
+  padding: ${({ padding }) => padding || ""};
 `;
 
 export const Details = styled.div`
@@ -48,9 +48,9 @@ export const FavoriteIcon = styled.div`
   justify-self: end;
   position: absolute;
   z-index: 2;
-  margin: 20px 20px 0 0;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
-  margin-top: 40px;
 `;
 
 export const HoverFavoriteIcon = styled.div`

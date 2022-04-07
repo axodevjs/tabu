@@ -7,6 +7,8 @@ import {
   HIDE_MOBILE_SIDEBAR,
   SET_MENU_CATEGORY,
   SET_SHOW_SIZES_MODAL,
+  SET_SHOW_REG_MODAL,
+  SET_SHOW_AUTH_MODAL,
 } from "../types/appTypes";
 
 const defaultState = {
@@ -18,6 +20,9 @@ const defaultState = {
     active: false,
   },
   showSizesModal: false,
+
+  showRegModal: false,
+  showAuthModal: false,
 };
 
 export default function productReducer(state = defaultState, action) {
@@ -43,6 +48,12 @@ export default function productReducer(state = defaultState, action) {
     case SET_SHOW_SIZES_MODAL:
       return { ...state, showSizesModal: action.payload };
 
+    case SET_SHOW_REG_MODAL:
+      return { ...state, showRegModal: action.payload };
+
+    case SET_SHOW_AUTH_MODAL:
+      return { ...state, showAuthModal: action.payload };
+
     default:
       return state;
   }
@@ -67,4 +78,14 @@ export const setMenuCategory = (menuCategory) => ({
 export const setShowSizesModal = (active) => ({
   type: SET_SHOW_SIZES_MODAL,
   payload: active,
+});
+
+export const showAuthModal = (show) => ({
+  type: SET_SHOW_AUTH_MODAL,
+  payload: show,
+});
+
+export const showRegModal = (show) => ({
+  type: SET_SHOW_REG_MODAL,
+  payload: show,
 });

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StyledImage = styled.div`
+  position: relative;
   background: url(${(props) => props.src});
   background-position: ${({ backgroundPosition }) =>
     backgroundPosition || "center center"};

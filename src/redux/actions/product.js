@@ -7,7 +7,8 @@ import {
   setNewProducts,
   setOpenedProduct,
   setProducts,
-  setSizes, setTrends,
+  setSizes,
+  setTrends,
 } from "redux/reducers/productReducer";
 
 export const getProducts = () => {
@@ -99,7 +100,9 @@ export const getSizes = () => {
 export const getNewProducts = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`${API_URL}/products?category__title__in=Новинки`);
+      const response = await axios.get(
+        `${API_URL}/products?category__title__in=Новинки`
+      );
       dispatch(setNewProducts(response.data));
     } catch (e) {
       console.log(e);
@@ -110,7 +113,9 @@ export const getNewProducts = () => {
 export const getTrends = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`${API_URL}/products?category__title__in=Сейчас в тренде`);
+      const response = await axios.get(
+        `${API_URL}/products?category__title__in=Сейчас в тренде`
+      );
       dispatch(setTrends(response.data));
     } catch (e) {
       console.log(e);

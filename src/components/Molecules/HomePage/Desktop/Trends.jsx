@@ -4,8 +4,12 @@ import Text from "../../../Atoms/Text";
 import trend1 from "assets/img/trends/1.png";
 import trend2 from "assets/img/trends/2.png";
 import trend3 from "assets/img/trends/3.png";
+import TrendsSlider from "components/Molecules/TrendsSlider/TrendsSlider";
+import { useSelector } from "react-redux";
 
 const Trends = () => {
+  const trendProducts = useSelector((state) => state.product.trends);
+
   return (
     <Grid>
       <Text
@@ -18,17 +22,7 @@ const Trends = () => {
       >
         Сейчас в тренде
       </Text>
-      <Grid
-        padding="40px 56px"
-        alignSelf="center"
-        columns="1fr 1fr 1fr"
-        gap="0 32px"
-        justifyContent="center"
-      >
-        <Card img={trend1} />
-        <Card img={trend2} />
-        <Card img={trend3} />
-      </Grid>
+      <TrendsSlider products={trendProducts} />
     </Grid>
   );
 };

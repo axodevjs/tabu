@@ -13,15 +13,15 @@ const Wrapper = styled.div`
   padding: 40px 56px;
 `;
 
-const ProductsSlider = (props) => {
+const TrendsSlider = (props) => {
   const settings = {
     dots: false,
     arrows: true,
     speed: 300,
-    infinite: true,
     slidesToShow: props.products?.results?.length > 3 ? 3 : 1,
     slidesToScroll: 1,
     variableWidth: true,
+    rtl: true,
 
     nextArrow: <ArrowRight />,
     prevArrow: <ArrowLeft />,
@@ -50,4 +50,4 @@ const ProductsSlider = (props) => {
   );
 };
 
-export default ProductsSlider;
+export default TrendsSlider;

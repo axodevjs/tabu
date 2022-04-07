@@ -3,7 +3,7 @@
 @import url("assets/fonts/Gilroy/stylesheet.css");
 @import url("assets/fonts/Manrope/stylesheet.css");
 @import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap");
 
 * {
   margin: 0;
@@ -22,7 +22,7 @@ body {
   width: 20px;
   height: 20px;
   background: #fff;
-  border: 1px solid #025B37; /* Толщина, стиль, цвет рамки*/
+  border: 1px solid #025b37; /* Толщина, стиль, цвет рамки*/
   border-radius: 50%; /* Получение круга*/
   vertical-align: text-top; /* Выравнивание кнопки по центру*/
   margin-right: 8px; /* Отступ между кнопкой и меткой*/
@@ -34,7 +34,7 @@ body {
   display: inline-block;
   width: 10px;
   height: 10px;
-  background: #025B37;
+  background: #025b37;
   border-radius: 50%;
 
   /* Выравниваем по центру относительно внешнего круга */
@@ -192,4 +192,13 @@ li {
 
 li:nth-child(1) {
   margin-top: 0px;
+}
+
+.slick-slider {
+  height: 380px;
+}
+
+.slick-slide {
+  width: 421px;
+  padding: 0 32px;
 }

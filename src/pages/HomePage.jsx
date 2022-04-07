@@ -25,12 +25,13 @@ import MobileCards from "components/Molecules/HomePage/Mobile/MobileCards/Mobile
 import MobileInstagram from "components/Molecules/HomePage/Mobile/MobileInstagram/MobileInstagram";
 import MobileHowExpand from "components/Molecules/HomePage/Mobile/MobileHowExpand/MobileHowExpand";
 import MobileSubscribe from "components/Molecules/HomePage/Mobile/MobileSubscribe/MobileSubscribe";
-import {useDispatch} from "react-redux";
-import {getNewProducts, getTrends} from "../redux/actions/product";
+import { useDispatch } from "react-redux";
+import { getNewProducts, getTrends } from "../redux/actions/product";
+import WeSelling from "components/Molecules/HomePage/Desktop/WeSelling/WeSelling";
 
 const HomePage = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (window.innerWidth < sizes.mobile) {
@@ -38,7 +39,8 @@ const HomePage = () => {
     }
 
     // get new products and trends
-    dispatch(getNewProducts())
+    dispatch(getNewProducts());
+    dispatch(getTrends());
   }, []);
 
   return (
@@ -55,6 +57,7 @@ const HomePage = () => {
           <MobileMedia />
           <MobileCards />
           <MobileInstagram />
+          <WeSelling />
           <MobileHowWorks />
           <MobileHowExpand />
           <MobileSubscribe />
@@ -72,6 +75,7 @@ const HomePage = () => {
           <Media />
           <Advantages />
           <Instagram />
+          <WeSelling />
           <HowWorks />
           <Answers />
           <Subscribe />
