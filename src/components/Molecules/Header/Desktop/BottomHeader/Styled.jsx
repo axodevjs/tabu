@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const BottomHeader = styled.div`
-  display: grid;
+  display: flex;
   height: 49px;
   padding: 0 56px;
-  background: #025B37;
+  background: #025b37;
+  justify-content: space-between;
 `;
 
 export const BottomCategories = styled.div`
@@ -33,4 +34,10 @@ export const BottomCategory = styled.div`
   &:hover {
     border-bottom: 2px solid #fff;
   }
+`;
+
+export const SearchBtn = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 `;

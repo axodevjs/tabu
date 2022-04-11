@@ -33,6 +33,12 @@ const StyledText = styled.div`
     css`
       display: flex;
     `}
+
+    ${(props) =>
+    props.minWidth &&
+    css`
+      min-width: 0;
+    `}
 `;
 
 const Text = (props) => {

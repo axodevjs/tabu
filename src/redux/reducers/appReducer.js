@@ -80,12 +80,12 @@ export const setShowSizesModal = (active) => ({
   payload: active,
 });
 
-export const showAuthModal = (show) => ({
+export const setShowAuthModal = (show) => ({
   type: SET_SHOW_AUTH_MODAL,
   payload: show,
 });
 
-export const showRegModal = (show) => ({
+export const setShowRegModal = (show) => ({
   type: SET_SHOW_REG_MODAL,
   payload: show,
 });

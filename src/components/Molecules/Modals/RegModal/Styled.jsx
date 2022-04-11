@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Image from "assets/img/reg.png";
 
 export const Wrapper = styled.div`
+  transition: 300ms;
   position: fixed;
   z-index: 60;
   top: 0;
@@ -21,13 +22,15 @@ export const Block = styled.div`
   background-color: #fff;
   width: 100%;
   height: 100%;
+  position: relative;
 `;
 
 export const Left = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
   width: 55%;
-  padding: 109px 137px 124px 100px;
+  padding: 0px 137px 0px 100px;
 `;
 
 export const Right = styled.div`
@@ -66,4 +69,32 @@ export const Radios = styled.div`
   display: flex;
   margin-top: 28px;
 `;
+
+export const BottomBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  align-content: center;
+`;
+
+export const RememberBlock = styled.div``;
+
+export const Forgot = styled.div`
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  text-decoration-line: underline;
+
+  color: #191919;
+  cursor: pointer;
+`;
+
+export const Close = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+`;
+
 export const Wrapper2 = styled.div``;

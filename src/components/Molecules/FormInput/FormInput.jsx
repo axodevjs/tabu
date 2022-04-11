@@ -1,10 +1,18 @@
 import * as S from "./Styled";
 
-const FormInput = ({ value, setValue, label }) => {
+const FormInput = ({ value, setValue, label, placeholder, type }) => {
   return (
     <S.Wrapper>
-      <S.Label>{label}</S.Label>
-      <S.Input value={value} onChange={(e) => setValue(e.target.value)} />
+      <div>
+        <S.Label>{label}</S.Label>
+      </div>
+
+      <S.Input
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder={placeholder}
+        type={type}
+      />
     </S.Wrapper>
   );
 };

@@ -5,7 +5,11 @@ import Button from "components/Atoms/Button";
 import Expand from "assets/svg/expand_profile.svg";
 import OutsideClickHandler from "react-outside-click-handler";
 import { useDispatch } from "react-redux";
-import { hideProfile } from "redux/reducers/appReducer";
+import {
+  hideProfile,
+  setShowAuthModal,
+  setShowRegModal,
+} from "redux/reducers/appReducer";
 
 const OpenedProfile = () => {
   const dispatch = useDispatch();
@@ -42,6 +46,7 @@ const OpenedProfile = () => {
               color="#191919"
               padding="8px 12px"
               topGreen
+              onClick={() => dispatch(setShowRegModal(true))}
             >
               Регистрация
             </Button>
@@ -54,6 +59,7 @@ const OpenedProfile = () => {
               color="#ffffff"
               padding="8px 12px"
               dark_filled
+              onClick={() => dispatch(setShowAuthModal(true))}
             >
               Войти
             </Button>

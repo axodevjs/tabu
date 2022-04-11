@@ -14,6 +14,16 @@ body {
   background-color: #ffffff;
 }
 
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.visible {
+  visibility: inherit;
+  opacity: 1;
+}
+
 /* Рисуем внешний круг радиокнопки*/
 .custom-radio-btn {
   cursor: pointer;

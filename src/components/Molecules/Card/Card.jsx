@@ -7,7 +7,8 @@ import Button from "components/Atoms/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { setOpenedProduct, showModal } from "redux/reducers/productReducer";
 import { sizes } from "../../../sizes";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Flex from "components/Atoms/Flex";
 
 export const HoverWrapper = styled.div`
   position: relative;
@@ -87,7 +88,7 @@ const Card = (props) => {
 
             <S.ImageBlock src={props.img} />
             <S.Details>
-              <div>
+              <Flex direction="column" width="80%">
                 <Text
                   name="name"
                   color="#191919"
@@ -105,9 +106,11 @@ const Card = (props) => {
                   fontWeight="600"
                   fontSize="16px"
                 >
-                  {props.description ? props.description : ""}
+                  {props.description?.length > 65
+                    ? props.description.slice(0, 65) + " ..."
+                    : props.description}
                 </Text>
-              </div>
+              </Flex>
               <Text
                 color="#191919"
                 fontFamily="Mont"
@@ -156,7 +159,7 @@ const Card = (props) => {
       <S.ImageBlock src={props.img} />
 
       <S.Details>
-        <div>
+        <Flex direction="column" width="80%">
           <Text
             color="#191919"
             fontFamily="Mont"
@@ -173,7 +176,9 @@ const Card = (props) => {
             fontWeight="600"
             fontSize="16px"
           >
-            {props.description ? props.description : ""}
+            {props.description?.length > 65
+              ? props.description.slice(0, 65) + " ..."
+              : props.description}
           </Text>
           {isMobile ? (
             <Text
@@ -188,7 +193,7 @@ const Card = (props) => {
           ) : (
             ""
           )}
-        </div>
+        </Flex>
         {!isMobile ? (
           <Text
             color="#191919"
