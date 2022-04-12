@@ -22,3 +22,8 @@ export const setSearchProducts = (products) => ({
   type: SET_SEARCH_PRODUCTS,
   payload: products,
 });
+
+export const setShowSearch = (show) => ({
+  type: SET_SHOW_SEARCH,
+  payload: show,
+});

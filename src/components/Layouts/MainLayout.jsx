@@ -16,6 +16,7 @@ import Search from "components/Molecules/Search/Desktop/Search";
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch();
   const [isMobile, setIsMobile] = useState(false);
+  const showSearch = useSelector((state) => state.search.show);
 
   useEffect(() => {
     if (window.innerWidth < sizes.mobile) {
@@ -28,7 +29,7 @@ const MainLayout = ({ children }) => {
 
   return (
     <div>
-      <Search />
+      {showSearch ? <Search /> : ""}
       <RegModal />
       <LoginModal />
       {isMobile ? <MobileHeader /> : <Header />}

@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { getCategories } from "redux/actions/categories";
 import { setCategory, setMainCategory } from "redux/reducers/categoriesReducer";
 import { getProductsByCategory } from "redux/actions/product";
+import { setShowSearch } from "redux/reducers/searchReducer";
 
 const BottomHeader = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const BottomHeader = () => {
               </S.BottomCategory>
             ))}
       </S.BottomCategories>
-      <S.SearchBtn>
+      <S.SearchBtn onClick={() => dispatch(setShowSearch(true))}>
         <svg
           width="16"
           height="14"
