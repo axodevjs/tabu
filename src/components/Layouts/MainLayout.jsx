@@ -11,6 +11,7 @@ import { sizes } from "../../sizes";
 import { setCartProducts } from "redux/reducers/cartReducer";
 import RegModal from "components/Molecules/Modals/RegModal/RegModal";
 import LoginModal from "components/Molecules/Modals/LoginModal/LoginModal";
+import Search from "components/Molecules/Search/Desktop/Search";
 
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const MainLayout = ({ children }) => {
 
   return (
     <div>
+      <Search />
       <RegModal />
       <LoginModal />
       {isMobile ? <MobileHeader /> : <Header />}

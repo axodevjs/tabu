@@ -42,6 +42,7 @@ const ProductsSlider = (props) => {
               title={product?.title}
               description={product?.description}
               price={product?.price}
+              product_id={product?.id}
             />
           );
         })}

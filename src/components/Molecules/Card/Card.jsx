@@ -156,7 +156,7 @@ const Card = (props) => {
         </S.FavoriteIcon>
       )}
 
-      <S.ImageBlock src={props.img} />
+      <S.ImageBlock onClick={() => console.log(props?.img)} src={props?.img} />
 
       <S.Details>
         <Flex direction="column" width="80%">
@@ -166,6 +166,7 @@ const Card = (props) => {
             fontWeight="700"
             fontSize="16px"
             onClick={() => navigate(`/products/${props?.product_id}`)}
+            cursor="pointer"
           >
             {props.title ? props.title : ""}
           </Text>

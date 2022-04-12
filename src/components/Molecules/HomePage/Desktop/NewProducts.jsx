@@ -5,41 +5,30 @@ import product2 from "assets/img/products/2.png";
 import product3 from "assets/img/products/3.png";
 import Text from "../../../Atoms/Text";
 import ProductsSlider from "../../ProductsSlider/ProductsSlider";
-import {useSelector} from "react-redux";
-
-// const StyledNewProducts = styled.div`
-//   display:
-// `;
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const NewProducts = () => {
-    const newProducts = useSelector(state => state.product.newProducts)
+  const newProducts = useSelector((state) => state.product.newProducts);
+  const navigate = useNavigate();
 
-    return (
-        <Grid>
-            <Text
-                color="#191919"
-                fontFamily="Mont"
-                fontWeight="600"
-                margin="0 0 0 56px"
-                fontSize="24px"
-                textTransform="uppercase"
-            >
-                Новинки
-            </Text>
-            <ProductsSlider products={newProducts}/>
-            {/*<Grid*/}
-            {/*  padding="40px 56px"*/}
-            {/*  alignSelf="center"*/}
-            {/*  columns="1fr 1fr 1fr"*/}
-            {/*  gap="0 32px"*/}
-            {/*  justifyContent="center"*/}
-            {/*>*/}
-            {/*  <Card img={product1} />*/}
-            {/*  <Card img={product2} />*/}
-            {/*  <Card img={product3} />*/}
-            {/*</Grid>*/}
-        </Grid>
-    );
+  return (
+    <Grid>
+      <Text
+        color="#191919"
+        fontFamily="Mont"
+        fontWeight="600"
+        margin="0 0 0 56px"
+        fontSize="24px"
+        textTransform="uppercase"
+        cursor="pointer"
+        onClick={() => navigate(`/categories/Новинки`)}
+      >
+        Новые объявления
+      </Text>
+      <ProductsSlider products={newProducts} />
+    </Grid>
+  );
 };
 
 export default NewProducts;
