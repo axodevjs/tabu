@@ -6,7 +6,9 @@ const StyledImage = styled.div`
   background-position: ${({ backgroundPosition }) =>
     backgroundPosition || "center center"};
   background-repeat: no-repeat;
-  background-size: ${({ backgroundSize }) => backgroundSize || "100%"};
+  background-size: ${({ backgroundSize }) => backgroundSize || "cover"};
+  width: ${({ width }) => width || ""};
+  height: ${({ height }) => height || ""};
 `;
 
 const DivImage = (props) => {

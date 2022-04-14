@@ -1,5 +1,4 @@
 import Sales from "components/Molecules/HomePage/Desktop/Sales";
-import Start from "components/Molecules/HomePage/Desktop/Start";
 import HowWorks from "components/Molecules/HomePage/Desktop/HowWorks";
 import NewProducts from "components/Molecules/HomePage/Desktop/NewProducts";
 import Instagram from "components/Molecules/HomePage/Desktop/Instagram";
@@ -28,6 +27,7 @@ import MobileSubscribe from "components/Molecules/HomePage/Mobile/MobileSubscrib
 import { useDispatch } from "react-redux";
 import { getNewProducts, getTrends } from "../redux/actions/product";
 import WeSelling from "components/Molecules/HomePage/Desktop/WeSelling/WeSelling";
+import StartContainer from "components/Molecules/HomePage/Desktop/Start/StartContainer";
 
 const HomePage = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -65,7 +65,7 @@ const HomePage = () => {
       ) : (
         <>
           <Sales />
-          <Start />
+          <StartContainer />
           <HowWorks />
           <NewProducts />
           <Banners />
