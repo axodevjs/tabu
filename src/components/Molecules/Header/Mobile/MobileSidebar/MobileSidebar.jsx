@@ -1,6 +1,9 @@
 import * as S from "./Styled";
 import { useDispatch, useSelector } from "react-redux";
-import { hideMobileSidebar } from "../../../../../redux/reducers/appReducer";
+import {
+  hideMobileSidebar,
+  setShowAuthModal,
+} from "../../../../../redux/reducers/appReducer";
 import MobileCategory from "./MobileCategory/MobileCategory";
 import MobileCategories from "./MobileCategories/MobileCategories";
 import { setMainCategory } from "redux/reducers/categoriesReducer";
@@ -20,7 +23,14 @@ const MobileSidebar = (props) => {
       <S.Background onClick={() => dispatch(hideMobileSidebar())} />
       <S.AbsoluteSidebar>
         <S.MobileSidebar>
-          <S.Login>Регистрация / Войти</S.Login>
+          <S.Login
+            onClick={() => {
+              dispatch(setShowAuthModal(true));
+              dispatch(hideMobileSidebar());
+            }}
+          >
+            Регистрация / Войти
+          </S.Login>
           <S.Tabs>
             {categories.map((category, i) => (
               <S.Tab

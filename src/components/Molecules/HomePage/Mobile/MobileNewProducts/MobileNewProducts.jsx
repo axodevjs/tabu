@@ -1,20 +1,34 @@
-import * as S from './Styled'
+import * as S from "./Styled";
 import Card from "../../../Card/Card";
-import product1 from 'assets/img/products/1.png'
+import product1 from "assets/img/products/1.png";
+import { useSelector } from "react-redux";
+import { URL } from "config";
 
 const MobileNewProducts = () => {
-    return (
-        <S.Wrapper>
-            <S.Title>Новинки</S.Title>
+  const newProducts = useSelector((state) => state.product.newProducts);
 
-            <S.Products>
-                <Card title={"Balenciaga"} description={"Шаровые серьги из золота"} price={1720} img={product1}/>
-                <Card title={"Balenciaga"} description={"Шаровые серьги из золота"} price={1720} img={product1}/>
-                <Card title={"Balenciaga"} description={"Шаровые серьги из золота"} price={1720} img={product1}/>
-                <Card title={"Balenciaga"} description={"Шаровые серьги из золота"} price={1720} img={product1}/>
-            </S.Products>
-        </S.Wrapper>
-    );
+  return (
+    <S.Wrapper>
+      <a href="/categories/Новинки">
+        {" "}
+        <S.Title>Новинки</S.Title>
+      </a>
+      <S.Title></S.Title>
+
+      <S.Products>
+        {newProducts?.results?.map((product, i) => (
+          <Card
+            key={i}
+            title={product.title}
+            description={product.description}
+            price={product.price}
+            img={URL + product.images[0].image}
+            product_id={product.id}
+          />
+        ))}
+      </S.Products>
+    </S.Wrapper>
+  );
 };
 
 export default MobileNewProducts;

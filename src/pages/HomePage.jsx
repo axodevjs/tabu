@@ -28,6 +28,8 @@ import { useDispatch } from "react-redux";
 import { getNewProducts, getTrends } from "../redux/actions/product";
 import WeSelling from "components/Molecules/HomePage/Desktop/WeSelling/WeSelling";
 import StartContainer from "components/Molecules/HomePage/Desktop/Start/StartContainer";
+import MobileStartContainer from "components/Molecules/HomePage/Mobile/MobileStart/MobileStartContainer";
+import Request from "components/Molecules/Modals/Request/Request";
 
 const HomePage = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -45,9 +47,10 @@ const HomePage = () => {
 
   return (
     <div>
+      <Request />
       {isMobile ? (
         <>
-          <MobileStart />
+          <MobileStartContainer />
           <MobileHowWorks />
           <MobileNewProducts />
           <MobileBanners />

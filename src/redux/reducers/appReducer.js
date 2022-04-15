@@ -9,6 +9,7 @@ import {
   SET_SHOW_SIZES_MODAL,
   SET_SHOW_REG_MODAL,
   SET_SHOW_AUTH_MODAL,
+  SET_SHOW_REQUEST_MODAL,
 } from "../types/appTypes";
 
 const defaultState = {
@@ -23,6 +24,8 @@ const defaultState = {
 
   showRegModal: false,
   showAuthModal: false,
+
+  showRequestModal: false,
 };
 
 export default function productReducer(state = defaultState, action) {
@@ -53,6 +56,9 @@ export default function productReducer(state = defaultState, action) {
 
     case SET_SHOW_AUTH_MODAL:
       return { ...state, showAuthModal: action.payload };
+
+    case SET_SHOW_REQUEST_MODAL:
+      return { ...state, showRequestModal: action.payload };
 
     default:
       return state;
@@ -87,5 +93,10 @@ export const setShowAuthModal = (show) => ({
 
 export const setShowRegModal = (show) => ({
   type: SET_SHOW_REG_MODAL,
+  payload: show,
+});
+
+export const setShowRequestModal = (show) => ({
+  type: SET_SHOW_REQUEST_MODAL,
   payload: show,
 });

@@ -6,6 +6,7 @@ import MobileSidebar from "./MobileSidebar/MobileSidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { showMobileSidebar } from "../../../../redux/reducers/appReducer";
 import { useNavigate } from "react-router-dom";
+import { setShowSearch } from "redux/reducers/searchReducer";
 
 const MobileHeader = () => {
   const dispatch = useDispatch();
@@ -57,7 +58,7 @@ const MobileHeader = () => {
           <ImageBlock onClick={onClickLogo} src={Logo} />
         </S.Logo>
         <S.UserBlock>
-          <S.Search>
+          <S.Search onClick={() => dispatch(setShowSearch(true))}>
             <svg
               width="24"
               height="24"

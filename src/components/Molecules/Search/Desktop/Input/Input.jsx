@@ -1,6 +1,16 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getSearchProducts } from "redux/actions/search";
 import * as S from "./Styled";
 
 const Input = () => {
+  const [value, setValue] = useState("");
+  const dispatch = useDispatch();
+
+  const searchSubmit = () => {
+    dispatch(getSearchProducts(value));
+  };
+
   return (
     <S.Wrapper>
       <S.Container>
@@ -19,9 +29,9 @@ const Input = () => {
               />
             </svg>
           </S.Icon>
-          <S.Input />
+          <S.Input value={value} onChange={(e) => setValue(e.target.value)} />
 
-          <S.Submit>
+          <S.Submit onClick={searchSubmit}>
             <svg
               width={14}
               height={8}

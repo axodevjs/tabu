@@ -1,3 +1,4 @@
+import { sizes } from "sizes";
 import styled from "styled-components";
 import { css } from "styled-components";
 
@@ -48,4 +49,8 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   display: flex;
   width: 35%;
+
+  @media (max-width: ${sizes.mobile}px) {
+    width: 85%;
+  }
 `;

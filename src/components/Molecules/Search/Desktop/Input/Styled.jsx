@@ -1,3 +1,4 @@
+import { sizes } from "sizes";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -5,11 +6,18 @@ export const Wrapper = styled.div`
   margin-top: 32px;
   width: 100%;
   justify-content: center;
+
+  @media (max-width: ${sizes.mobile}px) {
+    margin-top: 24px;
+  }
 `;
 
 export const Container = styled.div`
   display: flex;
   width: 35%;
+  @media (max-width: ${sizes.mobile}px) {
+    width: 85%;
+  }
 `;
 
 export const Subcont = styled.div`

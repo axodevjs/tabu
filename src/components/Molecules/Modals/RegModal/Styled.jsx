@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "assets/img/reg.png";
+import { sizes } from "sizes";
 
 export const Wrapper = styled.div`
   transition: 300ms;
@@ -23,14 +24,43 @@ export const Block = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+
+  @media (max-width: ${sizes.mobile}px) {
+    top: 0;
+    left: 0;
+    z-index: 104;
+    position: fixed;
+  }
 `;
 
 export const Left = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 55%;
+  width: 45%;
   padding: 0px 137px 0px 100px;
+
+  @media (max-width: ${sizes.mobile}px) {
+    padding: 0;
+    width: 100%;
+  }
+`;
+
+export const LeftBlock = styled.div`
+  padding: 0;
+  display: block;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  @media (max-width: ${sizes.mobile}px) {
+    padding: 48px 24px 0 24px;
+    height: 100%;
+    width: calc(100% - 48px);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
 `;
 
 export const Right = styled.div`
@@ -39,6 +69,11 @@ export const Right = styled.div`
   background-image: url(${Image});
   background-size: cover;
   background-position: left center;
+  display: inherit;
+
+  @media (max-width: ${sizes.mobile}px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.div`
