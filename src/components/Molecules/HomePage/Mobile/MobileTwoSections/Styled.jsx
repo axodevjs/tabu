@@ -41,7 +41,7 @@ export const Description = styled.div`
 export const Image1 = styled.div`
   height: 190px;
   width: 100%;
-  background-image: url(${FirstImg});
+  background-image: url(${({ src }) => src || ""});
   background-size: cover;
   margin-top: 24px;
 `;
@@ -49,7 +49,7 @@ export const Image1 = styled.div`
 export const Image2 = styled.div`
   height: 190px;
   width: 100%;
-  background-image: url(${SecondImg});
+  background-image: url(${({ src }) => src || ""});
   background-size: cover;
   margin-top: 24px;
 `;

@@ -4,6 +4,7 @@ import StartSlide from "./StartSlide";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
+import { useSelector } from "react-redux";
 
 export const StyledContainer = styled.div`
   padding: 80px 137px;
@@ -28,6 +29,7 @@ export const ArrowRight = styled.div`
 
 const StartContainer = () => {
   const swiperRef = useRef();
+  const ads = useSelector((state) => state.ads.ads);
 
   return (
     <StyledContainer>
@@ -39,12 +41,13 @@ const StartContainer = () => {
         modules={[Navigation]}
         navigation
       >
-        <SwiperSlide>
-          <StartSlide />
-        </SwiperSlide>
-        <SwiperSlide>
-          <StartSlide />
-        </SwiperSlide>
+        {ads
+          ?.filter((x) => x.type === 1)
+          ?.map((ad, i) => (
+            <SwiperSlide key={i}>
+              <StartSlide ad={ad} />
+            </SwiperSlide>
+          ))}
       </Swiper>
 
       <ArrowLeft onClick={() => swiperRef.current.slidePrev()}>

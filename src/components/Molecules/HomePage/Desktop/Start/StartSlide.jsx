@@ -7,7 +7,7 @@ import MoreButton from "../../../../Atoms/MoreButton";
 import ImageBlock from "../../../../Atoms/ImageBlock";
 import DivImage from "components/Atoms/DivImage";
 
-const StartSlide = () => {
+const StartSlide = ({ ad }) => {
   return (
     <Grid w100 columns="1fr 1fr" gap={"0 69px"}>
       <div>
@@ -17,7 +17,7 @@ const StartSlide = () => {
           fontWeight="400"
           fontSize="72px"
         >
-          Dior x Shawn <br /> Stussy
+          {ad?.title}
         </Text>
 
         <Text
@@ -27,11 +27,11 @@ const StartSlide = () => {
           fontSize="20px"
           margin="50px 0 0 0"
         >
-          ОСЕННЯЯ КОЛЛЕКЦИЯ
+          {ad?.helper_text}
         </Text>
         <Hr margin="25px 0 0 0" />
         <Grid columns="1fr 1fr" gap="0 52px" margin="48px 0 0 0">
-          <ImageBlock src={startProduct} alt="" />
+          <ImageBlock src={ad?.helper_image} alt="" />
           <Grid alignContent="center">
             <div>
               <Text
@@ -40,17 +40,17 @@ const StartSlide = () => {
                 fontWeight="600"
                 fontSize="14px"
               >
-                Dior выпускает эксклюзивную мужскую капсулу, переосмысливающую
-                мощный творческий диалог между Кимом Джонсом и художником Шоном
-                Стусси.
+                {ad?.description}
               </Text>
-              <MoreButton margin="66px 0 0 0">посмотреть</MoreButton>
+              <MoreButton margin="66px 0 0 0" link={ad?.link}>
+                посмотреть
+              </MoreButton>
             </div>
           </Grid>
         </Grid>
       </div>
       <Grid justifyItems="end">
-        <DivImage width="100%" height="auto" src={RightImg} alt="" />
+        <DivImage width="100%" height="auto" src={ad?.image} alt="" />
       </Grid>
     </Grid>
   );

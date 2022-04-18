@@ -18,8 +18,14 @@ const Line = styled.div`
 `;
 
 const MoreButton = (props) => {
+  const onClick = () => {
+    if (props?.link) {
+      window.open(props?.link, "_blank");
+    }
+  };
+
   return (
-    <StyledMoreButton {...props}>
+    <StyledMoreButton {...props} onClick={onClick}>
       <Line />
       <Text
         color="#191919"

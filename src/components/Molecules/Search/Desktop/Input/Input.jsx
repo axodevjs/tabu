@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getSearchProducts } from "redux/actions/search";
+import { getCategories, getSearchProducts } from "redux/actions/search";
 import * as S from "./Styled";
 
 const Input = () => {
@@ -9,6 +9,7 @@ const Input = () => {
 
   const searchSubmit = () => {
     dispatch(getSearchProducts(value));
+    dispatch(getCategories(value));
   };
 
   return (

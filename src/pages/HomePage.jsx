@@ -30,6 +30,7 @@ import WeSelling from "components/Molecules/HomePage/Desktop/WeSelling/WeSelling
 import StartContainer from "components/Molecules/HomePage/Desktop/Start/StartContainer";
 import MobileStartContainer from "components/Molecules/HomePage/Mobile/MobileStart/MobileStartContainer";
 import Request from "components/Molecules/Modals/Request/Request";
+import { getAds } from "redux/actions/ads";
 
 const HomePage = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -43,6 +44,9 @@ const HomePage = () => {
     // get new products and trends
     dispatch(getNewProducts());
     dispatch(getTrends());
+
+    // get ads
+    dispatch(getAds());
   }, []);
 
   return (

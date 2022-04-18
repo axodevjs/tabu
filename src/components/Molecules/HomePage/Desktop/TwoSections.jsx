@@ -4,12 +4,17 @@ import First from "assets/img/twoSections/1.png";
 import Second from "assets/img/twoSections/2.png";
 import Text from "../../../Atoms/Text";
 import ImageBlock from "../../../Atoms/ImageBlock";
+import { useSelector } from "react-redux";
 
 const TwoSections = () => {
+  const ads = useSelector((state) => state.ads.ads);
+  const ad_left = ads?.filter((x) => x.type === 3)[0];
+  const ad_right = ads?.filter((x) => x.type === 3)[1];
+
   return (
     <Grid columns="1fr 1fr" gap="0 32px" padding="64px 56px">
       <div style={{ display: "grid", justifyItems: "center" }}>
-        <ImageBlock src={First} />
+        <ImageBlock src={ad_left?.image} />
         <Text
           color="#191919"
           fontFamily="Mont"
@@ -19,7 +24,7 @@ const TwoSections = () => {
           fontSize="14px"
           textTransform="uppercase"
         >
-          Louis Vuitton
+          {ad_left?.title}
         </Text>
 
         <Text
@@ -35,11 +40,11 @@ const TwoSections = () => {
           justifySelf="center"
           cursor="pointer"
         >
-          Новое поступление
+          {ad_left?.helper_text}
         </Text>
       </div>
       <div style={{ display: "grid", justifyItems: "center" }}>
-        <ImageBlock src={Second} />
+        <ImageBlock src={ad_right?.image} />
         <Text
           color="#191919"
           fontFamily="Mont"
@@ -49,7 +54,7 @@ const TwoSections = () => {
           fontSize="14px"
           textTransform="uppercase"
         >
-          Louis Vuitton
+          {ad_right?.title}
         </Text>
 
         <Text
@@ -65,7 +70,7 @@ const TwoSections = () => {
           justifySelf="center"
           cursor="pointer"
         >
-          Новое поступление
+          {ad_right?.helper_text}
         </Text>
       </div>
     </Grid>

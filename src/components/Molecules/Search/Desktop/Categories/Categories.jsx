@@ -1,12 +1,13 @@
+import { useSelector } from "react-redux";
 import * as S from "./Styled";
 
 const Categories = () => {
+  const categories = useSelector((state) => state.search.categories);
+
   return (
     <S.Wrapper>
       <S.Container>
-        <S.Category>Платья</S.Category>
-        <S.Category>Пляжные платья</S.Category>
-        <S.Category>Пляжные сумки</S.Category>
+        <S.Category></S.Category>
       </S.Container>
     </S.Wrapper>
   );

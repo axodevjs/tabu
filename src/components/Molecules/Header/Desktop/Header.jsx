@@ -32,7 +32,10 @@ const Header = () => {
       <S.StyledHeader>
         <S.Categories>
           {categories.map((category, i) => (
-            <S.Category active={main_category.title === category?.title ? true : false } onClick={() => dispatch(setMainCategory(category))}>
+            <S.Category
+              active={main_category.title === category?.title ? true : false}
+              onClick={() => dispatch(setMainCategory(category))}
+            >
               {category.title}
             </S.Category>
           ))}

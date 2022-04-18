@@ -14,14 +14,14 @@ const Header = (props) => {
           <path
             d="M7 7L17 17"
             stroke="black"
-            strokelinecap="round"
-            strokelinejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M7 17L17 7"
             stroke="black"
-            strokelinecap="round"
-            strokelinejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </S.Close>
