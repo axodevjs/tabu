@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { hideHoverMenu } from "redux/reducers/appReducer";
 import * as S from "./Styled";
 import { getProductsByCategory } from "redux/actions/product";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const HoverMenu = () => {
   const showHover = useSelector((state) => state.app.showHoverMenu);
@@ -30,9 +30,9 @@ const HoverMenu = () => {
               <S.SubCategoryItems>
                 {!category.children.length
                   ? ""
-                  : category.children.map((doubleSubCat, key) => (
-                      <>
-                        <S.SubCategoryItem key={key}>
+                  : category.children.map((doubleSubCat, i) => (
+                      <React.Fragment key={i}>
+                        <S.SubCategoryItem>
                           <Link
                             onClick={() =>
                               dispatch(
@@ -44,7 +44,7 @@ const HoverMenu = () => {
                             {doubleSubCat.title}
                           </Link>
                         </S.SubCategoryItem>
-                      </>
+                      </React.Fragment>
                     ))}
               </S.SubCategoryItems>
               <S.OpenAll>Открыть все</S.OpenAll>

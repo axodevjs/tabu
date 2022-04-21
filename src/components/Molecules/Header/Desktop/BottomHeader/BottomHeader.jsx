@@ -29,6 +29,7 @@ const BottomHeader = () => {
           ? ""
           : main_category.children.map((category, i) => (
               <S.BottomCategory
+                key={i}
                 onMouseEnter={() => {
                   onHover(main_category.children[i]);
                 }}
