@@ -5,6 +5,7 @@ import FormInput from "components/Molecules/FormInput/FormInput";
 import Header from "components/Molecules/Search/Desktop/Header/Header";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { login } from "redux/actions/user";
 import { setShowAuthModal, setShowRegModal } from "redux/reducers/appReducer";
 import { sizes } from "sizes";
 import * as S from "./Styled";
@@ -31,6 +32,14 @@ const LoginModal = () => {
   const createAccount = () => {
     dispatch(setShowAuthModal(false));
     dispatch(setShowRegModal(true));
+  };
+
+  const onLogin = async () => {
+    if (email === "" || password === "") {
+      alert("Заполните все поля");
+    } else {
+      await dispatch(login(email, password));
+    }
   };
 
   return (
@@ -83,12 +92,17 @@ const LoginModal = () => {
               </S.RememberBlock>
               <S.Forgot>Забыли пароль?</S.Forgot>
             </S.BottomBlock>
-            <Button topGreen padding="14px 0" margin="62px 0 0 0">
+            <Button
+              onClick={() => onLogin()}
+              topGreen
+              padding="14px 0"
+              margin="62px 0 0 0"
+            >
               Вход
             </Button>
             <S.CreateAccount onClick={() => createAccount()}>
               Создать аккаунт
-            </S.CreateAccount>{" "}
+            </S.CreateAccount>
           </S.LeftBlock>
         </S.Left>
         <S.Right />

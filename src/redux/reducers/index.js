@@ -7,6 +7,7 @@ import filterOptionsReducer from "./filterOptionsReducer";
 import cartReducer from "./cartReducer";
 import searchReducer from "./searchReducer";
 import adsReducer from "./adsReducer";
+import userReducer from "./userReducer";
 
 const { combineReducers, applyMiddleware, createStore } = require("redux");
 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   filterOptions: filterOptionsReducer,
   search: searchReducer,
   ads: adsReducer,
+  user: userReducer,
 });
 
 export const store = createStore(

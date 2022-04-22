@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setShowRegModal } from "redux/reducers/appReducer";
 import { sizes } from "sizes";
 import * as S from "./Styled";
+import { registration } from "redux/actions/user";
 
 const RegModal = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,8 @@ const RegModal = () => {
 
   const [favorite, setFavorite] = useState("private");
 
-  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -37,6 +39,26 @@ const RegModal = () => {
 
   const handleClose = () => {
     dispatch(setShowRegModal(false));
+  };
+
+  const onReg = async () => {
+    if (
+      firstName === "" ||
+      lastName === "" ||
+      email === "" ||
+      password === "" ||
+      favorite === ""
+    ) {
+      alert("Заполните все поля");
+    } else {
+      await registration(
+        favorite === "private" ? 0 : 1,
+        firstName,
+        lastName,
+        password,
+        email
+      );
+    }
   };
 
   return (
@@ -83,10 +105,17 @@ const RegModal = () => {
               />
             </S.Radios>
             <FormInput
-              value={username}
-              setValue={setUsername}
-              label="Имя пользователя"
-              placeholder="Введите имя пользователя"
+              value={firstName}
+              setValue={setFirstName}
+              label="Имя"
+              placeholder="Введите имя"
+              type="text"
+            />
+            <FormInput
+              value={lastName}
+              setValue={setLastName}
+              label="Фамилия"
+              placeholder="Введите фамилию"
               type="text"
             />
             <FormInput
@@ -109,7 +138,12 @@ const RegModal = () => {
               </S.RememberBlock>
               <S.Forgot>Забыли пароль?</S.Forgot>
             </S.BottomBlock>
-            <Button topGreen padding="14px 0" margin="62px 0 0 0">
+            <Button
+              onClick={() => onReg()}
+              topGreen
+              padding="14px 0"
+              margin="62px 0 0 0"
+            >
               Зарегистрироваться
             </Button>
           </S.LeftBlock>

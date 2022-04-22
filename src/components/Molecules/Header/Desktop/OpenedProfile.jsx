@@ -9,6 +9,7 @@ import {
   hideProfile,
   setShowAuthModal,
   setShowRegModal,
+  showProfile,
 } from "redux/reducers/appReducer";
 
 const OpenedProfile = () => {
@@ -46,7 +47,10 @@ const OpenedProfile = () => {
               color="#191919"
               padding="8px 12px"
               topGreen
-              onClick={() => dispatch(setShowRegModal(true))}
+              onClick={() => {
+                dispatch(setShowRegModal(true));
+                dispatch(hideProfile(false));
+              }}
             >
               Регистрация
             </Button>
@@ -59,7 +63,10 @@ const OpenedProfile = () => {
               color="#ffffff"
               padding="8px 12px"
               dark_filled
-              onClick={() => dispatch(setShowAuthModal(true))}
+              onClick={() => {
+                dispatch(setShowAuthModal(true));
+                dispatch(hideProfile());
+              }}
             >
               Войти
             </Button>

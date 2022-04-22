@@ -24,11 +24,11 @@ const StyledButton = styled.button`
     `}
 
   ${(props) =>
-      props.topGreen &&
-      css`
-      background-color: #025B37;
+    props.topGreen &&
+    css`
+      background-color: #025b37;
       border: none;
-        color: #fff;
+      color: #fff;
     `}
 
   ${(props) =>
@@ -76,6 +76,15 @@ const StyledButton = styled.button`
       background-color: #025b37;
       color: #fff;
       border: none;
+    `}
+
+    ${(props) =>
+    props.edit &&
+    css`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
     `}
 `;
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {sizes} from "../../../../../../sizes";
+import { css } from "styled-components";
+import { sizes } from "../../../../../../sizes";
 
 export const Card = styled.div`
   display: grid;
@@ -8,7 +9,13 @@ export const Card = styled.div`
   grid-template-columns: 30% 40% 30%;
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 24px;
-  
+
+  ${(props) =>
+    props.profile &&
+    css`
+      margin-top: 40px;
+    `}
+
   @media (max-width: ${sizes.mobile}px) {
     display: grid;
     padding-bottom: 0px;
@@ -16,7 +23,7 @@ export const Card = styled.div`
     width: calc(100% - 48px);
     padding: 24px;
     width: calc(100% - 48px);
-    grid-template-columns: auto
+    grid-template-columns: auto;
   }
 `;
 
@@ -96,7 +103,7 @@ export const DescriptionCol = styled.div`
   margin-top: 60px;
 
   @media (max-width: ${sizes.mobile}px) {
-    margin-top: 25px
+    margin-top: 25px;
   }
 `;
 
@@ -154,7 +161,7 @@ export const Size = styled.div`
   color: #717171;
   height: auto;
   width: auto;
-`
+`;
 
 export const PriceCol = styled.div`
   margin-top: 70px;
@@ -165,7 +172,7 @@ export const PriceCol = styled.div`
 
   @media (max-width: ${sizes.mobile}px) {
     margin-top: 12px;
-  } 
+  }
 `;
 
 export const CloseBtn = styled.div`

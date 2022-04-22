@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledHeader = styled.div`
   display: grid;
@@ -27,13 +27,13 @@ export const Category = styled.div`
   &:nth-child(1) {
     margin-left: 0;
   }
-  
-  ${
-    props => props.active && css`
+
+  ${(props) =>
+    props.active &&
+    css`
       color: #191919;
       font-weight: 700;
-    `
-  }
+    `}
 `;
 
 export const Logo = styled.div`
@@ -96,6 +96,7 @@ export const OpenedProfile = styled.div`
   background: #ffffff;
   display: flex;
   flex-direction: column;
+  z-index: 99;
 `;
 
 export const ProfileBlock = styled.div`
