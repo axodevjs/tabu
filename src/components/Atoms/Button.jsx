@@ -86,6 +86,24 @@ const StyledButton = styled.button`
       justify-content: center;
       flex-direction: row;
     `}
+
+    ${(props) =>
+    props.grayBorder &&
+    css`
+      border: 1px solid #e5e5e5;
+      background: #fff;
+
+      font-family: "Mont";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      /* identical to box height */
+
+      /* Tabu/Dark/Text-Gray */
+
+      color: #717171;
+    `}
 `;
 
 const Button = (props) => {

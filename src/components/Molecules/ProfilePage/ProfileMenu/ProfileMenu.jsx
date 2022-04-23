@@ -1,15 +1,27 @@
 import * as S from "./Styled";
 import Avatar from "assets/img/Profile/avatar.jpg";
 import Button from "components/Atoms/Button";
+import { useSelector } from "react-redux";
 
 const ProfileMenu = (props) => {
+  const user = useSelector((state) => state.user.currentUser);
+
   return (
     <div>
       <S.Wrapper {...props}>
         <S.WrapperInner>
-          <S.Avatar src={Avatar} />
-          <S.Title>Missanya</S.Title>
-          <S.Role>Частный продавец</S.Role>
+          {user?.avatar ? (
+            <S.Avatar src={Avatar} />
+          ) : (
+            <S.AvatarText>
+              {user?.first_name?.length
+                ? user?.first_name[0]?.toUpperCase()
+                : ""}
+            </S.AvatarText>
+          )}
+
+          <S.Title>{user?.first_name}</S.Title>
+          <S.Role>{user?.type === 0 ? "Частный продавец" : "Компания"}</S.Role>
           <S.Position>
             <S.PositionIcon>
               <svg
@@ -77,7 +89,7 @@ const ProfileMenu = (props) => {
               <S.ItemNumber>50</S.ItemNumber>
             </S.Item>
 
-            <S.Item logout>
+            <S.Item logout onClick={() => props?.setShowLogout(true)}>
               <S.ItemTitle>Выйти</S.ItemTitle>
             </S.Item>
           </S.Menu>

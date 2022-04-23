@@ -24,6 +24,7 @@ export const registration = async (
     console.log(response);
 
     localStorage.setItem("token", response.data.token);
+    localStorage.setItem("user", JSON.stringify(response.data.user));
 
     document.location.href = "/profile";
 
@@ -44,6 +45,7 @@ export const login = (email, password) => {
       const response = await axios.post(`${API_URL}/users/login/`, data);
 
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
 
       dispatch(setShowAuthModal(false));
       document.location.href = "/profile";
@@ -65,7 +67,8 @@ export const auth = () => {
 
       // localStorage.setItem("token", response.data);
     } catch (e) {
-      console.log(e.response);
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
     }
   };
 };

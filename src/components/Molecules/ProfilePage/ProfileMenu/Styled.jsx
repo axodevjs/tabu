@@ -37,6 +37,28 @@ export const Avatar = styled.div`
   background-position: center;
 `;
 
+export const AvatarText = styled.div`
+  min-width: 100px;
+  min-height: 100px;
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+  background: #f9f9f9;
+
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+
+  color: #e5e5e5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Title = styled.div`
   font-family: "Gilroy";
   font-style: normal;
