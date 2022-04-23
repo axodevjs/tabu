@@ -21,7 +21,9 @@ const ProfileMenu = (props) => {
           )}
 
           <S.Title>{user?.first_name}</S.Title>
-          <S.Role>{user?.type === 0 ? "Частный продавец" : "Компания"}</S.Role>
+          <S.Role>
+            {user?.user_type === 0 ? "Частный продавец" : "Компания"}
+          </S.Role>
           <S.Position>
             <S.PositionIcon>
               <svg

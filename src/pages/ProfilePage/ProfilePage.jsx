@@ -2,11 +2,19 @@ import LogoutModal from "components/Molecules/ProfilePage/LogoutModal/LogoutModa
 import ProfileContent from "components/Molecules/ProfilePage/ProfileContent/ProfileContent";
 import ProfileMenu from "components/Molecules/ProfilePage/ProfileMenu/ProfileMenu";
 import TopBackground from "components/Molecules/ProfilePage/TopBackground/TopBackground";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { sizes } from "sizes";
 import * as S from "./Styled";
 
 const ProfilePage = () => {
   const [showLogout, setShowLogout] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < sizes.mobile) {
+      setIsMobile(true);
+    }
+  }, []);
 
   return (
     <S.Wrapper>
@@ -14,7 +22,8 @@ const ProfilePage = () => {
       <TopBackground />
       <S.Container>
         <ProfileMenu setShowLogout={setShowLogout} />
-        <ProfileContent />
+
+        {isMobile ? "" : <ProfileContent />}
       </S.Container>
     </S.Wrapper>
   );

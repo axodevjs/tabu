@@ -1,3 +1,4 @@
+import { sizes } from "sizes";
 import styled from "styled-components";
 import { css } from "styled-components";
 
@@ -14,6 +15,17 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${sizes.mobile}px) {
+    background: none;
+
+    width: 90%;
+    top: 48px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    box-shadow: none;
+  }
 `;
 
 export const WrapperInner = styled.div`
@@ -23,6 +35,10 @@ export const WrapperInner = styled.div`
   align-items: center;
   padding: 32px 0px 116px 0px;
   width: 100%;
+
+  @media (max-width: ${sizes.mobile}px) {
+    padding: 0;
+  }
 `;
 
 export const Avatar = styled.div`
@@ -35,6 +51,10 @@ export const Avatar = styled.div`
   background-image: url(${({ src }) => src || ""});
   background-size: cover;
   background-position: center;
+
+  @media (max-width: ${sizes.mobile}px) {
+    border: 6px solid #ffffff;
+  }
 `;
 
 export const AvatarText = styled.div`
@@ -57,6 +77,10 @@ export const AvatarText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${sizes.mobile}px) {
+    border: 6px solid #ffffff;
+  }
 `;
 
 export const Title = styled.div`
