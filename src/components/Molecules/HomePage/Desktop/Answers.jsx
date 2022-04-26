@@ -29,7 +29,7 @@ const Answers = () => {
           textAlign="center"
           uppercase
         >
-          Ответы на часто задаваемые вопросы
+          FAQ
         </Text>
         <Questions />
       </Wrapper>

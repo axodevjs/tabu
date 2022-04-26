@@ -2,21 +2,16 @@ import styled from "styled-components";
 import Text from "./Text";
 
 const StyledSteps = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 80px;
 `;
 
 const Step = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  margin-left: 87px;
-
-  &:nth-child(1) {
-    margin-left: 0;
-  }
 `;
 
 const NumberStep = styled.div`
@@ -37,95 +32,168 @@ const NumberStep = styled.div`
   font-size: 24px;
 `;
 
-const Line = styled.div`
-  display: grid;
-  align-self: center;
-  width: 100%;
-  height: 1px;
-  background-color: #e5e5e5;
-  margin-left: 20px;
-`;
-
-const Steps = () => {
+const Steps = ({ activeTab }) => {
   return (
-    <StyledSteps>
-      <Step>
-        <NumberStep>01</NumberStep>
-        <Text
-          color="#191919"
-          fontFamily="Gilroy"
-          fontWeight="400"
-          fontSize="20px"
-          textAlign="center"
-          textTransform="uppercase"
-          margin="24px 0 0 0"
-        >
-          Выбор и оплата
-        </Text>
-        <Text
-          color="#191919"
-          fontFamily="Mont"
-          fontWeight="600"
-          fontSize="14px"
-          textAlign="center"
-          margin="24px 0 0 0"
-        >
-          Выбрать и оплачивать товар можно посредством сайта или в нашем
-          мобильном приложении для операционных систем Android и iOS
-        </Text>
-      </Step>
-      <Step>
-        <NumberStep>02</NumberStep>
-        <Text
-          color="#191919"
-          fontFamily="Gilroy"
-          fontWeight="400"
-          fontSize="20px"
-          textAlign="center"
-          textTransform="uppercase"
-          margin="24px 0 0 0"
-        >
-          Проверка подлинности
-        </Text>
-        <Text
-          color="#191919"
-          fontFamily="Mont"
-          fontWeight="600"
-          fontSize="14px"
-          textAlign="center"
-          margin="24px 0 0 0"
-        >
-          Мы забираем товар у продавца и проверяем его у нашего эксперта. После
-          мы прикрепляем к посылке сертификат подлинности и качества
-        </Text>
-      </Step>
-      <Step>
-        <NumberStep>01</NumberStep>
-        <Text
-          color="#191919"
-          fontFamily="Gilroy"
-          fontWeight="400"
-          fontSize="20px"
-          textAlign="center"
-          textTransform="uppercase"
-          margin="24px 0 0 0"
-        >
-          Отправка товара
-        </Text>
-        <Text
-          color="#191919"
-          fontFamily="Mont"
-          fontWeight="600"
-          fontSize="14px"
-          textAlign="center"
-          margin="24px 0 0 0"
-        >
-          После проверки курьер привозит посылку к вам домой или в офис
-          в течение 3-х рабочих дней. За доставкой можно следить в личном
-          кабинете
-        </Text>
-      </Step>
-    </StyledSteps>
+    <>
+      {activeTab === "customers" ? (
+        <StyledSteps>
+          <Step>
+            <NumberStep>01</NumberStep>
+            <Text
+              color="#191919"
+              fontFamily="Gilroy"
+              fontWeight="400"
+              fontSize="20px"
+              textAlign="center"
+              textTransform="uppercase"
+              margin="24px 0 0 0"
+            >
+              Выбор и оплата
+            </Text>
+            <Text
+              color="#191919"
+              fontFamily="Mont"
+              fontWeight="600"
+              fontSize="14px"
+              textAlign="center"
+              margin="24px 0 0 0"
+            >
+              Выбрать и оплатить товар онлайн
+            </Text>
+          </Step>
+          <Step>
+            <NumberStep>02</NumberStep>
+            <Text
+              color="#191919"
+              fontFamily="Gilroy"
+              fontWeight="400"
+              fontSize="20px"
+              textAlign="center"
+              textTransform="uppercase"
+              margin="24px 0 0 0"
+            >
+              Проверка качества
+            </Text>
+            <Text
+              color="#191919"
+              fontFamily="Mont"
+              fontWeight="600"
+              fontSize="14px"
+              textAlign="center"
+              margin="24px 0 0 0"
+            >
+              Мы забираем товар у продавца и проверяем его у нашего специалиста.
+              После проверки мы прикрепляем к посылке сертификат качества и
+              подлинности Taabu
+            </Text>
+          </Step>
+          <Step>
+            <NumberStep>03</NumberStep>
+            <Text
+              color="#191919"
+              fontFamily="Gilroy"
+              fontWeight="400"
+              fontSize="20px"
+              textAlign="center"
+              textTransform="uppercase"
+              margin="24px 0 0 0"
+            >
+              Доставка
+            </Text>
+            <Text
+              color="#191919"
+              fontFamily="Mont"
+              fontWeight="600"
+              fontSize="14px"
+              textAlign="center"
+              margin="24px 0 0 0"
+            >
+              Курьер привозит посылку на указанный вами адрес в день отправки
+              товара, после чего продавец получает оплату
+            </Text>
+          </Step>
+        </StyledSteps>
+      ) : (
+        <StyledSteps>
+          <Step>
+            <NumberStep>01</NumberStep>
+            <Text
+              color="#191919"
+              fontFamily="Gilroy"
+              fontWeight="400"
+              fontSize="20px"
+              textAlign="center"
+              textTransform="uppercase"
+              margin="24px 0 0 0"
+            >
+              Размещение
+            </Text>
+            <Text
+              color="#191919"
+              fontFamily="Mont"
+              fontWeight="600"
+              fontSize="14px"
+              textAlign="center"
+              margin="24px 0 0 0"
+            >
+              Размещение товара: зарегистрироваться и выставить товар на продажу
+              на нашем сайте
+            </Text>
+          </Step>
+          <Step>
+            <NumberStep>02</NumberStep>
+            <Text
+              color="#191919"
+              fontFamily="Gilroy"
+              fontWeight="400"
+              fontSize="20px"
+              textAlign="center"
+              textTransform="uppercase"
+              margin="24px 0 0 0"
+            >
+              Проверка качества
+            </Text>
+            <Text
+              color="#191919"
+              fontFamily="Mont"
+              fontWeight="600"
+              fontSize="14px"
+              textAlign="center"
+              margin="24px 0 0 0"
+            >
+              После того как покупатель внес оплату, мы забираем у вас товар.
+              Наш специалист проверяет его состояние и подлинность. После
+              проверки мы отправляем товар покупателю
+            </Text>
+          </Step>
+          <Step>
+            <NumberStep>03</NumberStep>
+            <Text
+              color="#191919"
+              fontFamily="Gilroy"
+              fontWeight="400"
+              fontSize="20px"
+              textAlign="center"
+              textTransform="uppercase"
+              margin="24px 0 0 0"
+            >
+              Перевод денег
+            </Text>
+            <Text
+              color="#191919"
+              fontFamily="Mont"
+              fontWeight="600"
+              fontSize="14px"
+              textAlign="center"
+              margin="24px 0 0 0"
+            >
+              Как только покупатель получил товар, мы переводим его оплату на
+              вашу карту
+            </Text>
+          </Step>
+        </StyledSteps>
+      )}
+    </>
   );
 };
 

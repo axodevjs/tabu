@@ -61,7 +61,7 @@ const HomePage = () => {
           <MobileNowInTrand />
           <MobileSections />
           <MobileStartSale />
-          <MobileMedia />
+          {/*<MobileMedia />*/}
           <MobileCards />
           <MobileInstagram />
           <WeSelling />
@@ -79,7 +79,7 @@ const HomePage = () => {
           <Trends />
           <TwoSections />
           <StartSell />
-          <Media />
+          {/*<Media />*/}
           <Advantages />
           <Instagram />
           <WeSelling />

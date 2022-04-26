@@ -24,7 +24,7 @@ const NewProducts = () => {
         cursor="pointer"
         onClick={() => navigate(`/categories/Новинки`)}
       >
-        Новые объявления
+        Недавно опубликованные
       </Text>
       <ProductsSlider products={newProducts} />
     </Grid>

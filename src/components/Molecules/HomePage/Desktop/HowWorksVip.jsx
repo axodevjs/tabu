@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Grid from "../../../Atoms/Grid";
-import Steps from "../../../Atoms/Steps";
+import StepsVip from "../../../Atoms/StepsVip";
 import Tab from "../../../Atoms/Tab";
 import Text from "../../../Atoms/Text";
 import { useState } from "react";
@@ -11,8 +11,8 @@ const Tabs = styled.div`
   margin-top: 41px;
 `;
 
-const HowWorks = () => {
-  const [activeTab, setActiveTab] = useState("customers");
+const HowWorksVip = () => {
+  const [activeTab, setActiveTab] = useState("sellers");
 
   return (
     <div>
@@ -25,27 +25,16 @@ const HowWorks = () => {
             fontSize="32px"
             textAlign="center"
           >
-            КАК РАБОТАЕТ СЕРВИС?
+            Как работает VIP сервис?
           </Text>
           <Tabs>
-            <Tab
-              active={activeTab === "customers" && true}
-              onClick={() => setActiveTab("customers")}
-            >
-              Для покупателей
-            </Tab>
-            <Tab
-              active={activeTab === "sellers" && true}
-              onClick={() => setActiveTab("sellers")}
-            >
-              Для продавцов
-            </Tab>
+            <Tab active={true}>Для продавцов</Tab>
           </Tabs>
-          <Steps activeTab={activeTab} />
+          <StepsVip />
         </Grid>
       </Grid>
     </div>
   );
 };
 
-export default HowWorks;
+export default HowWorksVip;

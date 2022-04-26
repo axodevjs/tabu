@@ -8,10 +8,10 @@ const WeSelling = () => {
 
   return (
     <S.Wrapper>
-      <S.Title>Продаем товар за вас</S.Title>
+      <S.Title>Сделаем все за вас</S.Title>
       <S.Description>
-        Продавая вещи, которые пылятся в гардеробе, вы не консервируете деньги у
-        себя в шкафу, а зарабатываете на будущие покупки.
+        Заберем ваши вещи. Подготовим, опубликуем и продадим. Переведем вам
+        деньги
       </S.Description>
       <S.ButtonBlock>
         <Button
@@ -19,7 +19,7 @@ const WeSelling = () => {
           padding="14px 24px"
           topGreen
         >
-          Оставить заявку
+          Получить VIP сервис
         </Button>
       </S.ButtonBlock>
     </S.Wrapper>
