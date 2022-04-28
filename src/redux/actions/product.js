@@ -37,7 +37,8 @@ export const getProductsByCategory = (
   category,
   brandOptions,
   colorOptions,
-  sizeOptions
+  sizeOptions,
+  materialOptions
 ) => {
   return async (dispatch) => {
     try {
@@ -45,11 +46,22 @@ export const getProductsByCategory = (
         let brands = "";
         let colors = "";
         let sizes = "";
+        let materials = "";
         for (let i = 0; i < brandOptions.length; i++) {
           if (i === 0) {
             brands += brandOptions[i].title;
           } else {
             brands += "," + brandOptions[i].title;
+          }
+        }
+
+        console.log("materials >", materials);
+        console.log("materialOptions >", materialOptions);
+        for (let i = 0; i < materialOptions?.length; i++) {
+          if (i === 0) {
+            materials += materialOptions[i].title;
+          } else {
+            materials += "," + materialOptions[i].title;
           }
         }
 
@@ -71,7 +83,7 @@ export const getProductsByCategory = (
 
         const response = await axios.get(
           API_URL +
-            `/products?category__title__in=${category}&brand__title__in=${brands}&color__title__in=${colors}&size__title__in=${sizes}`
+            `/products?category__title__in=${category}&brand__title__in=${brands}&color__title__in=${colors}&size__title__in=${sizes}&material__title__in=${materials}`
         );
         dispatch(setProducts(response.data));
       } else {

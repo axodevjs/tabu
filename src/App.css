@@ -14,6 +14,36 @@ body {
   background-color: #ffffff;
 }
 
+.profile_menu_item {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  width: 100%;
+
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+
+  color: #000000;
+}
+
+.profile_menu_item:nth-child(1) {
+  padding: 0 0 8px 0;
+}
+
+.profile_menu_item.active {
+  font-weight: 600;
+}
+
+.profile_menu_item.logout {
+  color: #d41313;
+  text-decoration: underline;
+}
+
 .hidden {
   visibility: hidden;
   opacity: 0;

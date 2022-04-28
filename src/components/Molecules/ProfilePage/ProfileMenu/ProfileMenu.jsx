@@ -1,7 +1,8 @@
 import * as S from "./Styled";
 import Avatar from "assets/img/Profile/avatar.jpg";
-import Button from "components/Atoms/Button";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 const ProfileMenu = (props) => {
   const user = useSelector((state) => state.user.currentUser);
@@ -9,6 +10,8 @@ const ProfileMenu = (props) => {
   return (
     <div>
       <S.Wrapper {...props}>
+        {/* <EditProfileModal /> */}
+
         <S.WrapperInner>
           {user?.avatar ? (
             <S.Avatar src={Avatar} />
@@ -78,18 +81,33 @@ const ProfileMenu = (props) => {
           </S.Button>
 
           <S.Menu>
-            <S.Item active>
+            <NavLink
+              to="/profile/"
+              className={({ isActive }) =>
+                isActive ? "profile_menu_item active" : "profile_menu_item"
+              }
+            >
               <S.ItemTitle>Все заказы</S.ItemTitle>
               <S.ItemNumber>12</S.ItemNumber>
-            </S.Item>
-            <S.Item>
+            </NavLink>
+            <NavLink
+              to="/profile/sellitems"
+              className={({ isActive }) =>
+                isActive ? "profile_menu_item active" : "profile_menu_item"
+              }
+            >
               <S.ItemTitle>Товары на продажу</S.ItemTitle>
               <S.ItemNumber>3</S.ItemNumber>
-            </S.Item>
-            <S.Item>
+            </NavLink>
+            <NavLink
+              to="/profile/wishlist"
+              className={({ isActive }) =>
+                isActive ? "profile_menu_item active" : "profile_menu_item"
+              }
+            >
               <S.ItemTitle>Избранное</S.ItemTitle>
               <S.ItemNumber>50</S.ItemNumber>
-            </S.Item>
+            </NavLink>
 
             <S.Item logout onClick={() => props?.setShowLogout(true)}>
               <S.ItemTitle>Выйти</S.ItemTitle>

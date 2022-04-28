@@ -2,12 +2,14 @@ import {
   SET_CATEGORIES,
   SET_CATEGORY,
   SET_MAIN_CATEGORY,
+  SET_PAGE_CATEGORY,
 } from "redux/types/categoriesTypes";
 
 const defaultState = {
   categories: [],
   category: [],
   main_category: [null],
+  pageCategory: {},
 };
 
 export default function categoriesReducer(state = defaultState, action) {
@@ -18,6 +20,8 @@ export default function categoriesReducer(state = defaultState, action) {
       return { ...state, category: action.payload };
     case SET_MAIN_CATEGORY:
       return { ...state, main_category: action.payload };
+    case SET_PAGE_CATEGORY:
+      return { ...state, pageCategory: action.payload };
     default:
       return state;
   }
@@ -36,4 +40,9 @@ export const setCategory = (category) => ({
 export const setMainCategory = (main_category) => ({
   type: SET_MAIN_CATEGORY,
   payload: main_category,
+});
+
+export const setPageCategory = (pageCategory) => ({
+  type: SET_PAGE_CATEGORY,
+  payload: pageCategory,
 });

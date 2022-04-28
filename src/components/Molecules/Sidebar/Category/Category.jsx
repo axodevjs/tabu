@@ -5,6 +5,7 @@ import SearchInput from "components/Atoms/Form/SearchInput";
 import Hr from "components/Atoms/Hr";
 import ExpandIcon from "components/Atoms/Icons/ExpandIcon";
 import Text from "components/Atoms/Text";
+import MultiRangeSlider from "components/Molecules/multiRangeSlider/MultiRangeSlider";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -12,6 +13,7 @@ import { getProductsByCategory } from "redux/actions/product";
 import {
   setBrandOptions,
   setColorOptions,
+  setMaterialOptions,
   setSizeOptions,
 } from "redux/reducers/filterOptionsReducer";
 import styled from "styled-components";
@@ -62,6 +64,21 @@ const Category = (props) => {
   const brandOptions = useSelector((state) => state.filterOptions.brandOptions);
   const sizeOptions = useSelector((state) => state.filterOptions.sizeOptions);
   const colorOptions = useSelector((state) => state.filterOptions.colorOptions);
+  const materialOptions = useSelector(
+    (state) => state.filterOptions.materialOptions
+  );
+
+  const getProductsByFilter = () => {
+    dispatch(
+      getProductsByCategory(
+        params.category_name,
+        brandOptions.filter((x) => x.selected === true),
+        colorOptions.filter((x) => x.selected === true),
+        sizeOptions.filter((x) => x.selected === true),
+        materialOptions.filter((x) => x.selected === true)
+      )
+    );
+  };
 
   const toggleCheckbox = (type, title) => {
     // Изменения в редуксе
@@ -75,14 +92,21 @@ const Category = (props) => {
         brandOptionsCopy[foundBrandIndex] = brandOption;
 
         dispatch(setBrandOptions(brandOptionsCopy));
-        dispatch(
-          getProductsByCategory(
-            params.category_name,
-            brandOptions.filter((x) => x.selected === true),
-            colorOptions.filter((x) => x.selected === true),
-            sizeOptions.filter((x) => x.selected === true)
-          )
-        );
+        getProductsByFilter();
+      }
+    }
+
+    if (type === "material") {
+      let option = materialOptions.find((x) => x.title === title);
+      let optionsCopy = materialOptions;
+      let foundIndex = materialOptions.findIndex((x) => x.title === title);
+
+      if (option) {
+        option.selected = !option.selected;
+        optionsCopy[foundIndex] = option;
+
+        dispatch(setMaterialOptions(optionsCopy));
+        getProductsByFilter();
       }
     }
 
@@ -96,14 +120,7 @@ const Category = (props) => {
         colorOptionsCopy[foundColorIndex] = colorOption;
 
         dispatch(setColorOptions(colorOptionsCopy));
-        dispatch(
-          getProductsByCategory(
-            params.category_name,
-            brandOptions.filter((x) => x.selected === true),
-            colorOptions.filter((x) => x.selected === true),
-            sizeOptions.filter((x) => x.selected === true)
-          )
-        );
+        getProductsByFilter();
       }
     }
 
@@ -117,14 +134,7 @@ const Category = (props) => {
         sizeOptionsCopy[foundSizeIndex] = sizeOption;
 
         dispatch(setSizeOptions(sizeOptionsCopy));
-        dispatch(
-          getProductsByCategory(
-            params.category_name,
-            brandOptions.filter((x) => x.selected === true),
-            colorOptions.filter((x) => x.selected === true),
-            sizeOptions.filter((x) => x.selected === true)
-          )
-        );
+        getProductsByFilter();
       }
     }
   };
@@ -158,6 +168,17 @@ const Category = (props) => {
         </div>
 
         <Checks>
+          {props?.type === "category" &&
+            props &&
+            props?.option &&
+            props?.options?.map((option, i) => (
+              <CheckBox
+                onClick={(e) => toggleCheckbox("category", option.title)}
+                key={i}
+                name={option.title}
+              />
+            ))}
+
           {/* Если тип категории default, выводятся обычные чекбоксы */}
           {props.type === "brand" &&
             props.options.map((option, i) => (
@@ -187,6 +208,27 @@ const Category = (props) => {
                 name={option.title}
               />
             ))}
+
+          {/* Если тип категории material, выводятся обычные чекбоксы */}
+          {props.type === "material" &&
+            props.options.map((option, i) => (
+              <CheckBox
+                onClick={(e) => toggleCheckbox("material", option.title)}
+                key={i}
+                name={option.title}
+              />
+            ))}
+
+          {/* Если тип категории price, выводится инпут с ценой */}
+          {props.type === "price" && (
+            <MultiRangeSlider
+              min={0}
+              max={1000}
+              onChange={({ min, max }) =>
+                console.log(`min = ${min}, max = ${max}`)
+              }
+            />
+          )}
         </Checks>
       </Options>
       <Hr margin="24px 0 0 0" color="#EEEEEE" />

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { sizes } from "sizes";
 import * as S from "./Styled";
 
-const ProfilePage = () => {
+const ProfileSellPage = () => {
   const [showLogout, setShowLogout] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -29,4 +29,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default ProfileSellPage;
