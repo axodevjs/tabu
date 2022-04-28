@@ -18,12 +18,18 @@ export const Wrapper = styled.div`
 export const Block = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: start;
   background: #ffffff;
   position: relative;
-  width: 65%;
-  height: 50%;
+  width: 71%;
+  height: 80%;
+  align-items: center;
+
+  @media (max-width: ${sizes.mobile}px) {
+    width: 100%;
+    height: 100%;
+    align-items: start;
+  }
 `;
 
 export const Avatar = styled.div`
@@ -65,11 +71,90 @@ export const AvatarText = styled.div`
 
   @media (max-width: ${sizes.mobile}px) {
     border: 6px solid #ffffff;
+    margin-left: 25px;
   }
 `;
 
-export const Slice = styled.div``;
+export const BottomBlock = styled.div`
+  margin-top: 50px;
+  width: 65%;
+  display: flex;
 
-export const Form = styled.div``;
+  @media (max-width: ${sizes.mobile}px) {
+    flex-direction: column;
+    width: 87%;
+  }
+`;
 
-export const Title = styled.div``;
+export const Slice = styled.div`
+  height: 356px;
+  width: 1px;
+  background: #e5e5e5;
+  margin-left: 56px;
+
+  @media (max-width: ${sizes.mobile}px) {
+    display: none;
+  }
+`;
+
+export const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 43px;
+  width: 100%;
+
+  @media (max-width: ${sizes.mobile}px) {
+    margin-left: 0;
+  }
+`;
+
+export const FormTop = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 56px;
+  width: 100%;
+
+  @media (max-width: ${sizes.mobile}px) {
+    margin-left: 28px;
+    margin-top: 28px;
+  }
+`;
+
+export const Radios = styled.div`
+  display: flex;
+`;
+
+export const ButtonBlock = styled.div``;
+
+export const Title = styled.div`
+  margin-top: 80px;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  /* identical to box height, or 28px */
+
+  text-transform: uppercase;
+
+  /* Tabu/Black */
+
+  color: #191919;
+
+  @media (max-width: ${sizes.mobile}px) {
+    margin-top: 32px;
+    margin-left: 25px;
+  }
+`;
+
+export const CloseBlock = styled.div`
+  height: 80%;
+  display: flex;
+  align-items: start;
+  margin-left: 24px;
+  cursor: pointer;
+
+  @media (max-width: ${sizes.mobile}px) {
+    display: none;
+  }
+`;

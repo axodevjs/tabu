@@ -3,14 +3,16 @@ import Avatar from "assets/img/Profile/avatar.jpg";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
+import { useState } from "react";
 
 const ProfileMenu = (props) => {
   const user = useSelector((state) => state.user.currentUser);
+  const [showEdit, setShowEdit] = useState();
 
   return (
     <div>
       <S.Wrapper {...props}>
-        {/* <EditProfileModal /> */}
+        <EditProfileModal show={showEdit} onClose={setShowEdit} />
 
         <S.WrapperInner>
           {user?.avatar ? (
@@ -54,7 +56,7 @@ const ProfileMenu = (props) => {
             Алматы Казахстан
           </S.Position>
 
-          <S.Button>
+          <S.Button onClick={() => setShowEdit(true)}>
             <S.EditIcon>
               <svg
                 width={12}
