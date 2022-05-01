@@ -78,7 +78,7 @@ const MobileHeader = () => {
               <path d="M15 15L21 21" stroke="black" strokeLinecap="round" />
             </svg>
           </S.Search>
-          <S.Cart>
+          <S.Cart onClick={() => navigate("/cart")}>
             <svg
               width="24"
               height="24"

@@ -1,6 +1,6 @@
 import * as S from "./Styled";
 import { useDispatch, useSelector } from "react-redux";
-import { setMenuCategory } from "redux/reducers/appReducer";
+import { hideMobileSidebar, setMenuCategory } from "redux/reducers/appReducer";
 import { useNavigate } from "react-router-dom";
 import { getProductsByCategory } from "../../../../../../redux/actions/product";
 
@@ -12,6 +12,7 @@ const MobileCategory = (props) => {
   const onCategoryClick = (category) => {
     navigate(`/categories/${category}`);
     dispatch(getProductsByCategory(category));
+    dispatch(hideMobileSidebar());
   };
 
   const onClickBack = () => {
@@ -37,7 +38,12 @@ const MobileCategory = (props) => {
         </svg>
         <S.BackText>Назад</S.BackText>
       </S.Back>
-      <S.Title>
+      <S.Title
+        onClick={() => {
+          navigate("/categories/" + menuCategory.parentCategory.title);
+          dispatch(hideMobileSidebar());
+        }}
+      >
         {!menuCategory.parentCategory ? "" : menuCategory.parentCategory.title}
       </S.Title>
       <S.Categories>

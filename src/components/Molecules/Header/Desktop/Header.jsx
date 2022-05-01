@@ -21,6 +21,7 @@ const Header = () => {
   const categories = useSelector((state) => state.categories.categories);
   const main_category = useSelector((state) => state.categories.main_category);
   const cartProducts = useSelector((state) => state.cart.cartProducts);
+  const showHover = useSelector((state) => state.app.showHoverMenu);
 
   useEffect(() => {
     dispatch(getCategories());
@@ -106,6 +107,7 @@ const Header = () => {
       </S.StyledHeader>
       <BottomHeader />
       <HoverMenu />
+      {showHover && <S.Background />}
     </>
   );
 };

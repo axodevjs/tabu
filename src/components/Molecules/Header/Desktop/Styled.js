@@ -124,3 +124,15 @@ export const CartNumber = styled.div`
 
   border-radius: 50%;
 `;
+
+export const Background = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  bottom: 0;
+  left: 0;
+  height: 400px;
+  background: #191919;
+  opacity: 0.8;
+`;

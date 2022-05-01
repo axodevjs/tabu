@@ -126,7 +126,7 @@ export const getTrends = () => {
   return async (dispatch) => {
     try {
       const response = await axios.get(
-        `${API_URL}/products?category__title__in=Сейчас в тренде`
+        `${API_URL}/products?tags__title__in=Trend`
       );
       dispatch(setTrends(response.data));
     } catch (e) {

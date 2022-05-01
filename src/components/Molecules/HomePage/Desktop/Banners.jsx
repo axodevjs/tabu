@@ -17,7 +17,7 @@ const Right = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #f9f9f9;
-  padding: 30px 57px 80px 57px;
+  padding: 80px 57px 80px 57px;
 `;
 
 const Banners = () => {

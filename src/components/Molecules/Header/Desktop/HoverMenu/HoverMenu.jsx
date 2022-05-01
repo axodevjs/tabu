@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { hideHoverMenu } from "redux/reducers/appReducer";
 import * as S from "./Styled";
 import { getProductsByCategory } from "redux/actions/product";
@@ -9,6 +9,31 @@ const HoverMenu = () => {
   const showHover = useSelector((state) => state.app.showHoverMenu);
   const category = useSelector((state) => state.categories.category);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const disableScrolling = () => {
+    var x = window.scrollX;
+    var y = window.scrollY;
+    window.onscroll = function () {
+      window.scrollTo(x, y);
+    };
+  };
+
+  const enableScrolling = () => {
+    window.onscroll = function () {};
+  };
+
+  const onClickLink = () => {
+    dispatch(hideHoverMenu());
+  };
+
+  useEffect(() => {
+    if (showHover === true) {
+      disableScrolling();
+    } else {
+      enableScrolling();
+    }
+  }, [showHover]);
 
   return (
     <>
@@ -20,10 +45,13 @@ const HoverMenu = () => {
           >
             <S.SubCategory>
               <Link
-                onClick={() => dispatch(getProductsByCategory(category.title))}
+                onClick={() => {
+                  dispatch(getProductsByCategory(category.title));
+                  onClickLink();
+                }}
                 to={`/categories/${category.title}`}
               >
-                <S.SubCategoryName onClick={() => console.log(category)}>
+                <S.SubCategoryName onClick={() => onClickLink()}>
                   {category.title}
                 </S.SubCategoryName>
               </Link>
@@ -34,11 +62,12 @@ const HoverMenu = () => {
                       <React.Fragment key={i}>
                         <S.SubCategoryItem>
                           <Link
-                            onClick={() =>
+                            onClick={() => {
                               dispatch(
                                 getProductsByCategory(doubleSubCat.title)
-                              )
-                            }
+                              );
+                              onClickLink();
+                            }}
                             to={`/categories/${doubleSubCat.title}`}
                           >
                             {doubleSubCat.title}
@@ -47,7 +76,14 @@ const HoverMenu = () => {
                       </React.Fragment>
                     ))}
               </S.SubCategoryItems>
-              <S.OpenAll>Открыть все</S.OpenAll>
+              <S.OpenAll
+                onClick={() => {
+                  navigate(`/categories/${category.title}`);
+                  dispatch(hideHoverMenu());
+                }}
+              >
+                Открыть все
+              </S.OpenAll>
             </S.SubCategory>
           </S.HoverMenu>
         </S.Wrapper>
