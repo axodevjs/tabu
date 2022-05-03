@@ -93,7 +93,7 @@ const Card = (props) => {
                   name="name"
                   color="#191919"
                   fontFamily="Mont"
-                  fontWeight="700"
+                  fontWeight="600"
                   fontSize="16px"
                 >
                   {props.title ? props.title : ""}
@@ -103,22 +103,46 @@ const Card = (props) => {
                   color="#717171"
                   margin="6px 0 0 0"
                   fontFamily="Mont"
-                  fontWeight="600"
+                  fontWeight="400"
                   fontSize="16px"
                 >
                   {props.description?.length > 65
                     ? props.description.slice(0, 65) + " ..."
                     : props.description}
                 </Text>
+                <Text
+                  name="size"
+                  color="#717171"
+                  margin="6px 0 0 0"
+                  fontFamily="Mont"
+                  fontWeight="400"
+                  fontSize="16px"
+                >
+                  {props?.product?.size?.length &&
+                    `UE ${props?.product?.size[0].title}`}
+                </Text>
               </Flex>
-              <Text
-                color="#191919"
-                fontFamily="Mont"
-                fontWeight="700"
-                fontSize="16px"
-              >
-                {props.price ? "$ " + props.price : ""}
-              </Text>
+              <Flex direction="column" justify="start" align="end">
+                <Text
+                  color="#191919"
+                  fontFamily="Mont"
+                  fontWeight="600"
+                  fontSize="16px"
+                >
+                  {props.price ? "$ " + props.price : ""}
+                </Text>
+
+                <Text
+                  color="#ABABAB"
+                  fontFamily="Mont"
+                  fontWeight="600"
+                  fontSize="16px"
+                  decoration="line-through"
+                >
+                  {props?.product?.old_price &&
+                    "$ " + props?.product?.old_price}
+                </Text>
+              </Flex>
             </S.Details>
             <Button
               dark_filled
@@ -163,7 +187,7 @@ const Card = (props) => {
           <Text
             color="#191919"
             fontFamily="Mont"
-            fontWeight="700"
+            fontWeight="600"
             fontSize="16px"
             onClick={() => navigate(`/products/${props?.product_id}`)}
             cursor="pointer"
@@ -174,18 +198,31 @@ const Card = (props) => {
             color="#717171"
             margin="6px 0 0 0"
             fontFamily="Mont"
-            fontWeight="600"
+            fontWeight="400"
             fontSize="16px"
           >
             {props.description?.length > 65
               ? props.description.slice(0, 65) + " ..."
               : props.description}
           </Text>
+
+          <Text
+            name="size"
+            color="#717171"
+            margin="6px 0 0 0"
+            fontFamily="Mont"
+            fontWeight="400"
+            fontSize="16px"
+          >
+            {props?.product?.size?.length &&
+              `UE ${props?.product?.size[0].title}`}
+          </Text>
+
           {isMobile ? (
             <Text
               color="#191919"
               fontFamily="Mont"
-              fontWeight="700"
+              fontWeight="600"
               fontSize="16px"
               margin={"6px 0 0 0"}
             >
@@ -196,14 +233,26 @@ const Card = (props) => {
           )}
         </Flex>
         {!isMobile ? (
-          <Text
-            color="#191919"
-            fontFamily="Mont"
-            fontWeight="700"
-            fontSize="16px"
-          >
-            {props.price ? "$ " + props.price : ""}
-          </Text>
+          <Flex direction="column" justify="start" align="end">
+            <Text
+              color="#191919"
+              fontFamily="Mont"
+              fontWeight="600"
+              fontSize="16px"
+            >
+              {props.price ? "$ " + props.price : ""}
+            </Text>
+
+            <Text
+              color="#ABABAB"
+              fontFamily="Mont"
+              fontWeight="600"
+              fontSize="16px"
+              decoration="line-through"
+            >
+              {props?.product?.old_price && "$ " + props?.product?.old_price}
+            </Text>
+          </Flex>
         ) : (
           ""
         )}

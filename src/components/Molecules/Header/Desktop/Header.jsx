@@ -48,9 +48,11 @@ const Header = () => {
           </Link>
         </S.Logo>
         <S.UserBlock>
-          <Button outlined={true} width="149px">
-            Продать товар
-          </Button>
+          <a href="/sellproduct">
+            <Button outlined={true} width="149px">
+              Продать товар
+            </Button>
+          </a>
           <S.Cart onClick={() => navigate("/cart")}>
             <svg
               width={17}

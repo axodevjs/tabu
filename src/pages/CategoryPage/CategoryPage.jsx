@@ -97,6 +97,7 @@ const CategoryPage = () => {
                       title={product.title}
                       description={product.description}
                       price={product.price}
+                      product={product}
                       img={URL + product.images[0].image}
                     />
                   ))}

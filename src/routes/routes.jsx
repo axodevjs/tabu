@@ -4,6 +4,7 @@ import ProductPage from "pages/ProductPage/ProductPage";
 import ProfilePage from "pages/ProfilePages/ProfileBuyPage/ProfileBuyPage";
 import ProfileSellPage from "pages/ProfilePages/ProfileSellPage/ProfileSellPage";
 import ProfileWishListPage from "pages/ProfilePages/ProfileWishListPage/ProfileSalePage";
+import SellProduct from "pages/SellProduct/SellProduct";
 import { Navigate } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 
@@ -12,6 +13,7 @@ const routes = (isAuth) => [
   { path: "/categories/:category_name", element: <CategoryPage /> },
   { path: "/products/:product_id", element: <ProductPage /> },
   { path: "/cart", element: <Cart /> },
+  { path: "/sellproduct", element: <SellProduct /> },
 
   {
     path: "/profile",
