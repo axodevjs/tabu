@@ -1,19 +1,23 @@
 import styled, { css } from "styled-components";
 
-export const MainPhoto = styled.div`
-  background: #ffffff;
+export const MainPhoto = styled.button`
   border: 1px dashed rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   border-radius: 16px;
+  outline: none;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   width: 100%;
-  height: 248px;
+  height: 210px;
 
   margin-top: 24px;
+  background: url(${(props) => props.background || "#ffffff"});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const MainText = styled.div`

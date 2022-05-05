@@ -1,7 +1,7 @@
 import * as S from "./Styled";
 
 const ExamplePhoto = (props) => {
-  return <S.ExamplePhoto {...props} src={props?.src} alt="" />;
+  return <S.ExamplePhoto {...props} alt="" />;
 };
 
 export default ExamplePhoto;

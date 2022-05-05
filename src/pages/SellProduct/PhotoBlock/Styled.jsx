@@ -10,7 +10,9 @@ export const LeftSection = styled.div`
   width: 100%;
 `;
 
-export const RightSection = styled.div``;
+export const RightSection = styled.div`
+  width: 100%;
+`;
 
 export const TwoSections = styled.div`
   display: grid;
