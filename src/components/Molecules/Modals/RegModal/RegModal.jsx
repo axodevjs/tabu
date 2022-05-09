@@ -1,7 +1,7 @@
 import Button from "components/Atoms/Button";
 import CheckBox from "components/Atoms/Form/CheckBox";
 import Radio from "components/Atoms/Form/Radio";
-import FormInput from "components/Molecules/FormInput/FormInput";
+import FormInput from "components/Molecules/Form/FormInput/FormInput";
 import Header from "components/Molecules/Search/Desktop/Header/Header";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

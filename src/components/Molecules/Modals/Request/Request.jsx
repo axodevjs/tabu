@@ -1,6 +1,6 @@
 import Button from "components/Atoms/Button";
 import Flex from "components/Atoms/Flex";
-import FormInput from "components/Molecules/FormInput/FormInput";
+import FormInput from "components/Molecules/Form/FormInput/FormInput";
 import Header from "components/Molecules/Search/Desktop/Header/Header";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

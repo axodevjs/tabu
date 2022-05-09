@@ -27,8 +27,7 @@ const MainPhoto = (props) => {
   };
 
   return (
-    <div {...props}>
-      <S.MainText>{props?.main_text}</S.MainText>
+    <S.Wrapper {...props}>
       <S.MainPhoto onClick={handleClick} background={preview}>
         {!uploadedFile && (
           <svg
@@ -62,8 +61,9 @@ const MainPhoto = (props) => {
         onChange={handleChange}
         ref={hiddenFileInput}
         style={{ display: "none" }}
+        accept="image/*"
       />
-    </div>
+    </S.Wrapper>
   );
 };
 

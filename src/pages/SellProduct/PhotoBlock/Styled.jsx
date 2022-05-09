@@ -4,22 +4,42 @@ export const PhotoBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
+  width: 35%;
 `;
 
-export const LeftSection = styled.div`
+export const Section = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
 `;
 
-export const RightSection = styled.div`
+export const SectionInner = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 24px;
+`;
+
+export const MainText = styled.div`
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  /* identical to box height, or 16px */
+
+  color: #000000;
+`;
+
+export const SubTitleBlock = styled.div`
   width: 100%;
-`;
-
-export const TwoSections = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: start;
-  grid-column-gap: 20px;
+  display: flex;
   margin-top: 56px;
+`;
+
+export const Sections = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
@@ -34,7 +54,13 @@ export const TitleSection = styled.div`
   text-transform: uppercase;
 
   color: #000000;
-  margin-top: 56px;
+  width: 50%;
+  display: flex;
+  justify-content: start;
+
+  &:nth-child(2) {
+    margin-left: 20px;
+  }
 `;
 
 export const TitleBlock = styled.div`

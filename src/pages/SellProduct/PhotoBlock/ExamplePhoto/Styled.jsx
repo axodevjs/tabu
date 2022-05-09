@@ -4,7 +4,7 @@ export const ExamplePhoto = styled.div`
   width: 100%;
   height: auto;
   border-radius: 16px;
-  margin-top: 72px;
+  margin-left: 20px;
 
   background-image: url(${(props) => props.src || ""});
   background-size: cover;

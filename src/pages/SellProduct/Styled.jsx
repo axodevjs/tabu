@@ -1,3 +1,4 @@
+import { sizes } from "sizes";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -5,6 +6,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding-bottom: 274px;
 `;
 export const Title = styled.div`
   margin-top: 56px;
@@ -37,29 +39,16 @@ export const Description = styled.div`
 
   color: #717171;
   width: 35%;
+
+  @media (max-width: ${sizes.mobile}px) {
+    width: 80%;
+  }
 `;
 
 export const Blocks = styled.div`
-  display: grid;
-  grid-column-gap: 132px;
-  grid-template-columns: 35% 65%;
   margin-top: 72px;
-  width: 82%;
-`;
-
-export const TitleBlock = styled.div`
-  font-family: "Gilroy";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 140%;
-  /* or 22px */
-
-  text-transform: uppercase;
-
-  /* Tabu/Black */
-
-  color: #191919;
+  display: flex;
+  width: 85%;
 `;
 
 export const TitleSection = styled.div`
@@ -80,4 +69,11 @@ export const ContentBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
+  width: 65%;
+  margin-left: 124px;
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  margin-top: 264px;
 `;

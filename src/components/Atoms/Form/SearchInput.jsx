@@ -5,6 +5,7 @@ const Wrapper = styled.label`
   display: flex;
   flex-direction: column;
   width: ${({ width }) => width || "auto"};
+  max-width: 381px;
 `;
 
 const Label = styled.label`
@@ -44,6 +45,7 @@ const SearchInput = (props) => {
         placeholder={props.placeholder}
         onChange={(event) => props.setValue(event.target.value)}
         value={props.value}
+        {...props}
       />
     </Wrapper>
   );

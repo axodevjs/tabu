@@ -1,6 +1,6 @@
 import Button from "components/Atoms/Button";
 import Radio from "components/Atoms/Form/Radio";
-import FormInput from "components/Molecules/FormInput/FormInput";
+import FormInput from "components/Molecules/Form/FormInput/FormInput";
 import Header from "components/Molecules/Search/Desktop/Header/Header";
 import { API_URL } from "config";
 import { useEffect, useState } from "react";
