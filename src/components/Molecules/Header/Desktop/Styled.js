@@ -8,11 +8,21 @@ export const StyledHeader = styled.div`
   padding: 0 56px;
   background-color: #ffffff;
   color: #000000;
+  position: fixed;
+  width: 100%;
+  z-index: 200;
+  top: 42px;
 `;
 
 export const Categories = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const Wrap = styled.div`
+  display: flex;
+  align-items: center;
+  padding-bottom: 171px;
 `;
 
 export const Category = styled.div`

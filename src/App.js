@@ -1,4 +1,3 @@
-import MainLayout from "components/Layouts/MainLayout";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRoutes } from "react-router-dom";
@@ -15,7 +14,7 @@ function App() {
     dispatch(auth());
   }, []);
 
-  return <MainLayout>{routing}</MainLayout>;
+  return <>{routing}</>;
 }
 
 export default App;

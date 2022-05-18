@@ -25,12 +25,12 @@ const SellProduct = () => {
         <PhotoBlock showPhoto={showPhoto} setShowPhoto={setShowPhoto} />
         <ContentBlock />
       </S.Blocks>
-      <S.Buttons>
+      {/* <S.Buttons>
         <Button grayBorder>Опубликовать этот товар</Button>
         <Button topGreen padding="14px 23px" margin="0 0 0 32px">
           Добавить еще товар
         </Button>
-      </S.Buttons>
+      </S.Buttons> */}
     </S.Wrapper>
   );
 };

@@ -1,17 +1,19 @@
 import Button from "components/Atoms/Button";
 import { useSelector } from "react-redux";
 import * as S from "./Styled";
-import {useEffect, useState} from "react";
-import {sizes} from "../../../../../../sizes";
+import { useEffect, useState } from "react";
+import { sizes } from "../../../../../../sizes";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Order = () => {
+  const navigate = useNavigate();
   const cartProducts = useSelector((state) => state.cart.cartProducts);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     if (window.innerWidth < sizes.mobile) {
       setIsMobile(true);
     }
-  }, [])
+  }, []);
 
   return (
     <S.Container>
@@ -93,7 +95,8 @@ const Order = () => {
           Продолжить покупки
         </Button>
         <Button
-          margin={ isMobile ? "8px 0 0 0" : "0 0 0 51px"}
+          onClick={() => navigate("/ordering")}
+          margin={isMobile ? "8px 0 0 0" : "0 0 0 51px"}
           green
           borderRadius="2px"
           padding="14px 56.5px"

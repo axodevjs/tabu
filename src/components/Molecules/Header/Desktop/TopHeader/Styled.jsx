@@ -11,4 +11,8 @@ export const TopHeader = styled.div`
   font-weight: 400;
   font-size: 13px;
   color: #ffffff;
+
+  position: fixed;
+  width: 100%;
+  z-index: 200;
 `;

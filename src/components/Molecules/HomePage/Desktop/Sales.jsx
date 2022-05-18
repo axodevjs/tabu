@@ -19,7 +19,8 @@ const Title = styled.div`
   font-family: Gilroy;
   font-style: normal;
   font-weight: 600;
-  font-size: 48px;
+  font-size: 30px;
+  margin-left: 50px;
   text-transform: uppercase;
 
   color: #ffffff;
@@ -41,7 +42,7 @@ const Sales = () => {
     <StyledSales>
       <Title>{typeAd?.title}</Title>
       <Details>
-        <Text
+        {/* <Text
           fontFamily="Gilroy"
           fontSize={"32px"}
           textTransform="uppercase"
@@ -49,7 +50,7 @@ const Sales = () => {
           color="#ffffff"
         >
           {typeAd?.description}
-        </Text>
+        </Text> */}
         <a href={typeAd?.link}>
           <Text
             fontFamily="Gilroy"

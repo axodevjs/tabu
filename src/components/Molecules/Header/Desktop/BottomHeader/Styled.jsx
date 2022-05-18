@@ -6,6 +6,10 @@ export const BottomHeader = styled.div`
   padding: 0 56px;
   background: #025b37;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 122px;
+  z-index: 200;
 `;
 
 export const BottomCategories = styled.div`

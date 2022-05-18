@@ -1,7 +1,11 @@
+import axios from "axios";
+import Button from "components/Atoms/Button";
 import Input from "components/Atoms/Form/Input";
+import FormCategorySelect from "components/Molecules/Form/FormCategorySelect/FormCategorySelect";
 import FormInput from "components/Molecules/Form/FormInput/FormInput";
 import FormSelectInput from "components/Molecules/Form/FormSelectInput/FormSelectInput";
 import FormTextarea from "components/Molecules/Form/FormTextarea/FormTextarea";
+import { API_URL } from "config";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -23,6 +27,10 @@ const ContentBlock = () => {
   const colors = useSelector((state) => state.filterOptions.colorOptions);
   const materials = useSelector((state) => state.filterOptions.materialOptions);
   const sizes = useSelector((state) => state.filterOptions.sizeOptions);
+
+  const [firstCategory, setFirstCategory] = useState(null);
+  const [secondCategory, setSecondCategory] = useState(null);
+  const [thirdCategory, setThirdCategory] = useState(null);
 
   const [brand, setBrand] = useState("");
   const [color, setColor] = useState("");
@@ -57,10 +65,54 @@ const ContentBlock = () => {
     dispatch(getSizeOptions());
   }, []);
 
+  const onSubmit = () => {
+    const token = localStorage.getItem("token");
+    const data = {
+      title: name,
+      description: "string",
+      seller: 1,
+      category: 92,
+      active: true,
+      price: 12,
+      size: [2],
+      color: 2,
+      brand: 2,
+      material: 2,
+      condition: 1,
+      condition_images: [16, 13],
+      images: [16, 13],
+    };
+    axios
+      .post(`${API_URL}/products/`, data, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        console.log(data);
+        document.location.href = "/";
+      })
+      .catch((reason) => {
+        console.log(reason);
+        console.log(data);
+      });
+  };
+
   return (
     <S.ContentBlock>
       <S.TitleBlock>ДОБАВЛЕНИЕ ТОВАРА</S.TitleBlock>
       <S.Form>
+        <FormCategorySelect
+          firstCategory={firstCategory}
+          setFirstCategory={setFirstCategory}
+          secondCategory={secondCategory}
+          setSecondCategory={setSecondCategory}
+          thirdCategory={thirdCategory}
+          setThirdCategory={setThirdCategory}
+          placeholder="Выберите категорию"
+          label="Категория"
+        />
         <FormSelectInput
           value={brand}
           setValue={setBrand}
@@ -135,6 +187,15 @@ const ContentBlock = () => {
         setAnther={setAnther}
         setBox={setBox}
       />
+
+      <S.Buttons>
+        <Button grayBorder onClick={onSubmit}>
+          Опубликовать этот товар
+        </Button>
+        <Button topGreen padding="14px 23px" margin="0 0 0 32px">
+          Добавить еще товар
+        </Button>
+      </S.Buttons>
     </S.ContentBlock>
   );
 };

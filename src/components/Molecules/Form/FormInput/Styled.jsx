@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   padding-top: 10px;
   border: 1px solid #e5e5e5;
   margin-top: 34px;
+  width: ${({ width }) => width || ""};
 `;
 
 export const Label = styled.label`

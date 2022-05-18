@@ -37,3 +37,8 @@ export const Form = styled.div`
 `;
 
 export const Form3 = styled.div``;
+
+export const Buttons = styled.div`
+  display: flex;
+  margin-top: 264px;
+`;
